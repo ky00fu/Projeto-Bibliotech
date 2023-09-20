@@ -410,6 +410,8 @@ main{
     overflow-y: auto;
     display: flex;
     font-weight: bold;
+    font-size: min(0.9rem);
+    max-width: max-content;
 }
 
 .info{
