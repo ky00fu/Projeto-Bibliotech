@@ -338,7 +338,7 @@ main{
     height: 50%;
     background-color: var(--livro-bg-color);
     border-radius: 40px;
-    box-shadow: 8px 8px 8px rgba(57, 8, 126, 0.297);
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.100);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -403,6 +403,7 @@ main{
 .titulo{
     width: 90%;
     height: 25%;
+    justify-content: center;
     text-align: center;
     align-items: center;
     overflow: hidden;
