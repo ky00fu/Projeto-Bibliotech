@@ -1,3 +1,17 @@
+:root {
+    --inter: 'Inter', sans-serif;
+
+    --livro-bg-color: #542E20;
+
+    --offwhite: #FEFAE0;
+    --green: #283618;
+    --light-green: #606C38;
+    --med-green: #3F5525;
+    --orange: #BC6C25;
+    --med-orange: #d35d40;
+    --light-orange: #DDA15E;
+}
+
 *{
     padding: 0px;
     margin: 0px;
@@ -7,46 +21,30 @@
 body{
     width: 100vw;
     height: 100vh;
-    animation-name: cores;
-    animation-duration: 20s;
-    animation-iteration-count: infinite;
+    overflow: hidden;
     color: rgb(0, 0, 56);
-    font-family: 'Raleway', sans-serif;
-}
-@keyframes cores {
-    0% { background-color: #aa76ff;} 
-    40% {background-color: rgb(107, 127, 255);}
-    80% {background-color: #9191ff;}
-    100% {background-color: #aa76ff;}
-    
+    font-family: var(--inter);
 }
 
 header{
     width: 100%;
     height: 10%;
-    background-color: rgba(16, 0, 86, 0.815);
+    background-color: var(--orange);
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition-duration: 0.7s;
-    animation-name: aparecer;
-    animation-duration: 2s;
 }
+
 @keyframes aparecer {
     from {opacity: 1;}
     to {opacity: 0;}
     
 }
 
-header:hover{
-    background-color: rgba(25, 0, 134, 0.814);
-    box-shadow: 5px 5px 15px rgba(3, 0, 12, 0.321);
-}
-
 .error{
     position: absolute;
-    color: rgb(255, 137, 137);
+    color: var(--offwhite);
     font-weight: bold;
     font-size: 0.8vw;
     margin-left: 4%;
@@ -56,8 +54,7 @@ header:hover{
 
 @keyframes aparecer {
     from {opacity: 1;}
-    to {opacity: 0;}
-    
+    to {opacity: 0;}    
 }
 
 .formulario{
@@ -68,6 +65,7 @@ header:hover{
     width: 10%;
     height: 100%;
 }
+
 #icon{
     transition-duration: 0.5s;
 }
@@ -76,10 +74,12 @@ header:hover{
     width: 33%;
 }
 
-
 #cmenu{
-    width: 100%;
-    height: 100%;
+    width: 20%;
+    height: 20%;
+    position: absolute;
+    top: 85%;
+    right: -10%;
 }
 
 #menudrop{
@@ -106,13 +106,12 @@ header:hover{
 }
 
 .back1{
-    width: 35%;
+    width: 43%;
     height: 80%;
-    border-radius: 1%;
-    box-shadow: 10px 10px 10px rgba(2, 43, 101, 0.252);
-    background: linear-gradient(rgb(129, 116, 255), rgb(143, 195, 255));
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.20);
+    background: var(--light-green);
 }
-
 
 form{
     width: 100%;
@@ -124,7 +123,8 @@ form{
 }
 
 ::placeholder{
-    color: rgb(207, 228, 255);
+    color: var(--offwhite);
+    font-family: var(--inter);
 }
 
 .titulo_autor, .datas, .valors, .imgs, .buttons{
@@ -140,12 +140,12 @@ form{
     border-radius: 1%;
     border: none;
     background-color: rgba(102, 51, 153, 0);
-    border-bottom: 0.35vh solid rgb(255, 255, 255);
-    color: white;
+    border-bottom: 0.35vh solid var(--offwhite);
+    color: var(--offwhite);
     font-size: 1vw;
-    outline:none;
-
+    outline: none;
 }
+
 #titulo{
     width: 60%;
     height: 80%;
@@ -166,11 +166,9 @@ form{
     padding-left: 7%;  
 }
 
-
-
 #titulo:focus, #autor:focus{
     width: 90%;
-    border-bottom: 0.4vh solid rgb(221, 222, 255);
+    border-bottom: 0.4vh solid var(--offwhite);
 }
 
 .datas{
@@ -186,8 +184,8 @@ form{
     padding-left: 2%;
     background-color: #00000000;
     font-size: 0.9vw;
-    color: rgb(79, 84, 255);
-    border-bottom: 0.4vh solid rgb(79, 84, 255);
+    color: var(--offwhite);
+    border-bottom: 0.4vh solid var(--offwhite);
     border-radius: 5%;
     font-weight: bold;
 }
@@ -204,12 +202,12 @@ form{
 }
 
 #data_empestimo:invalid{
-    background-color: rgb(255, 183, 183);
+    background-color: black;
 }
 
 #data_emprestimo:valid{
-    border-bottom: 0.4vh solid rgb(49, 255, 56);
-    color: rgb(72, 255, 62);
+    border-bottom: 0.4vh solid var(--green);
+    color: var(--green);
 }
 
 #valor{
@@ -224,7 +222,7 @@ form{
     border-radius: 1%;
     border: none;
     background-color: rgba(102, 51, 153, 0);
-    border-bottom: 0.35vh solid rgb(255, 255, 255);
+    border-bottom: 0.35vh solid var(--offwhite);
     color: white;
     font-size: 1vw;
     outline:none;
@@ -232,7 +230,7 @@ form{
 
 #valor:focus{
     width: 25%;
-    border-bottom: 0.4vh solid rgb(221, 222, 255);
+    border-bottom: 0.4vh solid var(--offwhite);
 }
 
 #valor::-webkit-outer-spin-button,
@@ -244,7 +242,7 @@ form{
 #image{
     width: 60%;
     height: 80%;
-    background-image: url(../Assets/icon_image.png);
+    background-image: url('../Assets/icon_image.png');
     background-position: 0.2vw 0.5vh;
     background-size: 1.3vw;
     background-repeat: no-repeat;
@@ -253,14 +251,15 @@ form{
     border-radius: 1%;
     border: none;
     background-color: rgba(102, 51, 153, 0);
-    border-bottom: 0.35vh solid rgb(255, 255, 255);
-    color: white;
+    border-bottom: 0.35vh solid var(--offwhite);
+    color: var(--offwhite);
     font-size: 1vw;
     outline:none;
 }
+
 #image:focus{
     width: 90%;
-    border-bottom: 0.4vh solid rgb(221, 222, 255);
+    border-bottom: 0.4vh solid var(--offwhite);
 }
 
 .buttons{
@@ -269,25 +268,24 @@ form{
     align-items: center;
 }
 
-#button{
-    width: 25%;
-    height: 65%;
+#button{    
+    width: 30%;
+    height: 100%;
     border: none;
     outline:none;
     cursor: pointer;
-    border-radius: 0.3vw;
+    border-radius: 10px;
     font-size: 1vw;
-    color: white;
-    background-color: #4d4dcd;
+    color: var(--offwhite);
+    background-color: var(--green);
+    font-family: var(--inter);
     box-shadow: 5px 5px 5px rgba(14, 26, 119, 0.166);
     transition-duration: 0.5s;
 }
-#button:hover{
-    width: 25%;
-    height: 65%;
-    background-color: #5c5cd6;
-    box-shadow: 4px 4px 4px rgba(14, 26, 119, 0.166);
 
+#button:hover{
+    background-color: var(--med-green);
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.166);
 }
 
 #menu:checked ~ #menudrop { /*aqui mudará quando clicar*/
@@ -296,10 +294,10 @@ form{
    animation-duration: 1s;
    overflow: hidden;
 }
+
 @keyframes tran {
     from {opacity: 0;}
     to {opacity: 1;}
-    
 }
 
 main{
@@ -308,47 +306,38 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: var(--light-orange);
 }
 
 .workspace{
     width: 90%;
     height: 90%;
-    background-color: rgba(86, 54, 167, 0.696);
-    border-radius: 1%;
+    background-color: #606C38;
+    border-radius: 20px;
     transition-duration: 1s;
     padding: 2%;
     overflow: auto;
     display: flex;
     flex-wrap: wrap;
-    animation-name: aparecer;
-    animation-duration: 2s;
+    /* animation-name: aparecer;
+    animation-duration: 2s; */
 }
 
 @keyframes aparecer {
     from {opacity: 0;}
-    to {opacity: 1;}
-    
+    to {opacity: 1;}    
 }
-
 
 .workspace::-webkit-scrollbar{
     width: 0vw;
     height: auto;
 }
 
-
-.workspace:hover{
-    background-color: rgba(88, 48, 188, 0.696);
-    box-shadow: 8px 8px 8px rgba(14, 26, 119, 0.166);
-
-}
-
-
 .modelo{
     width: 30%;
     height: 50%;
-    background-color: rgb(77, 45, 24);
-    border-radius: 2%;
+    background-color: var(--livro-bg-color);
+    border-radius: 40px;
     box-shadow: 8px 8px 8px rgba(57, 8, 126, 0.297);
     display: flex;
     align-items: center;
@@ -370,12 +359,11 @@ main{
     display: none;
 }
 
-
-
 .asset, .info{
     width: 40%;
     height: 85%;
-    background-color: rgb(243, 243, 207);
+    background-color: var(--offwhite);
+    border-radius: 10px;
 }
 
 .asset{
@@ -387,44 +375,40 @@ main{
     font-size: 1vw;
     color: black;
 }
+
 .marcadorpag{
-    width: 30%;
-    height: 15%;
-    background-color: rgb(194, 0, 0);
+    width: 34px;
+    height: 40px;
+    background-color: var(--green);
+    border-radius: 40px;
     background-image: url(../Assets/icon_close.png);
     background-repeat: no-repeat;
-    background-size: 80% 90%;
+    background-size: 70%;
     background-position: center;
-    margin-top: -24%;
-    border-bottom: 0.4vh solid rgb(243, 243, 207);
+    margin-top: -8%;
+    margin-right: 100%;
     margin-bottom: 1%;
     cursor: pointer;
-    transition-duration: 0.07s;
-}
-
-.marcadorpag:hover{
-    background-color: rgb(182, 0, 0);
-    background-size: 83% 93%;
-
 }
 
 .foto{
-    width: 85%;
-    height: 68%;
+    width: 90%;
+    height: 100%;
+    border-radius: 5px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .titulo{
-    width: 85%;
-    height: 28%;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
+    width: 90%;
+    height: 25%;
+    text-align: center;
     align-items: center;
-    font-weight: bold;
+    overflow: hidden;
     overflow-y: auto;
+    display: flex;
+    font-weight: bold;
 }
 
 .info{
@@ -455,11 +439,12 @@ main{
 }
 
 .eee1img{
-    content: url(../Assets/icon_moeda.png);
+    content: url('../Assets/icon_moeda.png');
     width: 15%;
 }
 
 .campocobranca{
+    margin-top: 3%;
     width: 90%;
     height: 23%;
     font-size: 0.8vw;
@@ -467,19 +452,18 @@ main{
     align-items: center;
     flex-direction: column;
 }
+
 .cobranca{
     width: 100%;
-    height: 50%;
-    background-color: rgb(227, 226, 198);
+    height: 55%;
+    background-color: var(--med-green);
+    border-radius: 20px;
+    color: var(--offwhite);
     display: flex;
     align-items: center;
     overflow-x: hidden;
     font-weight: ita;
+    margin-top: 3%;
+    padding: 4%;
+    overflow: hidden;
 }
-
-
-
-
-
-
-
