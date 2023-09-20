@@ -111,11 +111,11 @@ function montarlista(vetor){
         
         function valorcobranca(){
             if(e.data_prevista == null && e.data_devolucao == null)
-                return 'sem datas'
+                return 'Sem datas'
             else if(e.data_devolucao != null && e.data_prevista == null)
-                return 'sem data prevista'
+                return 'Sem data prevista'
             else if(e.data_prevista != null && e.data_devolucao == null)
-                return 'sem devolução'
+                return 'Sem devolução'
             else if(e.data_prevista < e.data_devolucao){
                 let porcen = Number(e.valor) * 0.1
 
@@ -306,10 +306,5 @@ function add(){
     
 
 }
-
-
-
-
-
 
 console.info('Script running')
