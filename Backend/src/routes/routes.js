@@ -12,4 +12,3 @@ router.delete('/emprestimo/excluir/:id', Emprestimo.excluir);
 
 
 module.exports = router
-

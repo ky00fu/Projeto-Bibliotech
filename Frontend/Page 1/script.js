@@ -41,7 +41,9 @@ function montarlista(vetor){
 
         let e2 = document.createElement('div')
         e2.className = 'foto'
-        e2.style.backgroundImage=  `url(${e.img})`
+        // e2.style.backgroundImage=  `url(${e.img})`
+        fetchBookCover(e.titulo, e2);
+
         let e3 = document.createElement('div')
         e3.className = 'titulo'
         e3.innerHTML = e.titulo
@@ -155,6 +157,39 @@ function montarlista(vetor){
 
 
 }
+
+function fetchBookCover(bookTitle, elementToUpdate) {
+    // Construct the URL for the Open Library API
+    const apiUrl = `http://openlibrary.org/search.json?q=${encodeURIComponent(bookTitle)}`;
+  
+    // Make an HTTP GET request to the API
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((data) => {
+        // Check if any documents were found
+        if (data.docs && data.docs.length > 0) {
+          // Loop through the search results to find a valid cover image
+          for (let i = 0; i < data.docs.length; i++) {
+            const coverId = data.docs[i].cover_i;
+            if (coverId) {
+              // Get the cover image URL from the current result
+              const coverUrl = `http://covers.openlibrary.org/b/id/${coverId}-L.jpg`;
+  
+              // Set the background image of the elementToUpdate
+              elementToUpdate.style.backgroundImage = `url(${coverUrl})`;
+              return; // Exit the loop if a valid cover image is found
+            }
+          }
+        }
+  
+        // Handle the case where no valid cover image is found
+        console.error('No valid cover image found for this title.');
+      })
+      .catch((error) => {
+        // Handle any errors that occurred during the fetch
+        console.error('Error fetching book cover:', error);
+      });
+  }
 
 function excluirItem(i) {
         fetch(uri + '/excluir/' + i, { method: 'DELETE' })
