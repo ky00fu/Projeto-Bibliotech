@@ -1,99 +1,121 @@
 /* variáveis */
 :root {
-    --lexend-zetta: 'Lexend Zetta', sans-serif;
-    --lexend-deca: 'Lexend Deca', sans-serif;
+  --lexend-zetta: "Lexend Zetta", sans-serif;
+  --lexend-deca: "Lexend Deca", sans-serif;
 
-    --black-bg: #393939;
-    --branco:#FFFFFF;
+  --black-bg: #393939;
+  --branco: #ffffff;
 }
 
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 /* background */
 body {
-    background-color: var(--black-bg);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  background-color: var(--black-bg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .page {
-    align-items: center;
+  align-items: center;
 
-    margin: 1vw 10vw;
-    width: 97.7vw;
-    height: 95vh;
+  margin: 1vw 10vw;
+  /* width: 97vw; */
+  height: 95vh;
 
-    background: linear-gradient(to bottom, #FFE090 20%, #FED287 50%, #FCB774 75%);
-    box-shadow: 5px 6px #00000021;
+  background: linear-gradient(to bottom, #ffe090 20%, #fed287 50%, #fcb774 75%);
+  box-shadow: 0px 6px 4px #00000021;
 
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
-    margin-top: 6vh;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  width: 60vw;
+
+  margin-top: 6vh;
+  margin-left: 20vw;
 }
 
 /* header title */
 header h1 {
-    font-family: var(--lexend-zetta);
-    text-shadow: 0px 4px 4px rgba(216, 114, 14, 0.28);
-    color: var(--branco);
-    font-size: 96px;    
-}
-
-/* remove o underline dos links */
-a {
-    text-decoration: none;
+  font-family: var(--lexend-zetta);
+  text-shadow: 0px 4px 4px rgba(216, 114, 14, 0.28);
+  color: var(--branco);
+  font-size: 96px;
 }
 
 #img01 {
-    position: absolute;
+  position: absolute;
 
-    top: 6vh;
-    left: 3vw;
+  top: 2vh;
+  left: 10vw;
 }
 
 #img02 {
-    position: absolute;
+  position: absolute;
 
-    top: 40vh;
-    right: 5vw;
+  top: 35vh;
+  right: 8vw;
 }
 
 /* div dos botões */
 .buttons {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    text-align: center;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  text-align: center;
 
-    gap: 38px;
-    margin-top: 55vh;
-    margin-right: 70vw;
+  gap: 38px;
+  margin-top: 55vh;
+  margin-right: 55vw;
 }
 
 /* estilização dos botões */
 button {
-    border: none;
-    background: none;
-    font-family: var(--lexend-deca);
-    color: var(--branco);
-    font-size: 32px;
+  border: none;
+  background: none;
+  font-family: var(--lexend-deca);
+  color: var(--branco);
+  font-size: 32px;
 }
 
+button:hover {
+  animation: aumentar 1s;
+  cursor: pointer;
+}
+
+/* remove o underline dos links */
+a {
+  text-decoration: none;
+  cursor: auto;
+}
+
+@keyframes aumentar {
+  50% {
+    font-size: 35px;
+  }
+}
+
+/* linha atrás dos links */
 #linha {
-    position: absolute;
-    bottom: 3vh;
-    width: 97.72vw;
-    height: 24vh;
+  position: absolute;
+  bottom: 3vh;
+  /* width: 97vw; */
+  height: 24vh;
+}
+
+/* width div e linha pros links */
+.page,
+#linha {
+  width: 95vw;
 }
