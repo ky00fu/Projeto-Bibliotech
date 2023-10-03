@@ -1,0 +1,123 @@
+/* variáveis */
+:root {
+    --lexend-zetta: "Lexend Zetta", sans-serif;
+    --lexend-deca: "Lexend Deca", sans-serif;
+  
+    --black-bg: #393939;
+    --branco: #ffffff;
+    --orange: #FFBC7A;
+  }
+  
+  * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  
+  /* background */
+  body {
+    background-color: var(--black-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .box {
+    align-items: center;
+  
+    margin: 4% 50%;
+    width: 1184px;
+    height: 797px;
+  
+    /* background: linear-gradient(to bottom, #ffe090 20%, #fed287 50%, #fcb774 75%); */
+    background-color: #FFBC7A;
+    box-shadow: 0px 6px 4px #00000021;
+  
+    border-radius: 10px;
+  }
+  
+  header {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  
+    width: 60vw;
+  
+    margin-top: 6vh;
+    margin-left: 20vw;
+  }
+  
+  /* header title */
+  header h1 {
+    font-family: var(--lexend-zetta);
+    text-shadow: 0px 4px 4px rgba(216, 114, 14, 0.28);
+    color: var(--branco);
+    font-size: 96px;
+  }
+  
+  #img01 {
+    position: absolute;
+  
+    top: 2vh;
+    left: 10vw;
+  }
+  
+  #img02 {
+    position: absolute;
+  
+    top: 35vh;
+    right: 8vw;
+  }
+  
+  /* div dos botões */
+  .buttons {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    text-align: center;
+  
+    gap: 38px;
+    margin-top: 55vh;
+    margin-right: 55vw;
+  }
+  
+  /* estilização dos botões */
+  button {
+    border: none;
+    background: none;
+    font-family: var(--lexend-deca);
+    color: var(--branco);
+    font-size: 32px;
+  }
+  
+  button:hover {
+    animation: aumentar 1s;
+    cursor: pointer;
+  }
+  
+  /* remove o underline dos links */
+  a {
+    text-decoration: none;
+    cursor: auto;
+  }
+  
+  @keyframes aumentar {
+    50% {
+      font-size: 35px;
+    }
+  }
+  
+  /* linha atrás dos links */
+  #linha {
+    position: absolute;
+    bottom: 3vh;
+    /* width: 97vw; */
+    height: 24vh;
+  }
+  
+  /* width div e linha pros links */
+  .page,
+  #linha {
+    width: 95vw;
+  }
