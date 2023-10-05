@@ -18,12 +18,10 @@
 
 /* background */
 body {
-  font-family: var(--lexend-deca);
+  max-width: 100vw;
+
   background-color: var(--preto-bg);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  font-family: var(--lexend-deca);
 }
 
 .box {
