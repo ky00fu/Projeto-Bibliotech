@@ -70,7 +70,7 @@ body {
   border-radius: 50px;
 
   color: var(--preto-bg);
-  padding: 30px 50px;  
+  padding: 30px 50px;
 }
 
 @keyframes hover {
@@ -97,12 +97,14 @@ body {
   right: 19.1vw;
 
   width: 40vw;
-  height: 82vh;
+  height: 82.9vh;
 
   gap: 30px;
 }
 
-a:focus-visible, a:active, a {
+a:focus-visible,
+a:active,
+a {
   text-decoration: none;
   border: none;
   outline: none;
