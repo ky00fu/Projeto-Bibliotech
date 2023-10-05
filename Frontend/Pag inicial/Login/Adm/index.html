@@ -6,40 +6,51 @@
 
     <title>Faça seu login</title>
 
-    <link rel="shortcut icon" href="./Assets/Favicon/favicon-amarelo.png" type="image/x-icon">
+    <link
+      rel="shortcut icon"
+      href="./Assets/Favicon/favicon-amarelo.png"
+      type="image/x-icon"
+    />
 
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;300;500;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Zetta:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@200;300;500;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
 
   <body>
-    <img src="./Assets/IMG/linha.png" alt="linha" id="linha">
-
-    <div class="box">
+    <div class="container">
       <div class="info">
         <p id="erro">Mensagem de erro</p>
 
-        <div class="inputform">
-          <img src="./Assets/Ícone/icone-email.png" alt="ícone usuário">
-          <input type="email" placeholder="Email do administrador">
-        </div>
-        
-        <div class="inputform">          
-          <img src="./Assets/Ícone/icone-senha.png" alt="ícone senha">
-          <input type="password" placeholder="Senha">
-        </div>
+        <form>
+          <div class="inputform">
+            <img src="./Assets/Ícone/icone-email.png" alt="ícone usuário" />
+            <input type="email" placeholder="Email do administrador" />
+          </div>
 
-        <button>Entrar</button>
+          <div class="inputform">
+            <img src="./Assets/Ícone/icone-senha.png" alt="ícone senha" />
+            <input type="password" placeholder="Senha" />
+          </div>
+        </form>
+
+        <input type="submit" id="btnEntrar" />
       </div>
 
       <div class="mensagem">
+        <!-- <img src="./Assets/IMG/linha.png" alt="linha" id="linha" /> -->
         <h3>Seja bem-vindo novamente!</h3>
         <p>Realize o login com o e-mail disponibilizado</p>
-        <img src="./Assets/Ícone/icone-livro.png" alt="ícone livro">
+        <img src="./Assets/Ícone/icone-livro.png" alt="ícone livro" />
       </div>
     </div>
   </body>
