@@ -74,15 +74,6 @@ body {
   overflow: hidden;
 }
 
-/* "seja bem-vindo ..." */
-.mensagem h3 {
-  grid-row: 1;
-
-  font-size: 36px;
-
-  font-family: var(--lexend-exa);
-}
-
 /* "realize o login..." */
 .mensagem p {
   font-size: 32px;
@@ -96,7 +87,14 @@ body {
   margin-top: -150px;
 }
 
+/* "seja bem-vindo ..." */
 .submsg h3 {
+  grid-row: 1;
+
+  font-size: 36px;
+
+  font-family: var(--lexend-exa);
+
   margin-bottom: 90px;
 }
 
