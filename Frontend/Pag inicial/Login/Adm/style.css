@@ -2,6 +2,7 @@
 :root {
   --lexend-zetta: "Lexend Zetta", sans-serif;
   --lexend-deca: "Lexend Deca", sans-serif;
+  --lexend-exa: "Lexend Exa", sans-serif;
 
   --preto-bg: #393939;
   --branco: #fff9eb;
@@ -17,7 +18,7 @@
 }
 
 body {
-  max-width: 100vw;
+  width: 100vw;
 
   background-color: var(--preto-bg);
   font-family: var(--lexend-deca);
@@ -28,13 +29,16 @@ body {
   max-width: 100vw;
   
   display: grid;
-  grid-template-columns: 1fr 35% repeat(2, 1fr);
-  grid-template-rows: 20% 1fr 20%;
+  grid-template-columns: 1fr 40% 1.5fr 1fr;
+  grid-template-rows: 20% 120% 20%;
 }
 
 .info {
   grid-column: 2;
   grid-row: 2;
+
+  display: grid;
+  grid-template-rows: 25% 60%;
 
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -55,8 +59,7 @@ body {
 
   display: grid;
   grid-template-columns: 1fr;
-  /* grid-template-rows: 30% 30% 30%;  */
-  grid-template-rows: repeat(3, 30%); 
+  grid-template-rows: repeat(3, 30%);
 
   background-color: var(--laranja);
 
@@ -70,12 +73,15 @@ body {
 .mensagem h3 {
   font-size: 36px;
 
+  font-family: var(--lexend-exa);
+
   background-image: url(./Assets/IMG/linha.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;  
 }
 
+/* "realize o login..." */
 .mensagem p {
   font-size: 32px;
 }
@@ -109,7 +115,7 @@ input {
   background: none;
   border: none;
 
-  width: 24vw;
+  max-width: 24vw;
   margin: 18px 20px;
 }
 
@@ -141,17 +147,8 @@ input::placeholder {
 
   box-shadow: 2px 8px 4px rgb(255, 227, 172, 0.54);
 
-  width: 12vw;
+  max-width: 12vw;
   height: 7vh;
 
   cursor: pointer;
-}
-
-/* linha atrás dos links */
-#linha {
-  position: absolute;
-  top: 11vh;
-  right: 19.15vw;
-  width: 27vw;
-  height: 20vh;
 }
