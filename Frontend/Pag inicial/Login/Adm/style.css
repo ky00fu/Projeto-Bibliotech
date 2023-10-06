@@ -90,21 +90,24 @@ body {
 
 .submsg {
   display: grid;
+  grid-template-rows: 60% 50%;
+
   position: absolute;
   margin-top: -150px;
 }
 
-.submsg img {
-  /* grid-row: 3; */
-  position: relative;
-  justify-self: center;
-
-  margin-top: 100px;
+.submsg h3 {
+  margin-bottom: 90px;
 }
 
-.submsg p {
-  display: grid;
-  grid-row: 2;
+.submsg img {
+  position: relative;
+  justify-self: center;
+}
+
+#linha {
+  width: 25.7vw;
+  margin-top: 60px;
 }
 
 a:focus-visible,
@@ -167,11 +170,4 @@ input::placeholder {
   height: 7vh;
 
   cursor: pointer;
-}
-
-#linha {
-  top: 7vw;
-  right: 17.2vw;
-  
-  width: 25.7vw;
 }
