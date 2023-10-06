@@ -33,12 +33,13 @@ body {
   grid-template-rows: 20% 120% 20%;
 }
 
-.info {
+/* lado que tem os inputs */
+.info {  
   grid-column: 2;
   grid-row: 2;
 
   display: grid;
-  grid-template-rows: 25% 60%;
+  grid-template-rows: 25% 50%;
 
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
@@ -48,6 +49,7 @@ body {
   padding: 100px;
 
   text-align: center;
+  place-items: center;
 }
 
 .mensagem {
@@ -147,7 +149,7 @@ input::placeholder {
 
   box-shadow: 2px 8px 4px rgb(255, 227, 172, 0.54);
 
-  max-width: 12vw;
+  width: 12vw;
   height: 7vh;
 
   cursor: pointer;
