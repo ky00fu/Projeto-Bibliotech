@@ -41,14 +41,14 @@ body {
   grid-row: 2;
 
   display: grid;
-  grid-template-rows: 25% 50%;
+  grid-template-rows: 100% 50%;
 
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 
   background-color: var(--branco);
 
-  padding: 100px;
+  padding: 200px;
 
   text-align: center;
   place-items: center;
