@@ -79,6 +79,7 @@ body {
   font-size: 32px;
 }
 
+/* classe pra deixar imagem linha no fundo */
 .submsg {
   display: grid;
   grid-template-rows: 60% 50%;
@@ -89,20 +90,19 @@ body {
 
 /* "seja bem-vindo ..." */
 .submsg h3 {
-  grid-row: 1;
-
   font-size: 36px;
-
   font-family: var(--lexend-exa);
 
   margin-bottom: 90px;
 }
 
+/* ícone livro */
 .submsg img {
   position: relative;
   justify-self: center;
 }
 
+/* fundo da mensagem de bem-vindas */
 #linha {
   width: 25.7vw;
   margin-top: 60px;
@@ -123,7 +123,6 @@ a {
   margin-bottom: 3vh;
 }
 
-/* inputs */
 input {
   font-family: var(--lexend-deca);
   color: #393939;
