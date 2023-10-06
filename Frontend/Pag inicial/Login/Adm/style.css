@@ -52,6 +52,7 @@ body {
   place-items: center;
 }
 
+/* mensagem de bem vindas */
 .mensagem {
   grid-column: 3;
   grid-row: 2;
