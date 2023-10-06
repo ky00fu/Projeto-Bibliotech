@@ -69,18 +69,18 @@ body {
   text-align: center;
 
   color: var(--branco);
-
-  position: relative;
-  overflow: hidden;
 }
 
 /* "seja bem-vindo ..." */
-.mensagem h3 {
-  grid-row: 1;
-
+.mensagem h3 {  
   font-size: 36px;
 
   font-family: var(--lexend-exa);
+  
+  /* background-image: url(./Assets/IMG/linha.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;   */
 }
 
 /* "realize o login..." */
@@ -88,23 +88,9 @@ body {
   font-size: 32px;
 }
 
-.submsg {
-  display: grid;
-  position: absolute;
-  margin-top: -150px;
-}
-
-.submsg img {
-  /* grid-row: 3; */
-  position: relative;
+/* imagem livro */
+.mensagem img {
   justify-self: center;
-
-  margin-top: 100px;
-}
-
-.submsg p {
-  display: grid;
-  grid-row: 2;
 }
 
 a:focus-visible,
@@ -170,6 +156,7 @@ input::placeholder {
 }
 
 #linha {
+  position: fixed;
   top: 7vw;
   right: 17.2vw;
   
