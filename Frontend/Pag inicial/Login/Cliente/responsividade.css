@@ -18,7 +18,7 @@
     }
 
     #linha {
-        opacity: 0;
+        display: none;
     }
 
     #linha2 {
@@ -118,4 +118,85 @@
 @media (max-width: 1280px) {}
 
 /* 2 extra large screens */
-@media (max-width: 1536px) {}
+/* @media (max-width: 1536px) {
+    body {
+        overflow: hidden;
+    }
+
+    .box {
+        width: 90%;
+        height: 90vh;
+
+        margin: 3%;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+    .buttons {
+        position: inherit;
+        text-align: center;
+        width: 60%;
+
+        margin: 0;
+        padding: 0;
+
+        overflow: hidden;
+    }
+
+    #cadastrar-se,
+    #login {
+        position: inherit;
+        width: 70%;
+
+        margin-left: 11vw;
+    }
+
+    .info {
+        position: inherit;
+
+        padding: 0;
+        margin: 0;
+
+        width: 100%;
+        height: 100%;
+    }
+
+    .inputform {
+        width: fit-content;
+
+        margin-bottom: 10px;
+    }
+
+    button {
+        height: 70px;
+        margin-bottom: 3%;
+    }
+
+    #icone_livro {
+        width: 20%;
+
+        margin-top: 3%;
+    }
+
+    #erro {
+        margin-bottom: 2%;
+        width: fit-content;
+    }
+
+    #linha {
+        z-index: 1;        
+        position: absolute;
+        bottom: 10vh;
+        left: 5vw;
+        width: 33.7%;
+        height: 30%;
+    }
+    
+    #linha2 {
+        display: none;
+    }
+} */

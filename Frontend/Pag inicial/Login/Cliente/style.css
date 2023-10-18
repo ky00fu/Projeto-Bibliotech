@@ -51,12 +51,18 @@ body {
   cursor: pointer;
 }
 
+#cadastrar-se,
+#login {
+  text-align: center;
+
+  padding: 30px 50px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+}
+
 /* botão login */
 #cadastrar-se {
   color: var(--branco);
-  padding: 30px 50px;
-  border-radius: 50px;
-
   margin-bottom: 2vh;
 }
 
@@ -67,10 +73,7 @@ body {
 /* botão cadastrar-se */
 #login {
   background-color: var(--branco);
-  border-radius: 50px;
-
   color: var(--preto-bg);
-  padding: 30px 50px;
 }
 
 @keyframes hover {
