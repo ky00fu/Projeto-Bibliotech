@@ -23,10 +23,10 @@ body {
 }
 
 .page {
+  width: fit-content;
   align-items: center;
 
   margin: 1vw 10vw;
-  /* width: 97vw; */
   height: 95vh;
 
   background: linear-gradient(to bottom, #ffe090 20%, #fed287 50%, #fcb774 75%);
