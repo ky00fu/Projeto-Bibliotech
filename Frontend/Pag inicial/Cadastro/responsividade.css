@@ -1,0 +1,21 @@
+/* min-width because it was created mobile first */
+
+/* extra small screens */
+@media (min-width: 475px) {}
+
+/* small screens */
+@media (min-width: 640px) {}
+
+/* medium screens */
+@media (min-width: 768px) {}
+
+/* large screens */
+@media (min-width: 1024px) {}
+
+/* extra large screens */
+@media (min-width: 1280px) {}
+
+/* 2 extra large screens */
+@media (min-width: 1536px) {}
+
+/* code with max-width */

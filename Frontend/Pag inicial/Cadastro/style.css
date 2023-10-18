@@ -80,7 +80,7 @@ body {
   }
 }
 
-.info {
+.info {  
   background-color: var(--branco);
 
   display: flex;
