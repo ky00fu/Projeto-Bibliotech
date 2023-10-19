@@ -5,33 +5,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../Assets/icon_page.png" type="image/x-icon">
-    <title>Management</title>
+
+    <link rel="shortcut icon" href="./Assets/Favicon/favicon-azul-claro.png" type="image/x-icon">
+
+    <title>Seus empréstimos</title>
+
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-    </style>
+
     <header>
-        <!-- <h1 style="font-size: 3rem;">Bibliotech</h1> -->
-        <img src="../Assets/bibliotech_logo.png" alt="logo Bibliotech" height="100%" style="align-self: center;">
+        <img src="./Assets/Ícones/icone-bbtech.png" alt="logo Bibliotech" height="70%" style="align-self: center;">
+        <h1 style="font-size: 3rem;">Seus empréstimos</h1>
+
+        <div class="icon-usuario">
+            <h1>Cliente</h1>
+            <img src="./Assets/Ícones/icone-usuario.png" alt="ícone usuário">
+        </div>
+
         <div class="formulario">
             <label for="menu" id="cmenu">
-                <img src="../Assets/icon_addbook.png" id="icon" alt="icone menu" width="30%" style=" cursor: pointer;">
+                <button>Add</button>
             </label>
 
-            <input type="checkbox" name="" id="menu">
-Gg
-            <div id="menudrop">
+            <input type="checkbox" id="menu">
 
-                <!--fecha o menudrop-->
+            <div id="menudrop">
                 <div class="back">
                     <div class="back1">
                         <label for="menu">
-                            <img src="../Assets/icon_close.png" alt="icone close" width="30px" height="30px"
+                            <img src="./Assets/Ícones/icone-fechar.png" alt="ícone fechar" width="30px" height="30px"
                                 style="margin-top: 2%; margin-left: 93%; cursor: pointer;">
                         </label>
                         <p class="error card">Esse é um erro</p>
@@ -75,6 +79,8 @@ Gg
 
     <main>
         <div class="workspace">
+            <h3 id="workspace-text">Parece que sua lista está vazia. Clique no ícone de "add" para realizar novos empréstimos!</p>
+
             <div class="modelo card">
                 <div class="asset">
                     <div class="marcadorpag"></div>

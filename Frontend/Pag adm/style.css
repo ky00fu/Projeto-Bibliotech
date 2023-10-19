@@ -1,8 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@200;300;400;500;600&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@200;300;400;500;600&display=swap');
+
 :root {
+    /* font */
     --inter: 'Inter', sans-serif;
+    --lexend: 'Lexend', sans-serif;
+    --lexend-giga: 'Lexend Giga', sans-serif;
 
+    /* cores */
     --livro-bg-color: #542E20;
-
     --offwhite: #FEFAE0;
     --green: #283618;
     --light-green: #606C38;
@@ -10,39 +17,66 @@
     --orange: #BC6C25;
     --med-orange: #d35d40;
     --light-orange: #DDA15E;
+
+    --branco-bg: rgba(255, 255, 255, 72%);
+    --preto-txt: #464646;
+    --blue-txt: #3E8BA3;
+    --gradient-header: linear-gradient(#73B5C3, #58A5BF);
+    --gradient-background: linear-gradient(to bottom, #4BBED7 5%, #A3C4B1 18%, #AAE1C1 100%);
+    --blue: #73B5C3;
 }
 
-*{
+* {
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
 }
 
-body{
+body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     color: rgb(0, 0, 56);
-    font-family: var(--inter);
+    font-family: var(--lexend);
 }
 
-header{
+header {
     width: 100%;
-    height: 12%;
-    background-color: var(--orange);
+    height: 15%;
+
+    background: var(--gradient-header);
     color: white;
+
+    padding-top: 30px;
+
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 17%;
+}
+
+.icon-usuario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10%;
+
+    font-family: var(--lexend-giga);
 }
 
 @keyframes aparecer {
-    from {opacity: 1;}
-    to {opacity: 0;}
-    
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+
 }
 
-.error{
+.error {
     position: absolute;
     color: var(--offwhite);
     font-weight: bold;
@@ -53,11 +87,16 @@ header{
 }
 
 @keyframes aparecer {
-    from {opacity: 1;}
-    to {opacity: 0;}    
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
 }
 
-.formulario{
+.formulario {
     margin-top: 2%;
     margin-left: 1.5%;
     display: flex;
@@ -66,37 +105,65 @@ header{
     height: 100%;
 }
 
-#icon{
+#icon {
     transition-duration: 0.5s;
 }
 
-#icon:hover{
+#icon:hover {
     width: 33%;
 }
 
-#cmenu{
-    width: 20%;
-    height: 20%;
+#cmenu {
+    width: 100px;
+    height: 100px;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    justify-content: center;
+
     position: absolute;
     top: 84%;
-    right: -8%;
+    right: 8%;
+
+    background: linear-gradient(white, white) padding-box,
+        linear-gradient(to right, #A9DFC0, #71C0C6) border-box;
+    border-radius: 50%;
+    border: 4px solid transparent;
+
+    cursor: pointer;
 }
 
-#menudrop{
+/* add button */
+#cmenu button {
+    border: none;
+    background: none;
+
+    font-family: var(--lexend);
+    font-weight: 200;
+    font-size: 36px;
+    color: var(--preto-txt);
+
+    border-radius: 50%;
+
+    cursor: pointer;
+}
+
+#menudrop {
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
     top: 0px;
-    left: -100%; /*a div do menudrop virá da esquerda*/
+    left: -100%;
     color: white;
 }
 
-#menu{
-    display: none; /* deixa invisivel o checkbox*/
+#menu {
+    display: none;
 }
 
-.back{
+.back {
     width: 100%;
     height: 100%;
     background-color: rgba(3, 0, 48, 0.195);
@@ -105,7 +172,7 @@ header{
     align-items: center;
 }
 
-.back1{
+.back1 {
     width: 43%;
     height: 80%;
     border-radius: 20px;
@@ -113,7 +180,7 @@ header{
     background: var(--light-green);
 }
 
-form{
+form {
     width: 100%;
     height: 100%;
     display: flex;
@@ -122,12 +189,16 @@ form{
     align-items: center;
 }
 
-::placeholder{
+::placeholder {
     color: var(--offwhite);
     font-family: var(--inter);
 }
 
-.titulo_autor, .datas, .valors, .imgs, .buttons{
+.titulo_autor,
+.datas,
+.valors,
+.imgs,
+.buttons {
     width: 80%;
     height: 7%;
     margin: 1%;
@@ -135,7 +206,8 @@ form{
     align-items: center;
 }
 
-#titulo, #autor{
+#titulo,
+#autor {
     transition: width 0.4s ease-in-out;
     border-radius: 1%;
     border: none;
@@ -146,40 +218,43 @@ form{
     outline: none;
 }
 
-#titulo{
+#titulo {
     width: 60%;
     height: 80%;
     background-image: url(../Assets/icon_titulo.png);
     background-position: 0.2vw 0.5vh;
     background-size: 1.5vw;
     background-repeat: no-repeat;
-    padding-left: 7%;  
+    padding-left: 7%;
 }
 
-#autor{
+#autor {
     width: 50%;
     height: 80%;
     background-image: url(../Assets/icon_user.png);
     background-position: 0.2vw 0.5vh;
     background-size: 1.3vw;
     background-repeat: no-repeat;
-    padding-left: 7%;  
+    padding-left: 7%;
 }
 
-#titulo:focus, #autor:focus{
+#titulo:focus,
+#autor:focus {
     width: 90%;
     border-bottom: 0.4vh solid var(--offwhite);
 }
 
-.datas{
+.datas {
     display: flex;
     justify-content: end;
 }
 
-#data_emprestimo, #data_prevista, #data_devolucao{
+#data_emprestimo,
+#data_prevista,
+#data_devolucao {
     width: 30%;
     height: 60%;
-    outline:none;
+    outline: none;
     border: none;
     padding-left: 2%;
     background-color: #00000000;
@@ -190,34 +265,34 @@ form{
     font-weight: bold;
 }
 
-::-webkit-calendar-picker-indicator{
+::-webkit-calendar-picker-indicator {
     background-image: url(../Assets/icon_calendar.png);
     background-size: 1vw;
     cursor: pointer;
     transition-duration: 0.3s;
 }
 
-::-webkit-calendar-picker-indicator:hover{
+::-webkit-calendar-picker-indicator:hover {
     background-size: 0.9vw;
 }
 
-#data_empestimo:invalid{
+#data_empestimo:invalid {
     background-color: black;
 }
 
-#data_emprestimo:valid{
+#data_emprestimo:valid {
     border-bottom: 0.4vh solid var(--green);
     color: var(--green);
 }
 
-#valor{
+#valor {
     width: 30%;
     height: 80%;
     background-image: url(../Assets/icon_moeda.png);
     background-position: 0.2vw 0.5vh;
     background-size: 1.3vw;
     background-repeat: no-repeat;
-    padding-left: 7%; 
+    padding-left: 7%;
     transition: width 0.4s ease-in-out;
     border-radius: 1%;
     border: none;
@@ -225,10 +300,10 @@ form{
     border-bottom: 0.35vh solid var(--offwhite);
     color: white;
     font-size: 1vw;
-    outline:none;
+    outline: none;
 }
 
-#valor:focus{
+#valor:focus {
     width: 25%;
     border-bottom: 0.4vh solid var(--offwhite);
 }
@@ -239,14 +314,14 @@ form{
     margin: 0;
 }
 
-#image{
+#image {
     width: 60%;
     height: 80%;
     background-image: url('../Assets/icon_image.png');
     background-position: 0.2vw 0.5vh;
     background-size: 1.3vw;
     background-repeat: no-repeat;
-    padding-left: 7%; 
+    padding-left: 7%;
     transition: width 0.4s ease-in-out;
     border-radius: 1%;
     border: none;
@@ -254,86 +329,118 @@ form{
     border-bottom: 0.35vh solid var(--offwhite);
     color: var(--offwhite);
     font-size: 1vw;
-    outline:none;
+    outline: none;
 }
 
-#image:focus{
+#image:focus {
     width: 90%;
     border-bottom: 0.4vh solid var(--offwhite);
 }
 
-.buttons{
+.buttons {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-#button{    
+#button {
     width: 30%;
     height: 100%;
     border: none;
-    outline:none;
+    outline: none;
     cursor: pointer;
     border-radius: 10px;
     font-size: 1vw;
     color: var(--offwhite);
-    background-color: var(--green);
+    /* background-color: var(--green); */
     font-family: var(--inter);
     box-shadow: 5px 5px 5px rgba(14, 26, 119, 0.166);
     transition-duration: 0.5s;
 }
 
-#button:hover{
+#button:hover {
     background-color: var(--med-green);
     box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.166);
 }
 
-#menu:checked ~ #menudrop { /*aqui mudará quando clicar*/
-   left: 0%;
-   animation-name: tran;
-   animation-duration: 1s;
-   overflow: hidden;
+#menu:checked~#menudrop {
+    /*aqui mudará quando clicar*/
+    left: 0%;
+    animation-name: tran;
+    animation-duration: 1s;
+    overflow: hidden;
 }
 
 @keyframes tran {
-    from {opacity: 0;}
-    to {opacity: 1;}
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
-main{
+main {
     width: 100%;
     height: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--light-orange);
+    background: var(--gradient-background);
 }
 
-.workspace{
+.workspace {
     width: 90%;
-    height: 90%;
-    background-color: #606C38;
-    border-radius: 20px;
-    transition-duration: 1s;
+    height: 100%;
+
+    margin-top: 6%;
     padding: 2%;
     overflow: auto;
     display: flex;
     flex-wrap: wrap;
+
+    background-color: var(--branco-bg);
+
+    /* transition-duration: 1s; */
     /* animation-name: aparecer;
     animation-duration: 2s; */
 }
 
-@keyframes aparecer {
-    from {opacity: 0;}
-    to {opacity: 1;}    
+#workspace-text {
+    font-size: 45px;
+    font-family: var(--lexend);
+    font-weight: 300;
+    color: var(--blue-txt);
+    
+    width: 70vw;
+
+    text-align: start;
+
+    /* position: fixed;
+    bottom: 35vh;
+    left: 30vh; */
+
+    margin: 12vw 10vw;
+
 }
 
-.workspace::-webkit-scrollbar{
+@keyframes aparecer {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.workspace::-webkit-scrollbar {
     width: 0vw;
     height: auto;
 }
 
-.modelo{
+.modelo {
     width: 30%;
     height: 50%;
     background-color: var(--livro-bg-color);
@@ -347,7 +454,7 @@ main{
     transition-duration: 0.3s;
 }
 
-.modelo:hover{
+.modelo:hover {
     width: 30.5%;
     height: 50.5%;
     margin-right: 2.8%;
@@ -355,18 +462,19 @@ main{
 }
 
 
-.card{
+.card {
     display: none;
 }
 
-.asset, .info{
+.asset,
+.info {
     width: 40%;
     height: 85%;
     background-color: var(--offwhite);
     border-radius: 10px;
 }
 
-.asset{
+.asset {
     margin-right: 4%;
     display: flex;
     flex-direction: column;
@@ -376,7 +484,7 @@ main{
     color: black;
 }
 
-.marcadorpag{
+.marcadorpag {
     width: 34px;
     height: 40px;
     background-color: var(--green);
@@ -391,7 +499,7 @@ main{
     cursor: pointer;
 }
 
-.foto{
+.foto {
     width: 90%;
     height: 100%;
     border-radius: 5px;
@@ -400,7 +508,7 @@ main{
     background-repeat: no-repeat;
 }
 
-.titulo{
+.titulo {
     width: 90%;
     height: 25%;
     justify-content: center;
@@ -414,14 +522,17 @@ main{
     max-width: max-content;
 }
 
-.info{
+.info {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.autor, .data_emprestimo, .data_prevista, .data_devolucao{
+.autor,
+.data_emprestimo,
+.data_prevista,
+.data_devolucao {
     width: 90%;
     height: 17%;
     margin-bottom: 1%;
@@ -431,22 +542,24 @@ main{
     font-size: 0.8vw;
 }
 
-.ee1img{
-    content:url('../Assets/icon_user.png');
+.ee1img {
+    content: url('../Assets/icon_user.png');
     width: 15%;
 }
 
-.ee2img, .ee3img, .ee4img{
-    content:url('../Assets/icon_calendar.png');
+.ee2img,
+.ee3img,
+.ee4img {
+    content: url('../Assets/icon_calendar.png');
     width: 13%;
 }
 
-.eee1img{
+.eee1img {
     content: url('../Assets/icon_moeda.png');
     width: 15%;
 }
 
-.campocobranca{
+.campocobranca {
     margin-top: 3%;
     width: 90%;
     height: 23%;
@@ -456,7 +569,7 @@ main{
     flex-direction: column;
 }
 
-.cobranca{
+.cobranca {
     width: 100%;
     height: 55%;
     background-color: var(--med-green);
