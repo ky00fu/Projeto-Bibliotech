@@ -60,6 +60,7 @@ body {
   border-bottom-left-radius: 50px;
 }
 
+/* botão login */
 #cadastrar-se {
   color: var(--branco);
   margin-bottom: 2vh;
@@ -69,6 +70,7 @@ body {
   animation: hover 0.2s ease 0s forwards;
 }
 
+/* botão cadastrar-se */
 #login {
   background-color: var(--branco);
   color: var(--preto-bg);
@@ -94,11 +96,11 @@ body {
 
   position: absolute;
 
-  top: 8.1vh;
+  top: 7.9vh;
   right: 19.1vw;
 
-  width: 38vw;
-  height: 83.4vh;
+  width: 40vw;
+  height: 82.9vh;
 
   gap: 30px;
 }
@@ -127,7 +129,7 @@ input {
   background: none;
   border: none;
 
-  width: 25vw;
+  width: 30vw;
   margin: 18px 20px;
 }
 
@@ -170,7 +172,6 @@ button {
   position: absolute;
   bottom: 11vh;
   left: 19.15vw;
-
-  width: 23.7vw;
+  width: 23.05vw;
   height: 20vh;
 }
