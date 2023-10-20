@@ -113,6 +113,7 @@ header {
     width: 33%;
 }
 
+/* add button */
 #cmenu {
     width: 100px;
     height: 100px;
@@ -120,7 +121,6 @@ header {
     display: flex;
     justify-content: center;
     text-align: center;
-    justify-content: center;
 
     position: absolute;
     top: 84%;
@@ -134,8 +134,8 @@ header {
     cursor: pointer;
 }
 
-/* add button */
 #cmenu p {
+    align-self: center;
     position: relative;
     top: 1vw;
 
@@ -385,9 +385,9 @@ main {
 
     background-color: var(--branco-bg);
 
-    transition-duration: 1s;
+    /* transition-duration: 1s;
     animation-name: aparecer;
-    animation-duration: 2s;
+    animation-duration: 2s; */
 }
 
 #workspace-text {
