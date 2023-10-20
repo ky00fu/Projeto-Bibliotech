@@ -9,30 +9,29 @@
     background: linear-gradient(to bottom, #a3c4b1 10%, #aae1c1 70%);
   }
 
+  #logo-bbtech {
+    order: -1;
+  }
+
   .header-h1-container {
-    display: 1;
     text-align: center;
   }
 
   #header-txt {
-    display: 1;
     text-align: center;
     position: relative;
   }
 
   .icon-usuario {
+    order: -1;
     gap: 5%;
     /* justify-content: space-evenly; */
-  }
-
-  .icon-usuario h1 {
-    order: -1;
   }
 
   .workspace {
     width: 100%;
     height: 100%;
-    margin-top: 60%;
+    margin-top: 80%;
   }
 
   #workspace-text {
