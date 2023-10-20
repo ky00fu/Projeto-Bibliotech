@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@200;300;400;500;600&family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@200;300;400;500;600&display=swap');
 
 :root {
@@ -22,7 +22,7 @@
     --preto-txt: #464646;
     --blue-txt: #3E8BA3;
     --gradient-header: linear-gradient(#73B5C3, #58A5BF);
-    --gradient-background: linear-gradient(to bottom, #4BBED7 5%, #A3C4B1 18%, #AAE1C1 100%);
+    --gradient-background: linear-gradient(to bottom, #4BBED7 1%, #A3C4B1 18%, #AAE1C1 100%);
     --blue: #73B5C3;
 }
 
@@ -78,7 +78,7 @@ header {
 
 .error {
     position: absolute;
-    color: var(--offwhite);
+    color: #EA5959;
     font-weight: bold;
     font-size: 0.8vw;
     margin-left: 4%;
@@ -136,11 +136,13 @@ header {
 
 /* add button */
 #cmenu button {
+    width: 100%;
+
     border: none;
     background: none;
 
     font-family: var(--lexend);
-    font-weight: 200;
+    font-weight: 300;
     font-size: 36px;
     color: var(--preto-txt);
 
@@ -149,10 +151,12 @@ header {
     cursor: pointer;
 }
 
+/* modal preencher campos */
 #menudrop {
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
     position: absolute;
     top: 0px;
     left: -100%;
@@ -172,12 +176,45 @@ header {
     align-items: center;
 }
 
+/* modal adicionar livro */
 .back1 {
-    width: 43%;
-    height: 80%;
+    width: 40%;
+    height: 90%;
     border-radius: 20px;
     box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.20);
-    background: var(--light-green);
+    background: linear-gradient(150deg, #64ACC1 2%,#C6F4DA 48%,#C6F4DA 59%,#E7F7EE 100%);    
+}
+
+.form-container {
+    width: 80%;
+    height: 100%;
+
+    position: relative;
+    left: 11%;
+    bottom: 5.7%;
+
+    background-color: rgba(3, 0, 48, 0.195);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    overflow: hidden;
+}
+
+#cadastro {
+    /* justify-content: start; */
+    /* position: inherit; */
+    /* top: 10px; */
+    /* width: 90%; */
+    /* height: 88.5%; */
+    background-color: #F2FFF8;
+}
+
+#cadastro h1 {
+    color: var(--preto-txt);
+    font-weight: 500;
+    font-size: 36px;
+    text-wrap: wrap;
 }
 
 form {
@@ -190,14 +227,15 @@ form {
 }
 
 ::placeholder {
-    color: var(--offwhite);
-    font-family: var(--inter);
+    color: #6CB2C3;
+    font-family: var(--lexend);
+    font-weight: 500;
 }
 
 .titulo_autor,
-.datas,
 .valors,
 .imgs,
+.aviso,
 .buttons {
     width: 80%;
     height: 7%;
@@ -207,49 +245,56 @@ form {
 }
 
 #titulo,
-#autor {
+#autor,
+#image,
+#valor {
     transition: width 0.4s ease-in-out;
     border-radius: 1%;
     border: none;
     background-color: rgba(102, 51, 153, 0);
-    border-bottom: 0.35vh solid var(--offwhite);
-    color: var(--offwhite);
+    border-bottom: 0.35vh solid #6282BF;
+    color: #6CB2C3;
     font-size: 1vw;
     outline: none;
 }
 
-#titulo {
+#titulo,
+#autor,
+#image,
+#valor {
     width: 60%;
     height: 80%;
-    background-image: url(../Assets/icon_titulo.png);
-    background-position: 0.2vw 0.5vh;
-    background-size: 1.5vw;
-    background-repeat: no-repeat;
-    padding-left: 7%;
+    margin-left: 5%;
 }
 
-#autor {
+/* #autor {
     width: 50%;
     height: 80%;
-    background-image: url(../Assets/icon_user.png);
+    background-image: url(./Assets/Ícones/icone-autor.png);
     background-position: 0.2vw 0.5vh;
     background-size: 1.3vw;
     background-repeat: no-repeat;
     padding-left: 7%;
+} */
+
+#aviso-data {
+    width: 90%;
+    height: 80%;
+    padding-left: 7%;
+
+    font-size: 20px;
+    color: var(--preto-txt);
 }
 
 #titulo:focus,
-#autor:focus {
+#autor:focus,
+#valor:focus,
+#image:focus {
     width: 90%;
-    border-bottom: 0.4vh solid var(--offwhite);
+    border-bottom: 0.4vh solid #6282BF;
 }
 
-.datas {
-    display: flex;
-    justify-content: end;
-}
-
-#data_emprestimo,
+/* #data_emprestimo,
 #data_prevista,
 #data_devolucao {
     width: 30%;
@@ -260,13 +305,13 @@ form {
     background-color: #00000000;
     font-size: 0.9vw;
     color: var(--offwhite);
-    border-bottom: 0.4vh solid var(--offwhite);
+    border-bottom: 0.4vh solid #6282BF;
     border-radius: 5%;
     font-weight: bold;
-}
+} */
 
 ::-webkit-calendar-picker-indicator {
-    background-image: url(../Assets/icon_calendar.png);
+    background-image: url(./Assets/Ícones/icone-calendario.png);
     background-size: 1vw;
     cursor: pointer;
     transition-duration: 0.3s;
@@ -285,28 +330,24 @@ form {
     color: var(--green);
 }
 
-#valor {
+/* #valor {
     width: 30%;
     height: 80%;
-    background-image: url(../Assets/icon_moeda.png);
-    background-position: 0.2vw 0.5vh;
-    background-size: 1.3vw;
-    background-repeat: no-repeat;
     padding-left: 7%;
     transition: width 0.4s ease-in-out;
     border-radius: 1%;
     border: none;
     background-color: rgba(102, 51, 153, 0);
-    border-bottom: 0.35vh solid var(--offwhite);
+    border-bottom: 0.35vh solid #6282BF;
     color: white;
     font-size: 1vw;
     outline: none;
-}
+} */
 
-#valor:focus {
+/* #valor:focus {
     width: 25%;
-    border-bottom: 0.4vh solid var(--offwhite);
-}
+    border-bottom: 0.4vh solid #6282BF;
+} */
 
 #valor::-webkit-outer-spin-button,
 #valor::-webkit-inner-spin-button {
@@ -314,46 +355,43 @@ form {
     margin: 0;
 }
 
-#image {
+/* #image {
     width: 60%;
     height: 80%;
-    background-image: url('../Assets/icon_image.png');
-    background-position: 0.2vw 0.5vh;
-    background-size: 1.3vw;
     background-repeat: no-repeat;
     padding-left: 7%;
     transition: width 0.4s ease-in-out;
     border-radius: 1%;
     border: none;
     background-color: rgba(102, 51, 153, 0);
-    border-bottom: 0.35vh solid var(--offwhite);
+    border-bottom: 0.35vh solid #6282BF;
     color: var(--offwhite);
     font-size: 1vw;
     outline: none;
-}
-
-#image:focus {
-    width: 90%;
-    border-bottom: 0.4vh solid var(--offwhite);
-}
+} */
 
 .buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-content: center;
+    margin-top: 7vw;
 }
 
+/* button emprestar */
 #button {
-    width: 30%;
+    width: 40%;
     height: 100%;
     border: none;
     outline: none;
     cursor: pointer;
     border-radius: 10px;
-    font-size: 1vw;
-    color: var(--offwhite);
-    /* background-color: var(--green); */
-    font-family: var(--inter);
+
+    font-size: 32px;
+    font-family: var(--lexend);
+    font-weight: 500;
+
+    color: #FFFFFF;
+    background-color: #80C0C8;
     box-shadow: 5px 5px 5px rgba(14, 26, 119, 0.166);
     transition-duration: 0.5s;
 }

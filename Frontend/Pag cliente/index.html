@@ -16,7 +16,7 @@
 <body>
 
     <header>
-        <img src="./Assets/Ícones/icone-bbtech.png" alt="logo Bibliotech" height="70%" style="align-self: center;">
+        <img src="./Assets/Ícones/icone-bbtech.png" alt="logo Bibliotech" height="80%" style="align-self: center;">
         <h1 style="font-size: 3rem;">Seus empréstimos</h1>
 
         <div class="icon-usuario">
@@ -36,42 +36,53 @@
                     <div class="back1">
                         <label for="menu">
                             <img src="./Assets/Ícones/icone-fechar.png" alt="ícone fechar" width="30px" height="30px"
-                                style="margin-top: 2%; margin-left: 93%; cursor: pointer;">
+                                style="margin-top: 2%; margin-left: 93%; cursor: pointer; z-index: 3;">
                         </label>
                         <p class="error card">Esse é um erro</p>
-                        <form id="cadastro">
-                            <h1 style="font-size: 1.5vw; margin-bottom: 5%;">Preencha os campos abaixo</h1>
-                            <div class="titulo_autor">
-                                <input type="text" name="titulo" id="titulo" required placeholder="Título do livro">
-                            </div>
-                            <div class="titulo_autor">
-                                <input type="text" name="autor" id="autor" required placeholder="Autor do emprestimo">
-                            </div>
-                            <div class="datas">
-                                <p style="font-size: 1vw; margin-right: 5%;">Data do emprestimo do livro</p>
-                                <input type="date" name="data_emprestimo" id="data_emprestimo" required min="2010-01-01"
-                                    max="2024-01-01">
-                            </div>
-                            <div class="datas">
-                                <p style="font-size: 1vw; margin-right: 5%;">Data prevista para devolução</p>
-                                <input type="date" name="data_prevista" id="data_prevista" min="2010-01-01"
-                                    max="2024-01-01">
-                            </div>
-                            <div class="datas">
-                                <p style="font-size: 1vw; margin-right: 5%;">Data da devolução</p>
-                                <input type="date" name="data_devolucao" id="data_devolucao" min="2010-01-01"
-                                    max="2024-01-01">
-                            </div>
-                            <div class="valors">
-                                <input type="number" name="valor" id="valor" placeholder="Valor do livro">
-                            </div>
-                            <div class="imgs">
-                                <input type="text" name="image" id="image" required placeholder="URL imagem">
-                            </div>
-                            <div class="buttons">
-                                <button id="button">Enviar</button>
-                            </div>
-                        </form>
+                        <div class="form-container">
+                            <form id="cadastro">
+                                <h1 style="margin-bottom: 5%;">Preencha os campos abaixo</h1>
+                                <div class="titulo_autor">
+                                    <img src="./Assets/Ícones/icone-livro.png" alt="ícone livro">
+                                    <input type="text" name="titulo" id="titulo" required placeholder="Título do livro">
+                                </div>
+                                <div class="titulo_autor">
+                                    <img src="./Assets/Ícones/icone-autor.png" alt="ícone autor">
+                                    <input type="text" name="autor" id="autor" required placeholder="Autor do livro">
+                                </div>
+                                <!-- <div class="datas">
+                                    <p style="font-size: 1vw; margin-right: 5%;">Data do emprestimo do livro</p>
+                                    <input type="date" name="data_emprestimo" id="data_emprestimo" required min="2010-01-01"
+                                        max="2024-01-01">
+                                </div>
+                                <div class="datas">
+                                    <p style="font-size: 1vw; margin-right: 5%;">Data prevista para devolução</p>
+                                    <input type="date" name="data_prevista" id="data_prevista" min="2010-01-01"
+                                        max="2024-01-01">
+                                </div>
+                                <div class="datas">
+                                    <p style="font-size: 1vw; margin-right: 5%;">Data da devolução</p>
+                                    <input type="date" name="data_devolucao" id="data_devolucao" min="2010-01-01"
+                                        max="2024-01-01">
+                                </div> -->
+                                <div class="imgs">
+                                    <img src="./Assets/Ícones/icone-img.png" alt="ícone imagem">
+                                    <input type="text" name="image" id="image" required placeholder="URL da capa (png ou jpg)">
+                                </div>
+                                <div class="valors">
+                                    <img src="./Assets/Ícones/icone-cobranca.png" alt="ícone valor">
+                                    <input type="number" name="valor" id="valor" placeholder="Valor do livro">
+                                </div>
+                                <div class="aviso">
+                                    <img src="./Assets/Ícones/icone-cobranca.png" alt="ícone valor">
+
+                                    <p id="aviso-data">A data prevista para devolução é registrada com o valor útil de 20 dias. <br><br> Já em relação à data de empréstimo, é definida pela data do sistema.</p>
+                                </div>
+                                <div class="buttons">
+                                    <button id="button">Emprestar</button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
