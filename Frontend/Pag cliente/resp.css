@@ -20,12 +20,12 @@
   #header-txt {
     text-align: center;
     position: relative;
+    margin-top: 0.4em;
   }
 
   .icon-usuario {
     order: -1;
     gap: 5%;
-    /* justify-content: space-evenly; */
   }
 
   .workspace {
@@ -35,15 +35,14 @@
   }
 
   #workspace-text {
-    margin-top: 50%;
-
+    margin-top: 40%;
     width: 80%;
     height: 5%;
   }
 
   #cmenu {
     align-self: center;
-    top: 34%;
+    top: 38%;
     left: 38%;
   }
 }
