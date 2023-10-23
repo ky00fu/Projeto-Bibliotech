@@ -1,43 +1,77 @@
 @import url(./style.css);
 
+/* extra small screens */
 @media (max-width: 475px) {
-  body {
-    width: 100%;
-  }
+    .container {
+        overflow: hidden;
 
-  .container {
-    background: linear-gradient(to bottom, #FFE090 10%, #FED287 90%, #FCB774 90%);
+        border-radius: 0;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
 
-    width: 100%;
-    height: 90%;
+        background-color: #FFE090;
 
-    flex-wrap: wrap;
-    flex-direction: row;
-  }
+        width: 100%;
 
-  .container-btns {
-    margin-top: 1rem;
-    background-image: url("./Assets/IMG/linha.png");
-    background-size: contain;
-    background-position: top;
-    background-repeat: no-repeat;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
 
-    width: 100%;
+        background-image: url('./Assets/IMG/linha-resp.png');
+        background-size: contain;
+        background-position: bottom 93% right;
+        background-repeat: no-repeat;
+    }
 
-    border-radius: 0;
-  }
+    .btn {
+        margin-top: 2rem;
+        width: 100%;
+        border-radius: 0;
+    }
 
-  .btn {
-    border-radius: 0;
-    row-gap: 1%;
-  }
+    .container-btns {
+        width: 100%;
 
-  .btn button {
-    padding: 0.5ch 1ch;
-  }
+        align-items: center;
 
-  .container-info {
-    width: 100%;    
-    border-radius: 0;
-  }
+        background: none;
+    }
+
+    .btn button {
+        padding: 0.3rem 0;
+        font-size: 2rem;
+    }
+
+    .container-info {
+        width: 100%;
+        height: 100%;
+
+        margin-top: 5%;
+
+        border-radius: 0;
+    }
+
+    .erro {
+        margin: 2rem 0;
+        font-size: 1.5rem;
+    }
+
+    .info img {
+        margin: 2%;
+        margin-right: 1rem;
+        width: 2rem;
+    }
+
+    form {
+        width: 90%;
+    }
+
+    ::placeholder {
+        font-size: 1.5rem;
+    }
+
+    #registrar-btn {
+        font-size: 1.75rem;
+        margin-bottom: 10%;
+    }
 }
