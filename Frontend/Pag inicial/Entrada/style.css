@@ -54,6 +54,10 @@ body {
   background-repeat: no-repeat;
 }
 
+.resp {
+  display: none;
+}
+
 header {
   display: flex;
   justify-content: space-evenly;
@@ -89,6 +93,10 @@ header h1 {
 
   top: 35vh;
   right: 12vw;
+}
+
+#img03 {
+  display: none;
 }
 
 
