@@ -52,8 +52,8 @@ body {
 
 /* botões */
 .btn {
-  border-top-left-radius: 4rem;
-  border-bottom-left-radius: 4rem;
+  border-top-left-radius: 64px;
+  border-bottom-left-radius: 64px;
   
   display: flex;
   justify-content: center;
@@ -63,8 +63,8 @@ body {
   border: none;
   background-color: #fff9eb;
   
-  border-top-left-radius: 4rem;
-  border-bottom-left-radius: 4rem;
+  border-top-left-radius: 64px;
+  border-bottom-left-radius: 64px;
   width: 18rem;
   padding: 1.5ch 1ch;
   
