@@ -13,7 +13,6 @@
   box-sizing: border-box;
 }
 
-/* background */
 body {
   width: 100vw;
   height: 100vh;
@@ -69,8 +68,6 @@ header {
   margin-left: 20vw;
 }
 
-
-/* header title */
 header h1 {
   font-family: var(--lexend-zetta);
   text-shadow: 0px 4px 4px rgba(216, 114, 14, 0.28);
@@ -99,7 +96,6 @@ header h1 {
   display: none;
 }
 
-
 .buttons {
   display: flex;
   position: relative;
@@ -111,7 +107,7 @@ header h1 {
   margin-right: 55vw;
 }
 
-button {
+.link {
   border: none;
   background: none;
   font-family: var(--lexend-deca);
@@ -121,13 +117,23 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.link a {
+  border: none;
+  background: none;
+  font-family: var(--lexend-deca);
+  color: var(--branco);
+  font-size: 32px;
+  cursor: pointer;
+}
+
+.link a:hover {
   animation: aumentar 1s;
+  cursor: pointer;  
 }
 
 a {
   text-decoration: none;
-  cursor: auto;
+  cursor: pointer;
 }
 
 @keyframes aumentar {
