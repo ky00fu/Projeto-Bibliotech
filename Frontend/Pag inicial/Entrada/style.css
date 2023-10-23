@@ -15,24 +15,43 @@
 
 /* background */
 body {
-  background-color: var(--black-bg);
+  width: 100vw;
+  height: 100vh;
+
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  background-color: #393939;
 }
 
 .page {
-  width: fit-content;
-  align-items: center;
+  width: 95%;
+  height: 90%;
 
-  margin: 1vw 10vw;
-  height: 95vh;
+  z-index: -1;
+
+  justify-content: center;
 
   background: linear-gradient(to bottom, #ffe090 20%, #fed287 50%, #fcb774 75%);
-  box-shadow: 0px 6px 4px #00000021;
 
+  box-shadow: 0px 6px 4px #00000021;
   border-radius: 10px;
+}
+
+.linha {
+  width: 95%;
+  height: 40%;
+
+  z-index: -1;
+
+  position: absolute;
+  bottom: 5%;
+
+  background-image: url('./Assets/IMG/linha.png');
+  background-size: contain;
+  background-position: bottom;
+  background-repeat: no-repeat;
 }
 
 header {
@@ -46,6 +65,7 @@ header {
   margin-left: 20vw;
 }
 
+
 /* header title */
 header h1 {
   font-family: var(--lexend-zetta);
@@ -56,45 +76,47 @@ header h1 {
 
 #img01 {
   position: absolute;
+  width: 550px;
 
-  top: 2vh;
-  left: 10vw;
+  z-index: -1;
+
+  bottom: 40.5%;
+  left: 7vw;
 }
 
 #img02 {
   position: absolute;
 
   top: 35vh;
-  right: 8vw;
+  right: 12vw;
 }
 
-/* div dos botões */
+
 .buttons {
   display: flex;
   position: relative;
   flex-direction: column;
   text-align: center;
 
-  gap: 38px;
-  margin-top: 55vh;
+  gap: 60px;
+  margin-top: 42vh;
   margin-right: 55vw;
 }
 
-/* estilização dos botões */
 button {
   border: none;
   background: none;
   font-family: var(--lexend-deca);
   color: var(--branco);
   font-size: 32px;
+
+  cursor: pointer;
 }
 
 button:hover {
   animation: aumentar 1s;
-  cursor: pointer;
 }
 
-/* remove o underline dos links */
 a {
   text-decoration: none;
   cursor: auto;
@@ -104,18 +126,4 @@ a {
   50% {
     font-size: 35px;
   }
-}
-
-/* linha atrás dos links */
-#linha {
-  position: absolute;
-  bottom: 3vh;
-  /* width: 97vw; */
-  height: 24vh;
-}
-
-/* width div e linha pros links */
-.page,
-#linha {
-  width: 95vw;
 }
