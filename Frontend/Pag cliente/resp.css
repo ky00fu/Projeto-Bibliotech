@@ -45,4 +45,37 @@
     top: 38%;
     left: 38%;
   }
+
+  #cmenu p {
+    align-self: center;
+  }
+
+  .back1 {
+    width: 90%;
+  }
+
+  .form-container {
+    height: 99.5%;
+    bottom: 5.3%;
+  }
+
+  #icon-fechar {
+    width: 6%;
+  }
+
+  #cadastro h1 {
+    margin-top: 20%;
+    width: 100%;
+    font-size: 1.5rem;
+  }
+
+  .aviso {
+    order: 1;
+    height: 100%;
+    margin: 0;
+  }
+
+  #btn-emprestar {
+    width: 100%;
+  }
 }
