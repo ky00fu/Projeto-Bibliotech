@@ -55,6 +55,7 @@ body {
 
 .resp {
   display: none;
+  z-index: -1;
 }
 
 header {
@@ -78,8 +79,6 @@ header h1 {
 #img01 {
   position: absolute;
   width: 550px;
-
-  z-index: -1;
 
   bottom: 40.5%;
   left: 7vw;
@@ -110,34 +109,19 @@ header h1 {
 .link {
   border: none;
   background: none;
+
+  font-size: 2rem;
   font-family: var(--lexend-deca);
   color: var(--branco);
-  font-size: 32px;
-
-  cursor: pointer;
 }
 
-.link a {
-  border: none;
-  background: none;
-  font-family: var(--lexend-deca);
-  color: var(--branco);
-  font-size: 32px;
-  cursor: pointer;
-}
-
-.link a:hover {
+.link:hover {
   animation: aumentar 1s;
-  cursor: pointer;  
-}
-
-a {
-  text-decoration: none;
   cursor: pointer;
 }
 
 @keyframes aumentar {
   50% {
-    font-size: 35px;
+    font-size: 2.5rem;
   }
 }
