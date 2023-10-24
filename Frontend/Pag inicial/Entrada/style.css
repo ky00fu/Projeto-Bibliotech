@@ -28,7 +28,7 @@ body {
   width: 95%;
   height: 90%;
 
-  z-index: -1;
+  /* z-index: -2; */
 
   justify-content: center;
 
@@ -42,7 +42,7 @@ body {
   width: 95%;
   height: 40%;
 
-  z-index: -1;
+  /* z-index: -1; */
 
   position: absolute;
   bottom: 5%;
@@ -55,7 +55,6 @@ body {
 
 .resp {
   display: none;
-  z-index: -1;
 }
 
 header {
@@ -98,6 +97,7 @@ header h1 {
 .buttons {
   display: flex;
   position: relative;
+  z-index: 1;
   flex-direction: column;
   text-align: center;
 
