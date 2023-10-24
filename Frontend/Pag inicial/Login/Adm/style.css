@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100;200;300;400;500;600;700;800;900');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@800&display=swap');
 
 :root {
   --lexend-deca: "Lexend Deca", sans-serif;
+  --lexend-exa: 'Lexend Exa', sans-serif;
 }
 
 * {
@@ -28,82 +30,51 @@ body {
   width: 70%;
   height: 90%;
 
+  overflow: hidden;
+
   border-radius: 1rem;
 
   display: flex;
   background-color: #ffbc7a;
 }
 
-/* container dos botões */
-.container-btns {
+/* container com mensagem */
+.container-msg {
   width: 50%;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: end;
-  row-gap: 5%;
+  justify-content: space-evenly;
+  align-items: center;
 
   background-image: url('./Assets/IMG/linha.png');
   background-size: contain;
-  background-position: bottom 5% right;
+  background-position: top 5% right;
   background-repeat: no-repeat;
 }
 
-/* botões */
-.btn {
-  border-top-left-radius: 64px;
-  border-bottom-left-radius: 64px;
-  
+/* mensagens */
+.msg {  
   display: flex;
-  justify-content: center;
-}
+  text-align: center;
+  margin: 10%;
 
-.btn button {
-  border: none;
-  background-color: #fff9eb;
-  
-  border-top-left-radius: 64px;
-  border-bottom-left-radius: 64px;
-  width: 18rem;
-  padding: 1.5ch 1ch;
-  
-  font-size: 2rem; 
-  
-  color: #393939;
-  cursor: pointer;
-}
-
-.login {
-  background-color: #fff9eb;
-}
-
-.cadastrar button {
-  background-color: transparent;
   color: #fff9eb;
+  font-size: 2rem;
 }
 
-.cadastrar button:hover {
-  background-color: #fff9eb;
-  color: #393939;
-  transition: all .2s ease;
+.bemvindo {
+  color: #fff9eb;  
+  font-size: 2.25rem;
+  font-family: var(--lexend-exa);
+  font-weight: 800;
 }
 
-a:focus-visible,
-a:active,
-a {
-  text-decoration: none;
-  border: none;
-  outline: none;
-  box-shadow: none;
-}
 
+/* container login */
 .container-info {
   width: 70%;
   background-color: #fff9eb;
-
-  border-top-right-radius: 1rem;
-  border-bottom-right-radius: 1rem;
   
   display: flex;
   flex-direction: column;
@@ -113,19 +84,19 @@ a {
 
 form {
   width: 80%;
-  margin-bottom: 5%;
+  margin-bottom: 20%;
 }
 
 .info {
   display: flex;
   justify-content: start;
-  margin: 3rem 0;
+  margin: 5rem 0;
 
   border-bottom: 5px solid #D9D9D9;
 }
 
 .erro {
-  /* margin-top: 2%; */
+  margin-top: 20%;
   font-size: 1.875rem;
   color: #FF9D9D;
 }
@@ -160,7 +131,8 @@ input::placeholder {
 
 #entrar-btn {
   border: none;
-  padding: 0.5ch 1.5ch;
+  padding: 0.5ch 3ch;
+  margin-top: 5%;
   background-color: #FFBC7A;
   border-radius: 5rem;
   box-shadow: 2px 8px 4px rgb(255, 227, 172, 0.54);
