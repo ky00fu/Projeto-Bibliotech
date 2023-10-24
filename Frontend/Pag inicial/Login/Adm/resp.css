@@ -3,56 +3,53 @@
 /* extra small screens */
 @media (max-width: 475px) {
     .container {
-        overflow: hidden;
-        
+        overflow-y: scroll;
         border-radius: 0;
-        border-top-right-radius: 10px;
-        border-top-left-radius: 10px;
         
-        background-color: #FFE090;
+        background-color: linear-gradient(to bottom, #FFBC7A 5%, #FED287 80%, #FCB774 5%);
 
         width: 100%;
+        height: 96%;
 
         display: flex;
         flex-direction: column;
         align-items: center;
 
-        background-image: url('./Assets/IMG/linha-resp.png');
-        background-size: contain;
-        background-position: bottom 93% right;
-        background-repeat: no-repeat;
+        border-top-right-radius: 10px;
+        border-top-left-radius: 10px;
     }
 
-    .btn {
-        margin-top: 2rem;
+    .container-msg {
+        order: 1;
+
         width: 100%;
-        border-radius: 0;
+        height: 60%;
+
+        background: #FFBC7A;
     }
 
-    .container-btns {
-        width: 100%;
-        margin-bottom: 6%;
-        align-items: center;
-        
-        background: none;
+    .msg {
+        justify-content: center;
 
-        margin-bottom: 5%;
+        font-size: 1.5rem;
     }
 
-    .btn button {
+    .bemvindo {
         padding: 0.3rem 0;
-        font-size: 2rem;
+        font-size: 1.875rem;
     }
 
     .container-info {
-        width: 100%;
-        height: 100%;
+        order: 2;
 
+        width: 100%;
+        
+        overflow-y: visible;
         border-radius: 0;
     }
 
     .erro {
-        margin: 2rem 0;
+        margin: 5rem 0;
         font-size: 1.5rem;
     }
 
