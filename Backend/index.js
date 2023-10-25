@@ -7,8 +7,10 @@ app.use(express.json())
 app.use(cors())
 app.use('/', router)
 
-app.listen(2222, () => {
+// app.listen(2222, () => {
+//     console.info('[Server] running')
+// })
+
+app.listen(3000, () => {
     console.info('[Server] running')
 })
-
-
