@@ -32,4 +32,3 @@ CREATE TABLE emprestimo(
 DESCRIBE cliente;
 DESCRIBE administrador;
 DESCRIBE emprestimo;
-
