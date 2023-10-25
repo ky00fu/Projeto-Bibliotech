@@ -4,12 +4,11 @@
 
 :root {
     /* font */
-    --inter: 'Inter', sans-serif;
     --lexend: 'Lexend', sans-serif;
     --lexend-giga: 'Lexend Giga', sans-serif;
 
     /* cores */
-    --livro-bg-color: #542E20;
+    --livro-bg-color: linear-gradient(to bottom, #8CC7A5 70%, #A8DABD 80%);
     --offwhite: #FEFAE0;
     --green: #283618;
     --light-green: #606C38;
@@ -419,7 +418,7 @@ main {
 .modelo {
     width: 30%;
     height: 50%;
-    background-color: var(--livro-bg-color);
+    background: var(--livro-bg-color);
     border-radius: 40px;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.100);
     display: flex;
@@ -450,35 +449,37 @@ main {
     border-radius: 10px;
 }
 
-.asset {
-    margin-right: 4%;
+.asset {    
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-right: 4%;
     align-items: center;
     font-size: 1vw;
     color: black;
 }
 
 .marcadorpag {
-    width: 34px;
-    height: 40px;
-    background-color: var(--green);
+    order: 2;
+
+    width: 23px;
+    height: 50vh;
     border-radius: 40px;
-    background-image: url(../Assets/icon_close.png);
+    background-color: transparent;
+
+    background-image: url(./Assets/IMG/modelo-side/component.png);
     background-repeat: no-repeat;
-    background-size: 70%;
-    background-position: center;
-    margin-top: -8%;
-    margin-right: 100%;
-    margin-bottom: 1%;
-    cursor: pointer;
+    background-size: contain;
+    background-position: bottom 50% left;
 }
 
 .foto {
-    width: 90%;
-    height: 100%;
+    order: 1;
+
+    width: 10vw;
+    height: 10vw;
     border-radius: 5px;
+    
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
