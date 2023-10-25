@@ -3,7 +3,9 @@ const mysql = require('mysql')
 const con = mysql.createConnection({
     user: 'root',
     host: 'localhost',
-    database: 'bibliotech'
-});
+    database: 'livraria'
+})
 
-module.exports = con;
+
+
+module.exports = con

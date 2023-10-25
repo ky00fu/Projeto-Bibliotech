@@ -1,12 +1,12 @@
 {
-  "name": "projeto_final",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "tcc",
-  "main": "server.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "thayla_yukina",
+  "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
