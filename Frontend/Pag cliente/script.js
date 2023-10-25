@@ -147,9 +147,9 @@ function montarlista(vetor) {
                 return 'Devolvido no prazo'
         }
 
-        let ee5 = document.createElement('div')
-        ee5.className = 'campocobranca'
-        ee5.style.fontStyle = 'italic'
+        // let ee5 = document.createElement('div')
+        // ee5.className = 'campocobranca'
+        // ee5.style.fontStyle = 'italic'
         
         let eee1 = document.createElement('div')
         eee1.className = 'cobranca'
@@ -166,8 +166,8 @@ function montarlista(vetor) {
         eee1.appendChild(eee1img)
         // mostrar cálculo cobrança
         eee1.appendChild(pcobranca)
-        ee5.appendChild(eee1)
-        col1.appendChild(ee5)
+        // ee5.appendChild(eee1)
+        // col1.appendChild(ee5)
 
 
         linha.appendChild(col1)
