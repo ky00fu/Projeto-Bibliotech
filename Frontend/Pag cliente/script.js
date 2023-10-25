@@ -31,48 +31,63 @@ function montarlista(vetor) {
 
         let linha = document.createElement('div')
         linha.className = 'modelo'
+
         let col1 = document.createElement('div')
         col1.className = 'asset'
-        let col2 = document.createElement('div')
-        col2.className = 'info'
+        // let col2 = document.createElement('div')
+        // col2.className = 'info'
 
         let e1 = document.createElement('div')
         e1.className = 'marcadorpag'
-        // e1.setAttribute('onclick', `excluirItem('${e.id}')`)
 
+        // foto do livro
         let e2 = document.createElement('div')
         e2.className = 'foto'
         e2.style.backgroundImage = `url(${e.img})`
+        
+        // título do livro
         let e3 = document.createElement('div')
         e3.className = 'titulo'
         e3.innerHTML = e.titulo
+        
         col1.appendChild(e1)
         col1.appendChild(e2)
         col1.appendChild(e3)
 
-        let ee1 = document.createElement('div')
-        ee1.className = 'autor'
-        let ee1img = document.createElement('img')
-        ee1img.className = 'ee1img'
-        let pautor = document.createElement('p')
-        pautor.style.marginLeft = '4%'
-        pautor.innerHTML = e.autor
-        ee1.appendChild(ee1img)
-        ee1.appendChild(pautor)
-        col2.appendChild(ee1)
 
+        // let ee1 = document.createElement('div')
+        // ee1.className = 'autor'
+        
+        // let ee1img = document.createElement('img')
+        // ee1img.className = 'ee1img'
+        
+        // let pautor = document.createElement('p')
+        // pautor.style.marginLeft = '4%'
+        // pautor.innerHTML = e.autor
+        
+        // ee1.appendChild(ee1img)
+        // ee1.appendChild(pautor)
+        // col2.appendChild(ee1)
+
+        
         let ee2 = document.createElement('div')
         ee2.className = 'data_emprestimo'
+        
+        // ícone calendário pra data_emprestimo
         let ee2img = document.createElement('img')
         ee2img.className = 'ee2img'
+        
         let pdata_e = document.createElement('p')
         pdata_e.style.marginLeft = '4%'
+        
         let forde = new Date(e.data_emprestimo).toLocaleDateString()
         pdata_e.innerHTML = forde
+        
         ee2.appendChild(ee2img)
         ee2.appendChild(pdata_e)
-        col2.appendChild(ee2)
+        col1.appendChild(ee2)
 
+        
         if (e.data_prevista == '0000-00-00' || e.data_devolucao == '0000-00-00') {
             e.data_prevista = null
             e.data_devolucao = null
@@ -92,7 +107,7 @@ function montarlista(vetor) {
             pdata_p.innerHTML = ''
         ee3.appendChild(ee3img)
         ee3.appendChild(pdata_p)
-        col2.appendChild(ee3)
+        col1.appendChild(ee3)
 
         let ee4 = document.createElement('div')
         ee4.className = 'data_devolucao'
@@ -107,16 +122,17 @@ function montarlista(vetor) {
             data_d.innerHTML = ''
         ee4.appendChild(ee4img)
         ee4.appendChild(data_d)
-        col2.appendChild(ee4)
+        col1.appendChild(ee4)
 
 
+        // cálculo cobrança
         function valorcobranca() {
             if (e.data_prevista == null && e.data_devolucao == null)
-                return 'sem datas'
+                return 'Sem datas'
             else if (e.data_devolucao != null && e.data_prevista == null)
-                return 'sem data prevista'
+                return 'Sem data prevista'
             else if (e.data_prevista != null && e.data_devolucao == null)
-                return 'sem devolução'
+                return 'Sem devolução'
             else if (e.data_prevista < e.data_devolucao) {
                 let porcen = Number(e.valor) * 0.1
 
@@ -128,29 +144,34 @@ function montarlista(vetor) {
                 return porcen * diferenca
 
             } else
-                return 'devolvido no prazo'
+                return 'Devolvido no prazo'
         }
 
         let ee5 = document.createElement('div')
         ee5.className = 'campocobranca'
-        ee5.innerHTML = 'Cobrança'
         ee5.style.fontStyle = 'italic'
+        
         let eee1 = document.createElement('div')
         eee1.className = 'cobranca'
+        
         let eee1img = document.createElement('img')
         eee1img.className = 'eee1img'
+        
+        // html cálculo cobrança
         let pcobranca = document.createElement('p')
         pcobranca.style.fontStyle = 'normal'
         pcobranca.style.marginLeft = '4%'
         pcobranca.innerHTML = valorcobranca()
+        
         eee1.appendChild(eee1img)
+        // mostrar cálculo cobrança
         eee1.appendChild(pcobranca)
         ee5.appendChild(eee1)
-        col2.appendChild(ee5)
+        col1.appendChild(ee5)
 
 
         linha.appendChild(col1)
-        linha.appendChild(col2)
+        // linha.appendChild(col2)
         workspace.appendChild(linha)
     })
 
@@ -171,13 +192,12 @@ document.querySelector('#button').addEventListener('click', (e) => {
 
     const body = {
         "titulo": titulo.value,
-        "autor": autor.value,
+        // "autor": autor.value,
         "data_emprestimo": data_emprestimo.value,
-        "data_prevista": data_devolucao.value,
-        "data_devolucao": data_devolucao.value,
+        "data_prevista": data_prevista.value,
+        // "data_devolucao": data_devolucao.value,
         "valor": valor.value,
         "img": urlimg.value
-
     }
 
     const options = {
@@ -197,9 +217,6 @@ document.querySelector('#button').addEventListener('click', (e) => {
     add();
 
 })
-
-
-
 
 
 const perror = document.querySelector('.error')
@@ -308,16 +325,16 @@ function add() {
 
 }
 
-function checkForModelo() {
-    const workspaceText = document.getElementById('workspace-text');
+// function checkForModelo() {
+//     const workspaceText = document.getElementById('workspace-text');
 
-    if (modelo) {
-        workspaceText.style.visibility = 'hidden';
-    } else {
-        workspaceText.style.visibility = 'visible';
-    }
-}
+//     if (modelo) {
+//         workspaceText.style.visibility = 'hidden';
+//     } else {
+//         workspaceText.style.visibility = 'visible';
+//     }
+// }
 
-checkForModelo();
+// checkForModelo();
 
 console.info('Script running')

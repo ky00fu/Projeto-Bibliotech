@@ -9,6 +9,7 @@
 
     /* cores */
     --livro-bg-color: linear-gradient(to bottom, #8CC7A5 70%, #A8DABD 80%);
+    --livro-bg2-color: linear-gradient(#E0FFED, #C8FFDF);
     --offwhite: #FEFAE0;
     --green: #283618;
     --light-green: #606C38;
@@ -416,10 +417,10 @@ main {
 }
 
 .modelo {
-    width: 30%;
-    height: 50%;
+    width: 17%;
+    height: 60%;
     background: var(--livro-bg-color);
-    border-radius: 40px;
+    border-radius: 0.5vw;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.100);
     display: flex;
     align-items: center;
@@ -429,27 +430,24 @@ main {
     transition-duration: 0.3s;
 }
 
-.modelo:hover {
+/* .modelo:hover {
     width: 30.5%;
     height: 50.5%;
     margin-right: 2.8%;
     margin-bottom: 2%;
-}
+} */
 
 
 .card {
     display: none;
 }
 
-.asset,
-.info {
-    width: 40%;
-    height: 85%;
-    background-color: var(--offwhite);
+.asset {
+    width: 80%;
+    height: 90%;
+    background: var(--livro-bg2-color);
     border-radius: 10px;
-}
-
-.asset {    
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -459,10 +457,10 @@ main {
     color: black;
 }
 
-.marcadorpag {
+/* .marcadorpag {
     order: 2;
 
-    width: 23px;
+    width: 15px;
     height: 50vh;
     border-radius: 40px;
     background-color: transparent;
@@ -471,21 +469,24 @@ main {
     background-repeat: no-repeat;
     background-size: contain;
     background-position: bottom 50% left;
-}
+} */
 
 .foto {
-    order: 1;
-
     width: 10vw;
     height: 10vw;
     border-radius: 5px;
-    
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
 
 .titulo {
+    order: -1;
+    
+    font-family: var(--lexend);
+    font-weight: 700;
+
     width: 90%;
     height: 25%;
     justify-content: center;
@@ -506,10 +507,8 @@ main {
     flex-direction: column;
 }
 
-.autor,
 .data_emprestimo,
-.data_prevista,
-.data_devolucao {
+.data_prevista {
     width: 90%;
     height: 17%;
     margin-bottom: 1%;
@@ -519,24 +518,24 @@ main {
     font-size: 0.8vw;
 }
 
-.ee1img {
-    content: url('./Assets/Ícones/icone-livro.png');
+/* .ee1img {
+    content: url('./Assets/Ícones/');
     width: 15%;
-}
+} */
 
 .ee2img,
 .ee3img,
 .ee4img {
-    content: url('../Assets/icon_calendar.png');
+    content: url('./Assets/Ícones/asset-calendar.png');
     width: 13%;
 }
 
 .eee1img {
-    content: url('../Assets/icon_moeda.png');
-    width: 15%;
+    content: url('./Assets/Ícones/asset-valor.png');
+    width: 13%;
 }
 
-.campocobranca {
+/* .campocobranca {
     margin-top: 3%;
     width: 90%;
     height: 23%;
@@ -549,13 +548,42 @@ main {
 .cobranca {
     width: 100%;
     height: 55%;
-    background-color: var(--med-green);
-    border-radius: 20px;
-    color: var(--offwhite);
     display: flex;
     align-items: center;
-    overflow-x: hidden;
+    border-radius: 20px;
+    
+    background: linear-gradient(to bottom right, #80C0C8 10%, #B7E8EE);
+    color: var(--offwhite);
+
     font-weight: ita;
+    
+    margin-top: 3%;
+    padding: 4%;
+    overflow: hidden;
+} */
+
+.btn_renovar {
+    margin-top: 3%;
+    width: 90%;
+    height: 23%;
+    font-size: 0.8vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.btn {
+    width: 100%;
+    height: 55%;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    
+    background: linear-gradient(to bottom right, #80C0C8 10%, #B7E8EE);
+    color: var(--offwhite);
+
+    font-weight: ita;
+    
     margin-top: 3%;
     padding: 4%;
     overflow: hidden;
