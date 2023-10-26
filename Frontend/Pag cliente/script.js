@@ -5,25 +5,33 @@ const titulo = document.querySelector('#titulo')
 const autor = document.querySelector('#autor')
 const data_emprestimo = document.querySelector('#data_emprestimo')
 const data_prevista = document.querySelector('#data_prevista')
-const data_devolucao = document.querySelector('#data_devolucao')
 const valor = document.querySelector('#valor')
 const urlimg = document.querySelector('#image')
 
 const main = document.querySelector('main')
 const workspace = document.querySelector('.workspace')
+const workspaceText = document.querySelector('#workspace-text');
 const modelo = document.querySelector('.modelo')
 const asset = document.querySelector('.asset')
-const info = document.querySelector('.info')
 
 const clonemain = modelo.cloneNode(true)
 const cloneasset = asset.cloneNode(true)
-const cloneinfo = info.cloneNode(true)
 
 fetch(uri + '/listar', { method: 'GET' })
     .then(resp => resp.json())
     .then(resp => montarlista(resp))
     .catch(err => console.error(err));
 
+
+function hideWorkspaceIfModeloExists() {
+    if (!modelo) {
+        workspaceText.style.display = 'block';
+    } else {
+        workspaceText.style.display = 'none';
+    }
+}
+
+hideWorkspaceIfModeloExists();
 
 // modelo
 function montarlista(vetor) {
@@ -34,95 +42,73 @@ function montarlista(vetor) {
 
         let col1 = document.createElement('div')
         col1.className = 'asset'
-        // let col2 = document.createElement('div')
-        // col2.className = 'info'
 
         let e1 = document.createElement('div')
         e1.className = 'marcadorpag'
+
+        let e12 = document.createElement('div')
+        e12.className = 'marcadorpag2'
 
         // foto do livro
         let e2 = document.createElement('div')
         e2.className = 'foto'
         e2.style.backgroundImage = `url(${e.img})`
-        
+
         // título do livro
         let e3 = document.createElement('div')
         e3.className = 'titulo'
         e3.innerHTML = e.titulo
-        
+
         col1.appendChild(e1)
+        col1.appendChild(e12)
         col1.appendChild(e2)
         col1.appendChild(e3)
 
 
-        // let ee1 = document.createElement('div')
-        // ee1.className = 'autor'
-        
-        // let ee1img = document.createElement('img')
-        // ee1img.className = 'ee1img'
-        
-        // let pautor = document.createElement('p')
-        // pautor.style.marginLeft = '4%'
-        // pautor.innerHTML = e.autor
-        
-        // ee1.appendChild(ee1img)
-        // ee1.appendChild(pautor)
-        // col2.appendChild(ee1)
-
-        
         let ee2 = document.createElement('div')
         ee2.className = 'data_emprestimo'
-        
+
         // ícone calendário pra data_emprestimo
         let ee2img = document.createElement('img')
         ee2img.className = 'ee2img'
-        
+
         let pdata_e = document.createElement('p')
         pdata_e.style.marginLeft = '4%'
-        
+
         let forde = new Date(e.data_emprestimo).toLocaleDateString()
         pdata_e.innerHTML = forde
-        
+
         ee2.appendChild(ee2img)
         ee2.appendChild(pdata_e)
         col1.appendChild(ee2)
 
-        
+
         if (e.data_prevista == '0000-00-00' || e.data_devolucao == '0000-00-00') {
             e.data_prevista = null
             e.data_devolucao = null
         }
 
-        let ee3 = document.createElement('div')
 
+        // div data_prevista
+        let ee3 = document.createElement('div')
         ee3.className = 'data_prevista'
+
         let ee3img = document.createElement('img')
         ee3img.className = 'ee3img'
+
         let pdata_p = document.createElement('p')
         pdata_p.style.marginLeft = '4%'
+
         let fordp = new Date(e.data_prevista).toLocaleDateString()
+
         if (e.data_prevista != null)
             pdata_p.innerHTML = fordp
         else
             pdata_p.innerHTML = ''
+
         ee3.appendChild(ee3img)
         ee3.appendChild(pdata_p)
         col1.appendChild(ee3)
-
-        let ee4 = document.createElement('div')
-        ee4.className = 'data_devolucao'
-        let ee4img = document.createElement('img')
-        ee4img.className = 'ee4img'
-        let data_d = document.createElement('p')
-        data_d.style.marginLeft = '4%'
-        let fordd = new Date(e.data_devolucao).toLocaleDateString()
-        if (e.data_devolucao != null)
-            data_d.innerHTML = fordd
-        else
-            data_d.innerHTML = ''
-        ee4.appendChild(ee4img)
-        ee4.appendChild(data_d)
-        col1.appendChild(ee4)
 
 
         // cálculo cobrança
@@ -147,45 +133,45 @@ function montarlista(vetor) {
                 return 'Devolvido no prazo'
         }
 
-        // let ee5 = document.createElement('div')
-        // ee5.className = 'campocobranca'
-        // ee5.style.fontStyle = 'italic'
-        
+
+        // div cobranca
         let eee1 = document.createElement('div')
         eee1.className = 'cobranca'
-        
+
         let eee1img = document.createElement('img')
         eee1img.className = 'eee1img'
-        
-        // html cálculo cobrança
+
+        // cálculo cobrança
         let pcobranca = document.createElement('p')
         pcobranca.style.fontStyle = 'normal'
         pcobranca.style.marginLeft = '4%'
         pcobranca.innerHTML = valorcobranca()
-        
+
         eee1.appendChild(eee1img)
-        // mostrar cálculo cobrança
         eee1.appendChild(pcobranca)
-        // ee5.appendChild(eee1)
-        // col1.appendChild(ee5)
+        col1.appendChild(eee1)
+
+
+        // div btn_renovar
+        let eee2 = document.createElement('div')
+        eee2.className = 'btn'
+
+        let btnRenovar = document.createElement('button')
+        btnRenovar.className = 'btnRenovar'
+        btnRenovar.innerHTML = 'Renovar'
+
+        eee1.appendChild(eee1img)
+        eee1.appendChild(pcobranca)
+        eee2.appendChild(btnRenovar)
+        col1.appendChild(eee1)
+        col1.appendChild(eee2)
 
 
         linha.appendChild(col1)
-        // linha.appendChild(col2)
         workspace.appendChild(linha)
     })
-
-
 }
 
-// function excluirItem(i) {
-//         fetch(uri + '/excluir/' + i, { method: 'DELETE' })
-//             .then(resp => resp.status)
-//             .then(resp => {
-//                 if (resp != 204) alert('Erro ao enviar dados')
-//                 else window.location.reload()
-//             })
-// }
 
 document.querySelector('#button').addEventListener('click', (e) => {
     e.preventDefault();
@@ -309,10 +295,6 @@ function add() {
         workspace.appendChild(clonemain)
 
 
-        // cloneasset.querySelector('.marcadorpag').addEventListener('click',(e) => {
-        //     e.target.parentNode.parentNode.remove()
-        // })
-
         titulo.value = ''
         autor.value = ''
         data_emprestimo.value = ''
@@ -324,17 +306,5 @@ function add() {
 
 
 }
-
-// function checkForModelo() {
-//     const workspaceText = document.getElementById('workspace-text');
-
-//     if (modelo) {
-//         workspaceText.style.visibility = 'hidden';
-//     } else {
-//         workspaceText.style.visibility = 'visible';
-//     }
-// }
-
-// checkForModelo();
 
 console.info('Script running')

@@ -9,7 +9,7 @@
 
     /* cores */
     --livro-bg-color: linear-gradient(to bottom, #8CC7A5 70%, #A8DABD 80%);
-    --livro-bg2-color: linear-gradient(#E0FFED, #C8FFDF);
+    --livro-bg2-color: linear-gradient(to left, #E0FFED 100%, #C8FFDF 90%);
     --offwhite: #FEFAE0;
     --green: #283618;
     --light-green: #606C38;
@@ -151,7 +151,7 @@ header {
 /* modal preencher campos */
 #menudrop {
     position: absolute;
-    z-index: 3;
+    z-index: 10;
 
     width: 100%;
     height: 100%;
@@ -421,25 +421,26 @@ main {
 
 .modelo {
     width: 17%;
-    height: 60%;
+    height: 55%;
     background: var(--livro-bg-color);
     border-radius: 0.5vw;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.100);
+
+    position: relative;
+    z-index: 10;
+
     display: flex;
     align-items: center;
     justify-content: center;
     margin-right: 3.3%;
-    margin-bottom: 4%;
+    margin-bottom: 5%;
     transition-duration: 0.3s;
 }
 
-/* .modelo:hover {
-    width: 30.5%;
-    height: 50.5%;
-    margin-right: 2.8%;
-    margin-bottom: 2%;
-} */
-
+.modelo:hover {
+    width: 17.5%;
+    height: 56%;
+}
 
 .card {
     display: none;
@@ -447,7 +448,7 @@ main {
 
 .asset {
     width: 90%;
-    height: 90%;
+    height: 93%;
     background: var(--livro-bg2-color);
     border-radius: 10px;
     
@@ -455,30 +456,41 @@ main {
     flex-direction: column;
     justify-content: center;
     margin-left: 4%;
+    margin-top: 2%;
     align-items: center;
     font-size: 1vw;
     color: black;
 
     position: relative;
-    z-index: 1;
+    z-index: 6;
 }
 
 .marcadorpag {
+    content: url(./Assets/IMG/modelo-side/component.png);
+
     position: absolute;
-    left: -6%;
-    top: 8%;
+    left: -9%;
+    top: 3%;
     z-index: 2;
     order: 2;
 
-    width: 27px;
-    height: 50rem;
-    border-radius: 40px;
-    background-color: transparent;
+    width: 29px;
+    height: 94%;
+    border-radius: 10px;
+}
 
-    background-image: url(./Assets/IMG/modelo-side/component.png);
-    background-repeat: no-repeat;
-    background-size: contain;
-    /* background-position: bottom 50% left; */
+.marcadorpag2 {
+    content: url(./Assets/IMG/modelo-side/rectangle.png);
+
+    position: absolute;
+    z-index: -10;
+    left: -12%;
+    top: 4%;
+
+    width: 35px;
+    height: 94%;
+
+    border-radius: 15px;
 }
 
 .foto {
@@ -517,12 +529,19 @@ main {
     flex-direction: column;
 } */
 
+.data_emprestimo {
+    margin-top: 5%;
+}
+
 .data_emprestimo,
 .data_prevista,
-.campocobranca {
+.cobranca {
     width: 80%;
     height: 17%;
+
     margin-bottom: 1%;
+    margin-left: 6%;
+    
     display: flex;
     align-items: center;
     overflow-x: auto;
@@ -557,7 +576,7 @@ main {
 }
 
 .cobranca {
-    width: 100%;
+    width: 90%;
     height: 55%;
     display: flex;
     align-items: center;
@@ -574,10 +593,6 @@ main {
 } */
 
 .btn_renovar {
-    margin-top: 3%;
-    width: 90%;
-    height: 23%;
-    font-size: 0.8vw;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -585,12 +600,16 @@ main {
 
 .btn {
     width: 100%;
-    height: 55%;
+    height: 20%;
+
     display: flex;
+    justify-content: center;
     align-items: center;
-    border-radius: 20px;
+    border-radius: 10px;
+
+    background-color: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(114, 103, 2, 25%);
     
-    background: linear-gradient(to bottom right, #80C0C8 10%, #B7E8EE);
     color: var(--offwhite);
 
     font-weight: ita;
@@ -598,4 +617,22 @@ main {
     margin-top: 3%;
     padding: 4%;
     overflow: hidden;
+}
+
+.btnRenovar {
+    font-family: var(--lexend);
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: white;
+
+    border: none;
+    border-radius: 5px;
+
+    width: 50%;
+    height: 90%;
+
+    background: linear-gradient(to right, #80C0C8, #B7E8EE);
+    box-shadow: 0px 4px 4px rgba(178, 239, 157, 40%);
+
+    cursor: pointer;
 }
