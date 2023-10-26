@@ -33,12 +33,14 @@ hideWorkspaceIfModeloExists();
 
 // ao apertar botão 'esc', ele fecha o modal
 document.addEventListener('keydown', function (event) {
-    const iconFechar = document.getElementById('icon-fechar');
-    const back01Div = document.querySelector('.back01');
+    if (event.key === "Escape") {
+        const backDiv = document.querySelector('.back1');
+        const iconFechar = document.querySelector('#icon-fechar');
 
-    if (back01Div.display === 'block') {
-        if (event.key === "Escape") {
-            iconFechar.click();
+        if (iconFechar && backDiv && getComputedStyle(backDiv).display === 'block' && getComputedStyle(iconFechar).display === 'block') {
+            if (iconFechar) {
+                iconFechar.click()
+            }
         }
     }
 });
