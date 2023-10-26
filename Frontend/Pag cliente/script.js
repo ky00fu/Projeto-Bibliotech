@@ -17,21 +17,39 @@ const asset = document.querySelector('.asset')
 const clonemain = modelo.cloneNode(true)
 const cloneasset = asset.cloneNode(true)
 
+
+
+function hideWorkspaceIfModeloExists() {
+    if (modelo) {
+        workspaceText.style.display = 'none';
+    } else {
+        workspaceText.style.display = 'block';
+    }
+}
+
+hideWorkspaceIfModeloExists();
+
+
+
+// ao apertar botão 'esc', ele fecha o modal
+document.addEventListener('keydown', function (event) {
+    const iconFechar = document.getElementById('icon-fechar');
+    const back01Div = document.querySelector('.back01');
+
+    if (back01Div.display === 'block') {
+        if (event.key === "Escape") {
+            iconFechar.click();
+        }
+    }
+});
+
+
+
 fetch(uri + '/listar', { method: 'GET' })
     .then(resp => resp.json())
     .then(resp => montarlista(resp))
     .catch(err => console.error(err));
 
-
-function hideWorkspaceIfModeloExists() {
-    if (!modelo) {
-        workspaceText.style.display = 'block';
-    } else {
-        workspaceText.style.display = 'none';
-    }
-}
-
-hideWorkspaceIfModeloExists();
 
 // modelo
 function montarlista(vetor) {
@@ -303,8 +321,6 @@ function add() {
         valor.value = ''
         urlimg.value = ''
     }
-
-
 }
 
 console.info('Script running')
