@@ -39,8 +39,6 @@
 
   .container-cmenu {
     width: 100%;
-    /* padding: 6%; */
-    /* border: 2px solid red; */
     margin: 7%;
 
     display: flex;
@@ -77,7 +75,6 @@
 
   /* div com livros ou mensagem */
   .workspace {
-    /* background-repeat: repeat-y; */
     background-color: var(--branco-bg);
 
     width: 100%;
@@ -114,7 +111,7 @@
 
   .modelo:hover {
     width: 81%;
-    height: 71%;
+    height: 76%;
   }
 
   .titulo,
@@ -133,7 +130,6 @@
 
   /* modal adicionar livro */
   .back1 {
-    /* margin-top: 10%; */
     margin-right: 3%;
     width: 100%;
   }
@@ -160,7 +156,6 @@
   }
 
   .aviso {
-    /* order: 1; */
     height: 100%;
     margin: 0;
   }
