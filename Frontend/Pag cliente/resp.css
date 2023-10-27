@@ -47,7 +47,6 @@
     justify-content: center;
 
     order: 1;
-    /* border: 2px solid red; */
   }
 
   #workspace-text {
@@ -59,7 +58,7 @@
   .modelo {
     margin-top: 5%;
     z-index: 3;
-    
+
     border-radius: 10px;
 
     width: 80%;
