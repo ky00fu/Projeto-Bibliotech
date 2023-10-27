@@ -6,7 +6,18 @@
     position: relative;
   }
 
-  .notransition {
+  body,
+  .form-container {
+    /* height: 100%; */
+    overflow: visible;
+  }
+
+  .notransition,
+  .btnRenovar:hover,
+  .modelo:hover,
+  #icon:hover,
+  #cmenu:hover,
+  #btn-emprestar:hover {
     -webkit-transition: none !important;
     -moz-transition: none !important;
     -o-transition: none !important;
@@ -15,9 +26,10 @@
 
   main {
     width: 100%;
-    background: linear-gradient(to bottom, #a3c4b1 10%, #aae1c1 70%);
+    height: 100%;
   }
 
+  /* header */
   #logo-bbtech {
     order: -1;
   }
@@ -29,66 +41,28 @@
   #header-txt {
     text-align: center;
     position: relative;
-    margin-top: 0.4em;
+    margin-top: 0.3em;
   }
 
   .icon-usuario {
     order: -1;
     gap: 5%;
   }
-
-  .workspace {
-    width: 100%;
-    height: 100%;
-    margin-top: 140%;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    order: 1;
-  }
-
-  #workspace-text {
-    margin-bottom: 160%;
-    width: 80%;
-    height: 5%;
-  }
-
-  .modelo {
-    margin-top: 5%;
-    z-index: 3;
-
-    border-radius: 10px;
-
-    width: 80%;
-    height: 65%;
-  }
-
-  .titulo,
-  .data_emprestimo,
-  .data_prevista,
-  .campocobranca,
-  .cobranca {
-    width: 90%;
-    font-size: 1rem;
-  }
-
-  .foto {
-    width: 90%;
-    height: 80%;
-  }
-
+  
+  /* botão adicionar livro */
   .formulario {
     width: 100%;
     height: 100%;
 
     margin: 0;
-    margin-top: 5%;
+    margin-top: 2%;
   }
 
   .container-cmenu {
+    box-shadow: 0px 4px 4px rgba(114, 103, 2, 25%);
+
     background: var(--branco-bg);
+
     width: 100%;
     padding: 2%;
 
@@ -108,6 +82,55 @@
     left: 0;
   }
 
+  /* div com livros ou mensagem */
+  .workspace {
+    width: 100%;
+    height: 80%;
+
+    margin-top: 88%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-y: scroll;
+
+    order: 1;
+  }
+
+  #workspace-text {
+    margin-bottom: 160%;
+    width: 80%;
+    height: 5%;
+  }
+
+  /* livros */
+  .modelo {
+    margin-top: 5%;
+    z-index: 3;
+
+    border-radius: 10px;
+
+    width: 80%;
+    height: 60%;
+
+    overflow-y: scroll;
+  }
+
+  .titulo,
+  .data_emprestimo,
+  .data_prevista,
+  .campocobranca,
+  .cobranca {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .foto {
+    width: 80%;
+    height: 70%;
+  }
+
+  /* modal adicionar livro */
   .back1 {
     width: 90%;
   }

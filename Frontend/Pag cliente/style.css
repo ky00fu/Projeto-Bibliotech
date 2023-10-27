@@ -10,14 +10,13 @@
     /* cores */
     --livro-bg-color: linear-gradient(to bottom, #8CC7A5 70%, #A8DABD 80%);
     --livro-bg2-color: linear-gradient(to left, #E0FFED 100%, #C8FFDF 90%);
+    --branco-bg: rgba(255, 255, 255, 72%);
+    --gradient-bg: linear-gradient(to bottom, #4BBED7 1%, #A3C4B1 18%, #AAE1C1 100%);
+    --gradient-header: linear-gradient(#73B5C3, #58A5BF);
     --offwhite: #FEFAE0;
     --green: #283618;
-
-    --branco-bg: rgba(255, 255, 255, 72%);
     --preto-txt: #464646;
     --blue-txt: #3E8BA3;
-    --gradient-header: linear-gradient(#73B5C3, #58A5BF);
-    --gradient-background: linear-gradient(to bottom, #4BBED7 1%, #A3C4B1 18%, #AAE1C1 100%);
     --blue: #73B5C3;
 }
 
@@ -373,7 +372,7 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: var(--gradient-background);
+    background: var(--gradient-bg);
 }
 
 .workspace {
@@ -387,10 +386,6 @@ main {
     flex-wrap: wrap;
 
     background-color: var(--branco-bg);
-
-    /* transition-duration: 1s;
-    animation-name: aparecer;
-    animation-duration: 2s; */
 }
 
 #workspace-text {
@@ -523,13 +518,6 @@ main {
     max-width: max-content;
 }
 
-/* .info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-} */
-
 .data_emprestimo {
     margin-top: 5%;
 }
@@ -549,11 +537,6 @@ main {
     font-size: 1rem;
 }
 
-/* .ee1img {
-    content: url('./Assets/Ícones/');
-    width: 15%;
-} */
-
 .ee2img,
 .ee3img,
 .ee4img {
@@ -565,33 +548,6 @@ main {
     content: url('./Assets/Ícones/asset-valor.png');
     width: 13%;
 }
-
-/* .campocobranca {
-    margin-top: 3%;
-    width: 90%;
-    height: 23%;
-    font-size: 0.8vw;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-}
-
-.cobranca {
-    width: 90%;
-    height: 55%;
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
-    
-    background: linear-gradient(to bottom right, #80C0C8 10%, #B7E8EE);
-    color: var(--offwhite);
-
-    font-weight: ita;
-    
-    margin-top: 3%;
-    padding: 4%;
-    overflow: hidden;
-} */
 
 .btn_renovar {
     display: flex;
