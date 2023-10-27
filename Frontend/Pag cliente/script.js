@@ -274,7 +274,7 @@ function add() {
         clonemain.classList.remove('card')
 
         clonemain.querySelector(".asset").remove();
-        clonemain.querySelector(".info").remove();
+        // clonemain.querySelector(".info").remove();
 
         cloneasset.querySelector('.foto').style.backgroundImage = `url(${image.value})`
         cloneasset.querySelector('#ti').innerHTML = titulo.value
@@ -287,11 +287,11 @@ function add() {
         function cobrar() {
 
             if (data_prevista.value == '' && data_devolucao.value == '')
-                return 'sem datas'
+                return 'Sem datas'
             else if (data_devolucao.value != '' && data_prevista.value == '')
-                return 'sem data prevista'
+                return 'Sem data prevista'
             else if (data_prevista.value != '' && data_devolucao.value == '')
-                return 'sem devolução'
+                return 'Sem devolução'
             else if (data_prevista.value < data_devolucao.value) {
                 let porcen = Number(valor.value) * 0.1
 

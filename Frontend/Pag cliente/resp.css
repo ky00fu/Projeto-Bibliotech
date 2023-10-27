@@ -4,29 +4,8 @@
   body {
     width: 100%;
     position: relative;
-  }
 
-  body,
-  .form-container {
-    /* height: 100%; */
-    overflow: visible;
-  }
-
-  /* .notransition,
-  .btnRenovar:hover,
-  .modelo:hover,
-  #icon:hover,
-  #cmenu:hover,
-  #btn-emprestar:hover {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-  } */
-
-  main {
-    width: 100%;
-    height: 100%;
+    overflow: hidden;
   }
 
   /* header */
@@ -48,7 +27,7 @@
     order: -1;
     gap: 5%;
   }
-  
+
   /* botão adicionar livro */
   .formulario {
     width: 100%;
@@ -59,12 +38,10 @@
   }
 
   .container-cmenu {
-    /* box-shadow: 0px 4px 4px rgba(114, 103, 2, 25%); */
-
-    background: var(--branco-bg);
-
     width: 100%;
-    padding: 10%;
+    /* padding: 6%; */
+    /* border: 2px solid red; */
+    margin: 7%;
 
     display: flex;
     justify-content: center;
@@ -72,16 +49,30 @@
   }
 
   #cmenu {
-    background-color: var(--branco-bg);
+    display: none;
+  }
 
-    width: 90px;
-    height: 90px;
+  #cmenu2 {
+    width: 100px;
+    height: 100px;
 
-    position: relative;
+    display: flex;
+    justify-content: center;
     align-items: center;
 
-    top: 0;
-    left: 0;
+    background: linear-gradient(white, white) padding-box,
+      linear-gradient(to right, #a9dfc0, #71c0c6) border-box;
+    border-radius: 50%;
+    border: 4px solid transparent;
+  }
+
+  #cmenu2 p {
+    font-family: var(--lexend);
+    font-weight: 300;
+    font-size: 2.25rem;
+    color: var(--preto-txt);
+
+    border-radius: 50%;
   }
 
   /* div com livros ou mensagem */
@@ -92,12 +83,13 @@
     width: 100%;
     height: 80%;
 
-    margin-top: 120%;
+    margin-top: 40%;
 
     display: flex;
     align-items: center;
     justify-content: center;
     overflow-y: scroll;
+    overflow-x: hidden;
 
     order: 1;
   }
@@ -111,12 +103,18 @@
   /* livros */
   .modelo {
     margin-top: 5%;
+    margin-right: 0;
     z-index: 3;
 
     border-radius: 10px;
 
     width: 80%;
-    height: 50%;
+    height: 75%;
+  }
+
+  .modelo:hover {
+    width: 81%;
+    height: 71%;
   }
 
   .titulo,
@@ -135,8 +133,9 @@
 
   /* modal adicionar livro */
   .back1 {
+    /* margin-top: 10%; */
     margin-right: 3%;
-    width: 96%;
+    width: 100%;
   }
 
   .form-container {
@@ -145,15 +144,11 @@
 
     left: 0;
     top: 1%;
-
-    overflow: hidden;
-    /* bottom: 3%; */
   }
 
   #icon-fechar {
     width: 9%;
     height: 4.5%;
-    /* margin-right: 50%; */
     position: relative;
     right: 5%;
   }

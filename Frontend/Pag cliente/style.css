@@ -148,6 +148,10 @@ header {
     border: 8px solid transparent;
 }
 
+#cmenu2 {
+    display: none;
+}
+
 /* modal preencher campos */
 #menudrop {
     position: absolute;
@@ -163,7 +167,8 @@ header {
     color: white;
 }
 
-#menu {
+#menu,
+#menu-resp {
     display: none;
 }
 
@@ -227,6 +232,10 @@ form {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+input {
+    font-family: var(--lexend);
 }
 
 ::placeholder {
@@ -381,7 +390,7 @@ main {
 
     margin-top: 6%;
     padding: 2%;
-    overflow: auto;
+    /* overflow: auto; */
     display: flex;
     flex-wrap: wrap;
 
@@ -428,7 +437,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 3.3%;
+    margin-right: 8%;
     margin-bottom: 5%;
     transition-duration: 0.3s;
 }
@@ -533,7 +542,7 @@ main {
 
     display: flex;
     align-items: center;
-    overflow-x: poisiauto;
+    overflow-x: auto;
     font-size: 1rem;
 }
 
@@ -599,4 +608,8 @@ main {
     width: 55%;
     height: 100%;
     font-size: 1.5rem;
+}
+
+.add-btn-resp {
+    display: none;    
 }
