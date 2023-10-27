@@ -11,7 +11,7 @@
     --livro-bg-color: linear-gradient(to bottom, #8CC7A5 70%, #A8DABD 80%);
     --livro-bg2-color: linear-gradient(to left, #E0FFED 100%, #C8FFDF 90%);
     --branco-bg: rgba(255, 255, 255, 72%);
-    --gradient-bg: linear-gradient(to bottom, #4BBED7 1%, #A3C4B1 18%, #AAE1C1 100%);
+    --gradient-bg: linear-gradient(to bottom, #4BBED7 .5%, #A3C4B1 25%, #AAE1C1 100%);
     --gradient-header: linear-gradient(#73B5C3, #58A5BF);
     --offwhite: #FEFAE0;
     --green: #283618;
@@ -67,7 +67,6 @@ header {
     to {
         opacity: 0;
     }
-
 }
 
 .error {
@@ -425,8 +424,8 @@ main {
 }
 
 .modelo {
-    width: 17%;
-    height: 55%;
+    width: 19%;
+    height: 56%;
     background: var(--livro-bg-color);
     border-radius: 0.5vw;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.100);
@@ -437,14 +436,14 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 8%;
+    margin-right: 6%;
     margin-bottom: 5%;
     transition-duration: 0.3s;
 }
 
 .modelo:hover {
-    width: 17.5%;
-    height: 56%;
+    width: 19.5%;
+    height: 57%;
 }
 
 .card {
