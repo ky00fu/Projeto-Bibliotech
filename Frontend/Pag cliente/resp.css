@@ -12,7 +12,7 @@
     overflow: visible;
   }
 
-  .notransition,
+  /* .notransition,
   .btnRenovar:hover,
   .modelo:hover,
   #icon:hover,
@@ -22,7 +22,7 @@
     -moz-transition: none !important;
     -o-transition: none !important;
     transition: none !important;
-  }
+  } */
 
   main {
     width: 100%;
@@ -55,16 +55,16 @@
     height: 100%;
 
     margin: 0;
-    margin-top: 2%;
+    margin-top: 10%;
   }
 
   .container-cmenu {
-    box-shadow: 0px 4px 4px rgba(114, 103, 2, 25%);
+    /* box-shadow: 0px 4px 4px rgba(114, 103, 2, 25%); */
 
     background: var(--branco-bg);
 
     width: 100%;
-    padding: 2%;
+    padding: 10%;
 
     display: flex;
     justify-content: center;
@@ -72,6 +72,8 @@
   }
 
   #cmenu {
+    background-color: var(--branco-bg);
+
     width: 90px;
     height: 90px;
 
@@ -84,10 +86,13 @@
 
   /* div com livros ou mensagem */
   .workspace {
+    /* background-repeat: repeat-y; */
+    background-color: var(--branco-bg);
+
     width: 100%;
     height: 80%;
 
-    margin-top: 88%;
+    margin-top: 120%;
 
     display: flex;
     align-items: center;
@@ -111,9 +116,7 @@
     border-radius: 10px;
 
     width: 80%;
-    height: 60%;
-
-    overflow-y: scroll;
+    height: 50%;
   }
 
   .titulo,
@@ -132,31 +135,49 @@
 
   /* modal adicionar livro */
   .back1 {
-    width: 90%;
+    margin-right: 3%;
+    width: 96%;
   }
 
   .form-container {
-    height: 99.5%;
-    bottom: 5.3%;
+    width: 100%;
+    height: 89%;
+
+    left: 0;
+    top: 1%;
+
+    overflow: hidden;
+    /* bottom: 3%; */
   }
 
   #icon-fechar {
-    width: 6%;
+    width: 9%;
+    height: 4.5%;
+    /* margin-right: 50%; */
+    position: relative;
+    right: 5%;
   }
 
   #cadastro h1 {
     margin-top: 20%;
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .aviso {
-    order: 1;
+    /* order: 1; */
     height: 100%;
     margin: 0;
   }
 
+  #aviso-data {
+    font-size: 1rem;
+  }
+
   #btn-emprestar {
-    width: 100%;
+    width: 60%;
+    height: 3.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 20%;
   }
 }
