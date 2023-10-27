@@ -6,6 +6,13 @@
     position: relative;
   }
 
+  .notransition {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+  }
+
   main {
     width: 100%;
     background: linear-gradient(to bottom, #a3c4b1 10%, #aae1c1 70%);
@@ -33,7 +40,7 @@
   .workspace {
     width: 100%;
     height: 100%;
-    margin-top: 130%;
+    margin-top: 140%;
 
     display: flex;
     align-items: center;
@@ -44,7 +51,7 @@
   }
 
   #workspace-text {
-    margin-top: 40%;
+    margin-bottom: 160%;
     width: 80%;
     height: 5%;
   }
@@ -52,17 +59,11 @@
   .modelo {
     margin-top: 5%;
     z-index: 3;
-
+    
     border-radius: 10px;
 
     width: 80%;
     height: 65%;
-  }
-
-  .modelo:hover,
-  #cmenu:hover,
-  .btnRenovar:hover {
-    transition: 0s;
   }
 
   .titulo,
@@ -82,12 +83,15 @@
   .formulario {
     width: 100%;
     height: 100%;
+
+    margin: 0;
+    margin-top: 5%;
   }
 
   .container-cmenu {
     background: var(--branco-bg);
     width: 100%;
-    padding: 3%;
+    padding: 2%;
 
     display: flex;
     justify-content: center;
@@ -103,10 +107,6 @@
 
     top: 0;
     left: 0;
-  }
-
-  #cmenu:hover {
-    transition: none;
   }
 
   .back1 {
