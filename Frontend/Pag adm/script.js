@@ -49,6 +49,11 @@ function montarlista(vetor) {
     let e1 = document.createElement("div");
     e1.className = "marcadorpag";
 
+    let e1b = document.createElement("div");
+    e1b.className = "marcadorpag2";
+
+    col2.appendChild(e1b)
+
     // mensagem erro
     let msgErro = document.createElement("div");
     msgErro.className = "error";
@@ -222,11 +227,14 @@ function montarlista(vetor) {
     // cálculo cobrança
     function valorcobranca() {
       if (e.data_prevista == null && e.data_devolucao == null)
-        return "Sem datas";
+        // return "Sem datas";
+        return "R$ 0.00";
       else if (e.data_devolucao != null && e.data_prevista == null)
-        return "Sem data prevista";
+        // return "Sem data prevista";
+        return "R$ 0.00";
       else if (e.data_prevista != null && e.data_devolucao == null)
-        return "Sem devolução";
+        // return "Sem devolução";
+        return "R$ 0.00";
       else if (e.data_prevista < e.data_devolucao) {
         let porcen = Number(e.valor) * 0.1;
 
@@ -236,7 +244,9 @@ function montarlista(vetor) {
         let diferenca = (ddv - dpv) / (1000 * 60 * 60 * 24);
 
         return porcen * diferenca;
-      } else return "Devolvido no prazo";
+      } else
+      //  return "Devolvido no prazo";
+        return "R$ 0.00";
     }
 
     // div campo_cobranca
@@ -267,8 +277,9 @@ function montarlista(vetor) {
     let pcobranca = document.createElement("p");
     pcobranca.style.fontStyle = "normal";
     pcobranca.style.marginLeft = "4%";
-    pcobranca.innerHTML = `R$ ${e.valor}`;
-
+    // pcobranca.innerHTML = `R$ ${e.valor}`;
+    pcobranca.innerHTML = valorcobranca();
+    
     eee1.appendChild(eee1img);
     eee1.appendChild(pValorOriginal);
     eee2.appendChild(eee2img);
@@ -363,8 +374,6 @@ function montarlista(vetor) {
     linha.appendChild(col2);
 
     col2.style.display = 'none'
-    console.log(col2.style.display)
-    console.log(col1.style.display)
 
     workspace.appendChild(linha);
   });

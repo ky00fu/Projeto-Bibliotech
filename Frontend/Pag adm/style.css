@@ -235,8 +235,11 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+
   margin-right: 6%;
   margin-bottom: 5%;
+  margin-top: 1%;
+  
   transition-duration: 0.3s;
 }
 
@@ -258,7 +261,9 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   margin-top: 2%;
+
   align-items: center;
   font-size: 1rem;
   color: black;
@@ -267,6 +272,16 @@ main {
 }
 
 .marcadorpag {
+  content: url(./Assets/IMG/componente/componente.png);
+
+  position: absolute;
+  bottom: 97%;
+  width: 50%;
+
+  z-index: -1;
+}
+
+.marcadorpag2 {
   content: url(./Assets/IMG/componente/componente.png);
 
   position: absolute;
@@ -427,7 +442,7 @@ main {
 
 .form-container {
   width: 90%;
-  height: 95%;
+  height: 93%;
   background: var(--livro-bg2-color);
   border-radius: 10px;
 
@@ -435,14 +450,17 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+  margin-top: 2%;
+
+  position: relative;
+
   font-size: 1rem;
   color: black;
-  overflow: hidden;
 }
 
 .form-container input {
   font-family: var(--lexend);
-  /* color: #747474; */
   font-size: 1rem;
 
   width: 70%;
