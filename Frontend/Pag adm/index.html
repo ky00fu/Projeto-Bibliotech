@@ -6,117 +6,140 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="shortcut icon" href="./Assets/Favicon/favicon-azul-claro.png" type="image/x-icon">
+    <link rel="shortcut icon" href="./Assets/Favicon/favicon-roxo.png" type="image/x-icon">
 
     <title>Seus empréstimos</title>
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="resp.css">
 </head>
 
 <body>
 
     <header>
-        <img src="./Assets/Ícones/icone-livro.png" alt="logo Bibliotech" height="70%" style="align-self: center;">
-        <h1 style="font-size: 3rem;">Seus empréstimos</h1>
-
-        <div class="icon-usuario">
-            <h1>Cliente</h1>
-            <img src="./Assets/Ícones/icone-usuario.png" alt="ícone usuário">
-        </div>
-
-        <div class="formulario">
-            <label for="menu" id="cmenu">
-                <button>Add</button>
-            </label>
-
-            <input type="checkbox" id="menu">
-
-            <div id="menudrop">
-                <div class="back">
-                    <div class="back1">
-                        <label for="menu">
-                            <img src="../Assets/icon_close.png" alt="icone close" width="30px" height="30px"
-                                style="margin-top: 2%; margin-left: 93%; cursor: pointer;">
-                        </label>
-                        <p class="error card">Esse é um erro</p>
-                        <form id="cadastro">
-                            <h1 style="font-size: 1.5vw; margin-bottom: 5%;">Preencha os campos abaixo</h1>
-                            <div class="titulo_autor">
-                                <input type="text" name="titulo" id="titulo" required placeholder="Título do livro">
-                            </div>
-                            <div class="titulo_autor">
-                                <input type="text" name="autor" id="autor" required placeholder="Autor do emprestimo">
-                            </div>
-                            <div class="datas">
-                                <p style="font-size: 1vw; margin-right: 5%;">Data do emprestimo do livro</p>
-                                <input type="date" name="data_emprestimo" id="data_emprestimo" required min="2010-01-01"
-                                    max="2024-01-01">
-                            </div>
-                            <div class="datas">
-                                <p style="font-size: 1vw; margin-right: 5%;">Data prevista para devolução</p>
-                                <input type="date" name="data_prevista" id="data_prevista" min="2010-01-01"
-                                    max="2024-01-01">
-                            </div>
-                            <div class="datas">
-                                <p style="font-size: 1vw; margin-right: 5%;">Data da devolução</p>
-                                <input type="date" name="data_devolucao" id="data_devolucao" min="2010-01-01"
-                                    max="2024-01-01">
-                            </div>
-                            <div class="valors">
-                                <input type="number" name="valor" id="valor" placeholder="Valor do livro">
-                            </div>
-                            <div class="imgs">
-                                <input type="text" name="image" id="image" required placeholder="URL imagem">
-                            </div>
-                            <div class="buttons">
-                                <button id="button">Enviar</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="header-content">
+            <img src="./Assets/Ícones/icone-bbtech.png" alt="logo Bibliotech" id="logo-bbtech" height="80%" style="align-self: center;">
+    
+            <div>
+                <h1 id="header-txt">Gerenciamento de livros</h1>
             </div>
+        </div>
     </header>
 
     <main>
         <div class="workspace">
-            <h3 id="workspace-text">Parece que sua lista está vazia. Clique no ícone de "add" para realizar novos empréstimos!</p>
+            
+            <h3 id="workspace-text">Nenhum livro registrado no banco</h3>
 
             <div class="modelo card">
+                
+                <div class="marcadorpag"></div>
+                    
                 <div class="asset">
+
                     <div class="marcadorpag"></div>
-                    <div class="foto"></div>
-                    <p id="ti">Harry</p>
-                    <div class="titulo">
-                    </div>
-                </div>
-                <div class="info">
-                    <div class="autor">
-                        <img alt="icone do usuário" class="ee1img">
-                        <p id="au" style="margin-left: 4%;"></p>
-                    </div>
-                    <div class="data_emprestimo">
-                        <img alt="icon calendario" class="ee2img">
-                        <p id="de" style="margin-left: 4%;"></p>
-                    </div>
-                    <div class="data_prevista">
-                        <img alt="icon calendario" class="ee3img">
-                        <p id="dp" style="margin-left: 4%;"></p>
-                    </div>
-                    <div class="data_devolucao">
-                        <img alt="icon calendario" class="ee4img">
-                        <p id="dd" style="margin-left: 4%;"></p>
-                    </div>
-                    <div class="campocobranca">
-                        <div class="cobranca">
-                            <img alt="icon de moeda" class="eee1img">
-                            <p id="cobr" style="margin-left: 4%;">null</p>
+
+                    <div class="side-btns">
+                        <div class="btn_deletar">                        
+                            <img alt="icon deletar" class="eee3img">
+                        </div>
+                    
+                        <div class="btn_editar">
+                            <img alt="icon editar" class="eee4img">
                         </div>
                     </div>
+
+                    <div class="content">                        
+                        <div class="titulo"></div>
+                        
+                        <div class="foto"></div>
+    
+                        <div class="id_cliente">
+                            <img src="./Assets/Ícones/icone-cliente-id.png" alt="ícone cliente id" class="ee1img">
+                            <p id="cn" style="margin-left: 4%;"></p>
+                        </div>
+                            
+                        <div class="data_emprestimo">
+                            <img alt="icon calendario" class="ee2img">
+                            <p id="de" style="margin-left: 4%;"></p>
+                        </div>
+                        
+                        <div class="data_prevista">
+                            <img alt="icon calendario" class="ee3img">
+                            <p id="dp" style="margin-left: 4%;"></p>
+                        </div>
+    
+                        <div class="data_devolucao">
+                            <img alt="icon calendario" class="ee4img">
+                            <p id="dp" style="margin-left: 4%;"></p>
+                        </div>
+                        
+                        <div class="campocobranca">
+                            <div class="valor-original">
+                                <img alt="icon de moeda" class="eee1img">
+                                <p id="cobr" style="margin-left: 4%;">null</p>
+                            </div>
+    
+                            <div class="cobranca">
+                                <img alt="icon de moeda" class="eee2img">
+                                <p id="cobr" style="margin-left: 4%;">null</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-container">
+                    
+                    <form id="edit">
+
+                        <div class="error">
+                            <p class="msg-erro" style="margin-left: 4%;"></p>
+                        </div>
+
+                        <div class="id_cliente">
+                            <img src="./Assets/Ícones/icone-cliente-id.png" alt="ícone cliente id" class="ee1img">
+                            <p id="cn" style="margin-left: 4%;"></p>
+                        </div>
+                            
+                        <div class="data_emprestimo">
+                            <img alt="icon calendario" class="ee2img">
+                            <p id="de" style="margin-left: 4%;"></p>
+                        </div>
+                        
+                        <div class="data_prevista">
+                            <img alt="icon calendario" class="ee3img">
+                            <input type="text" id="dp" style="margin-left: 4%;"></input>
+                        </div>
+    
+                        <div class="data_devolucao">
+                            <img alt="icon calendario" class="ee4img">
+                            <input type="text" id="dp" style="margin-left: 4%;"></input>
+                        </div>
+                        
+                        <div class="cobranca">
+                            <img alt="icon de moeda" class="eee2bimg">
+                            <input type="number" id="dp" style="margin-left: 4%;"></input>
+                        </div>
+
+                        <div class="btns-cancel-att">
+                            <div class="cancelar">
+                                <button class="btn-cancelar"></button>
+                            </div>
+
+                            <div class="atualizar">
+                                <button class="btn-atualizar"></button>
+                            </div>
+                        </div>
+                        
+                    </form>
+
                 </div>
             </div>
         </div>
     </main>
 </body>
+
 <script src="script.js"></script>
 
 </html>
