@@ -67,7 +67,7 @@ header {
 }
 
 .error {
-    position: absolute;
+    position: relative;
     top: 5%;
     
     color: #EA5959;
@@ -143,17 +143,15 @@ header {
     background: linear-gradient(150deg, #64ACC1 2%, #C6F4DA 48%, #C6F4DA 59%, #E7F7EE 100%);
 }
 
-.form-container {
-    width: 80%;
-    height: 99.7%;
+/* .form-container {
+    width: 100%;
+    height: 100%;
 
     background-color: rgba(3, 0, 48, 0.195);
     display: flex;
     justify-content: center;
     align-items: center;
-    align-self: center;
-    overflow: hidden;
-}
+} */
 
 .titulo_autor,
 .valors,
@@ -367,23 +365,7 @@ main {
 
     position: relative;
     z-index: 6;
-
-    transform: translateX(0);
 }
-
-.asset.content {
-    position: absolute;
-    transform: translateX(0);
-}
-
-.modelo.active .asset.content {
-    transition: none;
-    transform: translateX(-400px);
-}
-
-/* .modelo.active .form-container {
-    transition: none;
-} */
 
 .marcadorpag {
     content: url(./Assets/IMG/componente/componente.png);
@@ -423,7 +405,7 @@ main {
     font-size: min(0.9rem);
     max-width: max-content;
     
-    margin-top: 10%;
+    margin-top: 5%;
 }
 
 .id_cliente {
@@ -436,18 +418,15 @@ main {
     height: 10%;
 }
 
-.data_emprestimo {
-    margin-top: 5%;
-}
-
-/* icones */
+.id_cliente,
 .data_emprestimo,
 .data_prevista,
-.data_devolucao {
+.data_devolucao,
+.cobranca {
     width: 80%;
-    height: 17%;
+    height: 10%;
 
-    margin-bottom: 4%;
+    margin-bottom: 3%;
     margin-left: 5%;
 
     display: flex;
@@ -465,12 +444,12 @@ main {
 .ee3img,
 .ee4img {
     content: url('./Assets/Ícones/asset-calendar.png');
-    width: 13%;
+    width: 15%;
 }
 
 .campocobranca {
     width: 80%;
-    height: 50%;
+    height: 40%;
     gap: 30%;
 
     display: flex;
@@ -516,7 +495,6 @@ main {
 }
 
 .side-btns {
-    /* width: 5rem; */
     width: 100%;  
     height: 100%;
 }
@@ -527,7 +505,6 @@ main {
     position: absolute;
     left: 99%;
     top: 10%;
-    /* z-index: -1; */
 
     cursor: pointer;
 }
@@ -538,20 +515,17 @@ main {
 
 .form-container {
     width: 90%;
-    height: 93%;
+    height: 95%;
     background: var(--livro-bg2-color);
     border-radius: 10px;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-top: 2%;
     align-items: center;
     font-size: 1rem;
     color: black;
-
-    position: absolute;
-    transform: translateX(300px);
+    overflow: hidden;
 }
 
 .form-container input {
@@ -559,13 +533,14 @@ main {
     color: #747474;
     
     width: 70%;
+    /* height: 80%; */
     background: none;
     border: none;
     border-bottom: 3px solid #4A77CE;
     align-items: center;
     justify-content: center;
 
-    margin-bottom: 4%;
+    /* margin-bottom: 4%; */
     margin-left: 5%;
 }
 
@@ -575,25 +550,24 @@ main {
 
 .cobranca input {
     position: relative;
-    width: 68%;
-    margin-right: 8%;
+    margin-right: 10%;
 }
 
 .eee2bimg {
     content: url(./Assets/Ícones/asset-valor.png);
-    width: 12%;
+    width: 15%;
     position: relative;
-    left: 3%;
 }
 
 .btns-cancel-att {
-    width: 90%;
+    width: 80%;
     height: 30%;
     gap: 5%;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    align-self: center;
 }
 
 .btn-atualizar,

@@ -77,7 +77,7 @@ function montarlista(vetor) {
 
     let col1 = document.createElement("div");
     col1.className = "asset";
-    
+
     let col2 = document.createElement("div");
     col2.className = "form-container";
 
@@ -92,8 +92,8 @@ function montarlista(vetor) {
     pMsgErro.className = "msg-erro";
     pMsgErro.innerHTML = "Mensagem de erro";
 
-    msgErro.appendChild(pMsgErro)
-    col2.appendChild(msgErro)
+    msgErro.appendChild(pMsgErro);
+    col2.appendChild(msgErro);
 
     // foto do livro
     let e2 = document.createElement("div");
@@ -134,7 +134,7 @@ function montarlista(vetor) {
 
     let pdata_e = document.createElement("p");
     pdata_e.style.marginLeft = "4%";
-    
+
     let forde = new Date(e.data_emprestimo).toLocaleDateString();
     pdata_e.innerHTML = forde;
 
@@ -142,7 +142,7 @@ function montarlista(vetor) {
     ee2.appendChild(pdata_e);
     col1.appendChild(ee2);
     col2.appendChild(ee2);
-    
+
     if (e.data_prevista == "0000-00-00" || e.data_devolucao == "0000-00-00") {
       e.data_prevista = null;
       e.data_devolucao = null;
@@ -175,7 +175,7 @@ function montarlista(vetor) {
     ee3bimg.className = "ee3img";
 
     let idata_p = document.createElement("input");
-    idata_p.type = 'text'
+    idata_p.type = "text";
     pdata_p.style.marginLeft = "4%";
 
     if (e.data_prevista != null) idata_p.placeholder = fordp;
@@ -212,7 +212,7 @@ function montarlista(vetor) {
     ee4bimg.className = "ee4img";
 
     let idata_d = document.createElement("input");
-    idata_d.type = 'text'
+    idata_d.type = "text";
     idata_d.style.marginLeft = "4%";
 
     if (e.data_devolucao != null) idata_d.placeholder = fordd;
@@ -290,49 +290,51 @@ function montarlista(vetor) {
 
     // cálculo cobrança
     let icobranca = document.createElement("input");
-    icobranca.type = 'number'
-    icobranca.placeholder = `R$ ${e.valor}`
+    icobranca.type = "number";
+    icobranca.placeholder = `R$ ${e.valor}`;
     icobranca.style.fontStyle = "normal";
     icobranca.style.marginLeft = "4%";
 
     eee2b.appendChild(eee2bimg);
     eee2b.appendChild(icobranca);
-    col2.appendChild(eee2b)
+    col2.appendChild(eee2b);
 
-    let cancelarAtualizar = document.createElement("div")
-    cancelarAtualizar.className = "btns-cancel-att"    
+    let cancelarAtualizar = document.createElement("div");
+    cancelarAtualizar.className = "btns-cancel-att";
 
     // div botão cancelar edit
-    let divBtnCancelar = document.createElement("div")
-    divBtnCancelar.className = "cancelar"
-    
-    let btnCancelar = document.createElement("button")
-    btnCancelar.className = "btn-cancelar"
-    btnCancelar.innerHTML = "Cancelar"
+    let divBtnCancelar = document.createElement("div");
+    divBtnCancelar.className = "cancelar";
 
-    divBtnCancelar.appendChild(btnCancelar)
-    cancelarAtualizar.appendChild(divBtnCancelar)
+    let btnCancelar = document.createElement("button");
+    btnCancelar.className = "btn-cancelar";
+    btnCancelar.innerHTML = "Cancelar";
 
-    btnCancelar.addEventListener('click', () => {
-      modelo.classList.remove('active')
-    })
+    divBtnCancelar.appendChild(btnCancelar);
+    cancelarAtualizar.appendChild(divBtnCancelar);
+
+    btnCancelar.addEventListener("click", () => {
+      col2.style.display = "none";
+      col1.style.display = "block";
+    });
 
     // div botão atualizar edit
-    let divBtnAtualizar = document.createElement("div")
-    divBtnAtualizar.className = "atualizar"
+    let divBtnAtualizar = document.createElement("div");
+    divBtnAtualizar.className = "atualizar";
 
-    let btnAtualizar = document.createElement("button")
-    btnAtualizar.className = "btn-atualizar"
-    btnAtualizar.innerHTML = "Atualizar"
+    let btnAtualizar = document.createElement("button");
+    btnAtualizar.className = "btn-atualizar";
+    btnAtualizar.innerHTML = "Atualizar";
 
-    btnAtualizar.addEventListener('click', () => {
-      modelo.classList.remove('active')
-    })
-    
-    divBtnAtualizar.appendChild(btnAtualizar)
-    cancelarAtualizar.appendChild(divBtnAtualizar)
+    btnAtualizar.addEventListener("click", () => {
+      col2.style.display = "none";
+      col1.style.display = "block";
+    });
 
-    col2.appendChild(cancelarAtualizar)
+    divBtnAtualizar.appendChild(btnAtualizar);
+    cancelarAtualizar.appendChild(divBtnAtualizar);
+
+    col2.appendChild(cancelarAtualizar);
 
     // div delete-btn
     let eee3 = document.createElement("div");
@@ -349,9 +351,10 @@ function montarlista(vetor) {
     let eee4 = document.createElement("div");
     eee4.className = "btn_editar";
 
-    eee4.addEventListener('click', () => {
-      modelo.classList.add('active')
-    })
+    eee4.addEventListener("click", () => {
+      col1.style.display = "none";
+      col2.style.display = "block";
+    });
 
     let eee4img = document.createElement("img");
     eee4img.className = "eee4img";
@@ -361,6 +364,9 @@ function montarlista(vetor) {
 
     linha.appendChild(col1);
     linha.appendChild(col2);
+
+    col2.style.display = 'none'
+
     workspace.appendChild(linha);
   });
 }
