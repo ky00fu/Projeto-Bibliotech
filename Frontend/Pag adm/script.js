@@ -28,41 +28,6 @@ function hideWorkspaceText() {
 
 hideWorkspaceText();
 
-// function updateWorkspaceTextVisibility() {
-//     if (asset.length > 0) {
-//       workspaceText.style.display = 'none';
-//     } else {
-//       workspaceText.style.display = 'block';
-//     }
-//   }
-
-//   updateWorkspaceTextVisibility();
-
-// function updateWorkspaceTextVisibility() {
-//   if (modelo.length > 0) {
-//     workspaceText.style.display = 'none';
-//   } else {
-//     workspaceText.style.display = 'block';
-//   }
-// }
-
-// const observer = new MutationObserver(updateWorkspaceTextVisibility);
-// const observerConfig = { childList: true, subtree: true };
-// observer.observe(modelo, observerConfig);
-
-// ao apertar botão 'esc', ele fecha o modal
-// document.addEventListener('keydown', function (event) {
-//     if (event.key === "Escape") {
-//         const backDiv = document.querySelector('.back1');
-//         const iconFechar = document.querySelector('#icon-fechar');
-
-//         if (iconFechar && backDiv && getComputedStyle(backDiv).display === 'block' && getComputedStyle(iconFechar).display === 'block') {
-//             if (iconFechar) {
-//                 iconFechar.click()
-//             }
-//         }
-//     }
-// });
 
 fetch(uri + "/listar", { method: "GET" })
   .then((resp) => resp.json())
@@ -123,7 +88,21 @@ function montarlista(vetor) {
     ee1.appendChild(ee1img);
     ee1.appendChild(nomeCliente);
     col1.appendChild(ee1);
-    col2.appendChild(ee1);
+
+    // div cliente id edit
+    let ee1b = document.createElement("div");
+    ee1b.className = "id_cliente";
+
+    let nomeClienteb = document.createElement("p");
+    nomeClienteb.style.marginLeft = "4%";
+    nomeClienteb.innerHTML = e.autor;
+
+    let ee1bimg = document.createElement("img");
+    ee1bimg.className = "ee1bimg";
+
+    ee1b.appendChild(ee1bimg);
+    ee1b.appendChild(nomeClienteb);
+    col2.appendChild(ee1b);
 
     // div data_emprestimo
     let ee2 = document.createElement("div");
@@ -134,14 +113,32 @@ function montarlista(vetor) {
 
     let pdata_e = document.createElement("p");
     pdata_e.style.marginLeft = "4%";
-
+    
     let forde = new Date(e.data_emprestimo).toLocaleDateString();
+    
     pdata_e.innerHTML = forde;
 
     ee2.appendChild(ee2img);
     ee2.appendChild(pdata_e);
     col1.appendChild(ee2);
-    col2.appendChild(ee2);
+    
+    // div data_emprestimo edit
+    let ee2b = document.createElement("div");
+    ee2b.className = "data_emprestimo";
+
+    let ee2bimg = document.createElement("img");
+    ee2bimg.className = "ee2bimg";
+
+    let pdata_eb = document.createElement("p");
+    pdata_eb.style.marginLeft = "4%";
+
+    let fordeb = new Date(e.data_emprestimo).toLocaleDateString();
+    
+    pdata_eb.innerHTML = fordeb;
+
+    ee2b.appendChild(ee2bimg);
+    ee2b.appendChild(pdata_eb);
+    col2.appendChild(ee2b);
 
     if (e.data_prevista == "0000-00-00" || e.data_devolucao == "0000-00-00") {
       e.data_prevista = null;
@@ -161,7 +158,7 @@ function montarlista(vetor) {
     let fordp = new Date(e.data_prevista).toLocaleDateString();
 
     if (e.data_prevista != null) pdata_p.innerHTML = fordp;
-    else pdata_p.innerHTML = "";
+    else pdata_p.innerHTML = "00/00/0000";
 
     ee3.appendChild(ee3img);
     ee3.appendChild(pdata_p);
@@ -172,14 +169,14 @@ function montarlista(vetor) {
     ee3b.className = "data_prevista";
 
     let ee3bimg = document.createElement("img");
-    ee3bimg.className = "ee3img";
+    ee3bimg.className = "ee3bimg";
 
     let idata_p = document.createElement("input");
     idata_p.type = "text";
     pdata_p.style.marginLeft = "4%";
 
     if (e.data_prevista != null) idata_p.placeholder = fordp;
-    else idata_p.placeholder = "";
+    else idata_p.placeholder = "00/00/0000";
 
     ee3b.appendChild(ee3bimg);
     ee3b.appendChild(idata_p);
@@ -198,7 +195,7 @@ function montarlista(vetor) {
     let fordd = new Date(e.data_devolucao).toLocaleDateString();
 
     if (e.data_devolucao != null) data_d.innerHTML = fordd;
-    else data_d.innerHTML = "";
+    else data_d.innerHTML = "00/00/0000";
 
     ee4.appendChild(ee4img);
     ee4.appendChild(data_d);
@@ -209,14 +206,14 @@ function montarlista(vetor) {
     ee4b.className = "data_devolucao";
 
     let ee4bimg = document.createElement("img");
-    ee4bimg.className = "ee4img";
+    ee4bimg.className = "ee4bimg";
 
     let idata_d = document.createElement("input");
     idata_d.type = "text";
     idata_d.style.marginLeft = "4%";
 
     if (e.data_devolucao != null) idata_d.placeholder = fordd;
-    else idata_d.placeholder = "";
+    else idata_d.placeholder = "00/00/0000";
 
     ee4b.appendChild(ee4bimg);
     ee4b.appendChild(idata_d);
@@ -246,7 +243,7 @@ function montarlista(vetor) {
     let ee5 = document.createElement("div");
     ee5.className = "campocobranca";
 
-    // div cobranca
+    // div valor original
     let eee1 = document.createElement("div");
     eee1.className = "valor-original";
 
@@ -259,7 +256,7 @@ function montarlista(vetor) {
     pValorOriginal.style.marginLeft = "4%";
     pValorOriginal.innerHTML = `R$ ${e.valor}`;
 
-    // div cobranca-taxa
+    // div cobranca
     let eee2 = document.createElement("div");
     eee2.className = "cobranca";
 
@@ -281,7 +278,7 @@ function montarlista(vetor) {
     ee5.appendChild(eee2);
     col1.appendChild(ee5);
 
-    // div cobranca-taxa edit
+    // div cobranca edit
     let eee2b = document.createElement("div");
     eee2b.className = "cobranca";
 
@@ -315,7 +312,7 @@ function montarlista(vetor) {
 
     btnCancelar.addEventListener("click", () => {
       col2.style.display = "none";
-      col1.style.display = "block";
+      col1.style.display = "";
     });
 
     // div botão atualizar edit
@@ -328,7 +325,7 @@ function montarlista(vetor) {
 
     btnAtualizar.addEventListener("click", () => {
       col2.style.display = "none";
-      col1.style.display = "block";
+      col1.style.display = "";
     });
 
     divBtnAtualizar.appendChild(btnAtualizar);
@@ -353,7 +350,7 @@ function montarlista(vetor) {
 
     eee4.addEventListener("click", () => {
       col1.style.display = "none";
-      col2.style.display = "block";
+      col2.style.display = "";
     });
 
     let eee4img = document.createElement("img");
@@ -366,6 +363,8 @@ function montarlista(vetor) {
     linha.appendChild(col2);
 
     col2.style.display = 'none'
+    console.log(col2.style.display)
+    console.log(col1.style.display)
 
     workspace.appendChild(linha);
   });
