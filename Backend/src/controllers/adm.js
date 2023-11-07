@@ -19,23 +19,23 @@ function formatar(l) {
     return lista
 }
 
-const logar = (req, res) => {
-    let adm = new Adm(req.body)
+// const logar = (req, res) => {
+//     let adm = new Adm(req.body)
 
-    con.query(adm.entrar(), (err, result) => {
-        if (err == null) {
-            if (result.length > 0) {
-                res.status(202).json(formatar(result)).end()
-            } else {
-                res.status(404).json(formatar(result)).end()
-            }
-        } else {
-            res.status(500).json("Banco de dados não respondeu").end()
-        }
-    })
-}
+//     con.query(adm.entrar(), (err, result) => {
+//         if (err == null) {
+//             if (result.length > 0) {
+//                 res.status(202).json(formatar(result)).end()
+//             } else {
+//                 res.status(404).json(formatar(result)).end()
+//             }
+//         } else {
+//             res.status(500).json("Banco de dados não respondeu").end()
+//         }
+//     })
+// }
 
 module.exports = {
     listar,
-    logar
+    // logar
 }

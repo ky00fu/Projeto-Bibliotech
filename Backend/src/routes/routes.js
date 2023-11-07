@@ -10,6 +10,6 @@ router.get('/cliente/listar/:id', Cliente.listar);
 const Adm = require('../controllers/adm');
 
 router.get('/adm/listar', Adm.listar);
-router.post('/adm/logar', Adm.logar);
+// router.post('/adm/logar', Adm.logar);
 
 module.exports = router

@@ -29,7 +29,7 @@ function hideWorkspaceText() {
 hideWorkspaceText();
 
 
-fetch(uri + "/listar", { method: "GET" })
+fetch(uri + "/adm/listar", { method: "GET" })
   .then((resp) => resp.json())
   .then((resp) => montarlista(resp))
   .catch((err) => console.error(err));
@@ -68,7 +68,7 @@ function montarlista(vetor) {
     // foto do livro
     let e2 = document.createElement("div");
     e2.className = "foto";
-    e2.style.backgroundImage = `url(${e.img})`;
+    e2.style.backgroundImage = `url(${e.url})`;
 
     // título do livro
     let e3 = document.createElement("div");
@@ -88,7 +88,7 @@ function montarlista(vetor) {
 
     let nomeCliente = document.createElement("p");
     nomeCliente.style.marginLeft = "4%";
-    nomeCliente.innerHTML = e.autor;
+    nomeCliente.innerHTML = e.nome;
 
     ee1.appendChild(ee1img);
     ee1.appendChild(nomeCliente);
@@ -100,7 +100,7 @@ function montarlista(vetor) {
 
     let nomeClienteb = document.createElement("p");
     nomeClienteb.style.marginLeft = "4%";
-    nomeClienteb.innerHTML = e.autor;
+    nomeClienteb.innerHTML = e.nome;
 
     let ee1bimg = document.createElement("img");
     ee1bimg.className = "ee1bimg";

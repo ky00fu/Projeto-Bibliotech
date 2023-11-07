@@ -7,12 +7,12 @@ class Adm {
     }
 
     read() {
-            return `SELECT * FROM administrador`
+            return `SELECT * FROM admFront`
     }
 
-    entrar() {
-        return `SELECT * FROM administrador WHERE email = '${this.email}' AND senha = PASSWORD('${this.senha}')`
-    }
+    // entrar() {
+    //     return `SELECT * FROM administrador WHERE email = '${this.email}' AND senha = PASSWORD('${this.senha}')`
+    // }
 }
 
 module.exports = Adm
