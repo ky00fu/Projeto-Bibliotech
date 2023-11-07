@@ -1,15 +1,14 @@
-const express = require('express')
-const router = express.Router()
+const express = require("express");
+const router = express.Router();
 
-const Emprestimo = require('../controllers/emprestimo');
+const Cliente = require('../controllers/cliente');
 
-router.get('/', Emprestimo.teste);
-router.post('/emprestimo/criar', Emprestimo.criar);
-router.get('/emprestimo/listar', Emprestimo.listar);
-router.get('/emprestimo/listar/:id', Emprestimo.listar);
-router.put('/emprestimo/alterar', Emprestimo.alterar);
-router.delete('/emprestimo/excluir/:id', Emprestimo.excluir);
+router.post('/cliente/registro', Cliente.criar);
+router.get('/cliente/listar', Cliente.listar);
+router.get('/cliente/listar/:id', Cliente.listar);
 
+const Adm = require('../controllers/adm');
+
+router.get('/adm/listar', Adm.listar);
 
 module.exports = router
-
