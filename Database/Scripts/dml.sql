@@ -1,16 +1,16 @@
 -- Inserir dados na tabela 'cliente'
 INSERT INTO cliente (nome, email, senha) VALUES
-    ('João Silva', 'joao@email.com', 'senha123'),
-    ('Maria Santos', 'maria@email.com', 'senha456'),
-    ('Carlos Ferreira', 'carlos@email.com', 'senha789'),
-    ('Ana Rodrigues', 'ana@email.com', 'senhaabc'),
-    ('Pedro Oliveira', 'pedro@email.com', 'senhaxyz');
+    ('João Silva', 'joao@email.com', PASSWORD('senha123')),
+    ('Maria Santos', 'maria@email.com', PASSWORD('senha456')),
+    ('Carlos Ferreira', 'carlos@email.com', PASSWORD('senha789')),
+    ('Ana Rodrigues', 'ana@email.com', PASSWORD('senhaabc')),
+    ('Pedro Oliveira', 'pedro@email.com', PASSWORD('senhaxyz'));
 
 -- Inserir dados na tabela 'administrador'
 INSERT INTO administrador (email, senha) VALUES
-    ('admin1@admin.com', 'admin123'),
-    ('admin2@admin.com', 'admin456'),
-    ('admin3@admin.com', 'admin789');
+    ('admin1@admin.com', PASSWORD('admin123')),
+    ('admin2@admin.com', PASSWORD('admin456')),
+    ('admin3@admin.com', PASSWORD('admin789'));
 
 -- Inserir dados na tabela 'emprestimo'
 -- Inserir mais dados na tabela 'emprestimo'
