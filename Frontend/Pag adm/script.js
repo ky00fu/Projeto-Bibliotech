@@ -277,7 +277,6 @@ function montarlista(vetor) {
     let pcobranca = document.createElement("p");
     pcobranca.style.fontStyle = "normal";
     pcobranca.style.marginLeft = "4%";
-    // pcobranca.innerHTML = `R$ ${e.valor}`;
     pcobranca.innerHTML = valorcobranca();
     
     eee1.appendChild(eee1img);

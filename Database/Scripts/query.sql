@@ -1,7 +1,8 @@
 DROP VIEW IF EXISTS admFront;
 CREATE VIEW admFront AS
 SELECT 
-    c.id,
+    e.id AS id_emprestimo,
+    c.id AS id_cliente,
     c.nome,
     e.titulo,
     e.url,
