@@ -7,7 +7,7 @@ class Adm {
     }
 
     read() {
-            return `SELECT * FROM admFront`
+            return `SELECT * FROM administrador`
     }
 
     // entrar() {

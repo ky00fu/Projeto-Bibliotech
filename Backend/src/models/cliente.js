@@ -11,7 +11,7 @@ class Cliente {
   }
 
   read() {
-    return `SELECT * FROM emprestimo WHERE id_cliente = ${this.id}`;
+    return `SELECT * FROM cliente WHERE id_cliente = ${this.id}`;
   }
 }
 

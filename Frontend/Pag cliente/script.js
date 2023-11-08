@@ -1,5 +1,5 @@
 // const uri = 'http://localhost:2222/emprestimo'
-const uri = "http://localhost:3000/emprestimo";
+const uri = "http://localhost:3000";
 
 const titulo = document.querySelector("#titulo");
 const autor = document.querySelector("#autor");
@@ -17,53 +17,7 @@ const asset = document.querySelector(".asset");
 const clonemain = modelo.cloneNode(true);
 const cloneasset = asset.cloneNode(true);
 
-// function hideWorkspaceText() {
-//     if (asset.style.display !== "none") {
-//       workspaceText.style.display = "none";
-//     } else {
-//       workspaceText.style.display = "block";
-//     }
-//   }
-
-//   hideWorkspaceText();
-
-// function updateWorkspaceTextVisibility() {
-//     if (asset.length > 0) {
-//       workspaceText.style.display = 'none';
-//     } else {
-//       workspaceText.style.display = 'block';
-//     }
-//   }
-
-//   updateWorkspaceTextVisibility();
-
-// function updateWorkspaceTextVisibility() {
-//   if (modelo.length > 0) {
-//     workspaceText.style.display = 'none';
-//   } else {
-//     workspaceText.style.display = 'block';
-//   }
-// }
-
-// const observer = new MutationObserver(updateWorkspaceTextVisibility);
-// const observerConfig = { childList: true, subtree: true };
-// observer.observe(modelo, observerConfig);
-
-// ao apertar botão 'esc', ele fecha o modal
-// document.addEventListener('keydown', function (event) {
-//     if (event.key === "Escape") {
-//         const backDiv = document.querySelector('.back1');
-//         const iconFechar = document.querySelector('#icon-fechar');
-
-//         if (iconFechar && backDiv && getComputedStyle(backDiv).display === 'block' && getComputedStyle(iconFechar).display === 'block') {
-//             if (iconFechar) {
-//                 iconFechar.click()
-//             }
-//         }
-//     }
-// });
-
-fetch(uri + "/listar", { method: "GET" })
+fetch(uri + "/emprestimo/listar", { method: "GET" })
   .then((resp) => resp.json())
   .then((resp) => montarlista(resp))
   .catch((err) => console.error(err));

@@ -389,7 +389,7 @@ main {
 
     margin-top: 6%;
     padding: 2%;
-    /* overflow: auto; */
+    overflow: auto;
     display: flex;
     flex-wrap: wrap;
 
@@ -436,7 +436,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-right: 6%;
+    margin-right: 5%;
     margin-bottom: 5%;
     transition-duration: 0.3s;
 }

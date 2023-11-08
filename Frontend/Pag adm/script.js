@@ -1,5 +1,5 @@
 // const uri = 'http://localhost:2222/emprestimo'
-const uri = "http://localhost:3000/emprestimo";
+const uri = "http://localhost:3000";
 
 const titulo = document.querySelector("#titulo");
 const autor = document.querySelector("#autor");
@@ -29,7 +29,7 @@ function hideWorkspaceText() {
 hideWorkspaceText();
 
 
-fetch(uri + "/adm/listar", { method: "GET" })
+fetch(uri + "/emprestimo/listar", { method: "GET" })
   .then((resp) => resp.json())
   .then((resp) => montarlista(resp))
   .catch((err) => console.error(err));
@@ -346,7 +346,7 @@ function montarlista(vetor) {
     // div delete-btn
     let eee3 = document.createElement("div");
     eee3.className = "btn_deletar";
-    eee3.setAttribute("onclick", `excluirItem('${e.id}')`);
+    eee3.setAttribute("onclick", `excluirItem('${e.id_emprestimo}')`);
 
     let eee3img = document.createElement("img");
     eee3img.className = "eee3img";
@@ -379,7 +379,7 @@ function montarlista(vetor) {
 }
 
 function excluirItem(i) {
-  fetch(uri + "/excluir/" + i, { method: "DELETE" })
+  fetch(uri + "/emprestimo/excluir/" + i, { method: "DELETE" })
     .then((resp) => resp.status)
     .then((resp) => {
       if (resp != 204) alert("Erro ao enviar dados");
