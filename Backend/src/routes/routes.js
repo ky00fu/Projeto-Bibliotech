@@ -10,8 +10,6 @@ router.get('/cliente/listar/:id', Cliente.listar);
 const Adm = require('../controllers/adm');
 
 router.get('/adm/listar', Adm.listar);
-// router.delete('/adm/del', Adm.excluir);
-// router.post('/adm/logar', Adm.logar);
 
 const Emprestimo = require('../controllers/emprestimo');
 
