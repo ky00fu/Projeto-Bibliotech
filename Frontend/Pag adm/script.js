@@ -28,7 +28,6 @@ function hideWorkspaceText() {
 
 hideWorkspaceText();
 
-
 fetch(uri + "/emprestimo/listar", { method: "GET" })
   .then((resp) => resp.json())
   .then((resp) => montarlista(resp))
@@ -52,7 +51,7 @@ function montarlista(vetor) {
     let e1b = document.createElement("div");
     e1b.className = "marcadorpag2";
 
-    col2.appendChild(e1b)
+    col2.appendChild(e1b);
 
     // mensagem erro
     let msgErro = document.createElement("div");
@@ -118,15 +117,15 @@ function montarlista(vetor) {
 
     let pdata_e = document.createElement("p");
     pdata_e.style.marginLeft = "4%";
-    
+
     let forde = new Date(e.data_emprestimo).toLocaleDateString();
-    
+
     pdata_e.innerHTML = forde;
 
     ee2.appendChild(ee2img);
     ee2.appendChild(pdata_e);
     col1.appendChild(ee2);
-    
+
     // div data_emprestimo edit
     let ee2b = document.createElement("div");
     ee2b.className = "data_emprestimo";
@@ -138,7 +137,7 @@ function montarlista(vetor) {
     pdata_eb.style.marginLeft = "4%";
 
     let fordeb = new Date(e.data_emprestimo).toLocaleDateString();
-    
+
     pdata_eb.innerHTML = fordeb;
 
     ee2b.appendChild(ee2bimg);
@@ -244,9 +243,9 @@ function montarlista(vetor) {
         let diferenca = (ddv - dpv) / (1000 * 60 * 60 * 24);
 
         return porcen * diferenca;
-      } else
+      }
       //  return "Devolvido no prazo";
-        return "R$ 0.00";
+      else return "R$ 0.00";
     }
 
     // div campo_cobranca
@@ -278,7 +277,7 @@ function montarlista(vetor) {
     pcobranca.style.fontStyle = "normal";
     pcobranca.style.marginLeft = "4%";
     pcobranca.innerHTML = valorcobranca();
-    
+
     eee1.appendChild(eee1img);
     eee1.appendChild(pValorOriginal);
     eee2.appendChild(eee2img);
@@ -332,6 +331,7 @@ function montarlista(vetor) {
     let btnAtualizar = document.createElement("button");
     btnAtualizar.className = "btn-atualizar";
     btnAtualizar.innerHTML = "Atualizar";
+    btnAtualizar.setAttribute("onclick", `alterarItem('${e.id_emprestimo}')`);
 
     btnAtualizar.addEventListener("click", () => {
       col2.style.display = "none";
@@ -372,7 +372,7 @@ function montarlista(vetor) {
     linha.appendChild(col1);
     linha.appendChild(col2);
 
-    col2.style.display = 'none'
+    col2.style.display = "none";
 
     workspace.appendChild(linha);
   });
@@ -385,6 +385,32 @@ function excluirItem(i) {
       if (resp != 204) alert("Erro ao enviar dados");
       else window.location.reload();
     });
+}
+
+function alterarItem(i) {
+  let inpDP = document.querySelector('#data_prevista')
+  let inpDD = document.querySelector('#data_devolucao')
+  let inpValor = document.querySelector('#valor')
+
+  const dadosPUT = {
+    id: i,
+    data_prevista: inpDP.value,
+    data_devolucao: inpDD.value,
+    valor: inpValor.value,
+  };
+
+  const optionsPUT = {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(dadosPUT),
+  };
+
+  fetch(url + "/emprestimo/alterar/" + i, optionsPUT)
+    .then((resp) => {
+      alert("Dados alterados com sucesso");
+      window.location.reload();
+    })
+    .catch((err) => console.error(err));
 }
 
 const perror = document.querySelector(".error");

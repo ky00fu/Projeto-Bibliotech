@@ -16,7 +16,7 @@ const Emprestimo = require('../controllers/emprestimo');
 router.post('/emprestimo/criar', Emprestimo.criar);
 router.get('/emprestimo/listar', Emprestimo.listar);
 router.get('/emprestimo/listar/:id_cliente', Emprestimo.listar);
-router.put('/emprestimo/alterar', Emprestimo.alterar);
+router.put('/emprestimo/alterar/:id', Emprestimo.alterar);
 router.delete('/emprestimo/excluir/:id', Emprestimo.excluir);
 
 module.exports = router
