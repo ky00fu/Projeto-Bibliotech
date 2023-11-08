@@ -24,7 +24,7 @@ class Emprestimo {
     }
 
     update() {
-        return `UPDATE emprestimo SET data_prevista = '${this.data_prevista}', data_devolucao = '${this.data_devolucao}' WHERE id = '${this.id}'`
+        return `UPDATE emprestimo SET data_prevista = '${this.data_prevista}', data_devolucao = '${this.data_devolucao}', valor = '${this.valor}' WHERE id = '${this.id}'`
     }
 
     delete() {
