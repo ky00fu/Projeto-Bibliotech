@@ -1,1 +1,1 @@
-> Testando [código de login](https://github.com/ky00fu/senai/tree/main/2des/fullstack/login) com Front End e Back End do projeto Bibliotech atualizado.
+> Testando [código de login](https://github.com/ky00fu/senai/tree/main/2des/fullstack/login) com Front End e Back End atualizados.
