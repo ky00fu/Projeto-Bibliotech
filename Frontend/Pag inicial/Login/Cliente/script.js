@@ -1,6 +1,6 @@
 const url = "http://localhost:3000"
 
-const acesso = document.querySelector('.login');
+const acesso = document.querySelector('.acesso');
 const msgErro = document.querySelector('#msgErro');
 
 acesso.addEventListener('submit', function (e) {
