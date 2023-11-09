@@ -27,7 +27,16 @@ function hideWorkspaceText() {
 
 hideWorkspaceText();
 
-fetch(uri + "/emprestimo/listar", { method: "GET" })
+const dado = JSON.parse(window.localStorage.getItem("dados")) || null;
+const nomeUsuario = document.querySelector("#nome-usuario");
+
+if (dado !== null) {
+  nomeUsuario.innerHTML = dado.nome;
+} else {
+  alert("Usuário não encontrado");
+}
+
+fetch(uri + "/emprestimo/listar/" + dado.id, { method: "GET" })
   .then((resp) => resp.json())
   .then((resp) => montarlista(resp))
   .catch((err) => console.error(err));
@@ -297,15 +306,6 @@ function add() {
     valor.value = "";
     urlimg.value = "";
   }
-}
-
-const dado = JSON.parse(window.localStorage.getItem("dados")) || null;
-const nomeUsuario = document.querySelector("#nome-usuario");
-
-if (dado !== null) {
-  nomeUsuario.innerHTML = dado.nome;
-} else {
-  alert("Usuário não encontrado");
 }
 
 console.info("Script running");
