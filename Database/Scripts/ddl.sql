@@ -1,17 +1,18 @@
 DROP DATABASE IF EXISTS bibliotech;
 CREATE DATABASE bibliotech;
 USE bibliotech;
+
 CREATE TABLE cliente(
     id INT NOT NULL AUTO_INCREMENT,
     nome VARCHAR(200) NOT NULL,
     email TEXT NOT NULL,
-    senha VARCHAR(8) NOT NULL,
+    senha TEXT NOT NULL,
     PRIMARY KEY (id)
 );
 
 CREATE TABLE administrador(
     email TEXT NOT NULL,
-    senha VARCHAR(10) NOT NULL
+    senha TEXT NOT NULL
 );
 
 CREATE TABLE emprestimo(
