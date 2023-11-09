@@ -17,6 +17,16 @@ const asset = document.querySelector(".asset");
 const clonemain = modelo.cloneNode(true);
 const cloneasset = asset.cloneNode(true);
 
+function hideWorkspaceText() {
+  if (asset.style.display !== "none") {
+    workspaceText.style.display = "none";
+  } else {
+    workspaceText.style.display = "block";
+  }
+}
+
+hideWorkspaceText();
+
 fetch(uri + "/emprestimo/listar", { method: "GET" })
   .then((resp) => resp.json())
   .then((resp) => montarlista(resp))
@@ -287,6 +297,15 @@ function add() {
     valor.value = "";
     urlimg.value = "";
   }
+}
+
+const dado = JSON.parse(window.localStorage.getItem("dados")) || null;
+const nomeUsuario = document.querySelector("#nome-usuario");
+
+if (dado !== null) {
+  nomeUsuario.innerHTML = dado.nome;
+} else {
+  alert("Usuário não encontrado");
 }
 
 console.info("Script running");
