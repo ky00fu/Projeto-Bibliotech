@@ -38,28 +38,36 @@
         <img src="./Assets/Ícone/icone-livro.png" alt="ícone livro" id="logo">
         
         <div class="erro">
-          <p>Mensagem de erro</p>
+          <p id="msgErro"></p>
         </div>
 
 
-        <form>
+        <form class="login">
+
           <div class="info">
             <img src="./Assets/Ícone/icone-usuario.png" alt="ícone usuário">
-            <input type="text" id="nome" placeholder="Email do usuário">
+            <label for="email"></label>
+            <input type="email" name="email" id="email" placeholder="Email do usuário">
           </div>
 
           <div class="info">
             <img src="./Assets/Ícone/icone-senha.png" alt="ícone senha">
-            <input type="password" id="senha" placeholder="Senha">
+            <label for="senha"></label>
+            <input type="password" name="senha" id="senha" placeholder="Senha">
           </div>
 
           <div class="submit">
             <input type="submit" value="Entrar" id="entrar-btn">
           </div>
+
         </form>
 
       </div>
       
     </div>
+
   </body>
+
+  <script src="script.js"></script>
+  
 </html>
