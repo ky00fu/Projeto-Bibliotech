@@ -59,6 +59,10 @@ header {
     font-family: var(--lexend-giga);
 }
 
+#nome-usuario {
+    white-space: nowrap;
+}
+
 @keyframes aparecer {
     from {
         opacity: 1;
