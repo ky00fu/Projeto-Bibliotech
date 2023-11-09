@@ -50,7 +50,7 @@ function montarlista(vetor) {
     // foto do livro
     let e2 = document.createElement("div");
     e2.className = "foto";
-    e2.style.backgroundImage = `url(${e.img})`;
+    e2.style.backgroundImage = `url(${e.url})`;
 
     // título do livro
     let e3 = document.createElement("div");
