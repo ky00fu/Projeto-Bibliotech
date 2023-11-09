@@ -19,7 +19,24 @@ const listar = (req, res) => {
     })
 }
 
+const logar = (req, res) => {
+    let cliente = new Cliente(req.body)
+
+    con.query(cliente.entrar(), (err, result) => {
+        if (err == null) {
+            if (result.length > 0) {
+                res.status(202).json(result).end()
+            } else {
+                res.status(404).json(result).end()
+            }
+        } else {
+            res.status(500).json("Banco de dados não respondeu").end()
+        }
+    })
+}
+
 module.exports = {
     criar,
-    listar
+    listar,
+    logar
 }

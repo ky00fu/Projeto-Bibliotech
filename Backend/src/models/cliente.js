@@ -13,6 +13,10 @@ class Cliente {
   read() {
     return `SELECT * FROM cliente WHERE id_cliente = ${this.id}`;
   }
+
+  entrar() {
+    return `SELECT * FROM cliente WHERE email = '${this.email}' AND senha = PASSWORD('${this.senha}')`
+  }
 }
 
 module.exports = Cliente;

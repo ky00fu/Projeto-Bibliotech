@@ -9,10 +9,10 @@ class Adm {
     read() {
             return `SELECT * FROM administrador`
     }
-
-    // entrar() {
-    //     return `SELECT * FROM administrador WHERE email = '${this.email}' AND senha = PASSWORD('${this.senha}')`
-    // }
+    
+    entrar() {
+        return `SELECT * FROM administrador WHERE email = '${this.email}' AND senha = PASSWORD('${this.senha}')`
+    }
 }
 
 module.exports = Adm
