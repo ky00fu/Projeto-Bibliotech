@@ -4,7 +4,7 @@ USE bibliotech;
 
 CREATE TABLE cliente(
     id INT NOT NULL AUTO_INCREMENT,
-    nome VARCHAR(200) NOT NULL,
+    nome TEXT NOT NULL,
     email TEXT NOT NULL,
     senha TEXT NOT NULL,
     PRIMARY KEY (id)
