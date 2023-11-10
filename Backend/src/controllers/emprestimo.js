@@ -23,11 +23,32 @@ const listar = (req, res) => {
     })
 }
 
+// const alterar = (req, res) => {
+//     let emprestimo = new Emprestimo(req.body)
+//     con.query(emprestimo.update(), (err, result) => {
+//         if (result.affectedRows > 0)
+//             res.status(202).end()
+//         else
+//             res.status(404).end()
+//     })
+// }
+
 const alterar = (req, res) => {
-    let emprestimo = new Emprestimo(req.body)
+    const id_emprestimo = req.params.id
+    const updateData = req.body
+
+    if (!id_emprestimo || Object.keys(updateData).length === 0) {
+        return res.status(404).json({ error: 'Invalid request data' }).end()
+    }
+
+    let emprestimo = new Emprestimo({
+        id: id_emprestimo,
+        ...updateData
+    })
+
     con.query(emprestimo.update(), (err, result) => {
         if (result.affectedRows > 0)
-            res.status(202).end()
+            res.status(202).json(result).end()
         else
             res.status(404).end()
     })

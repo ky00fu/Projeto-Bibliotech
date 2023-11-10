@@ -11,11 +11,12 @@ class Cliente {
   }
 
   read() {
-    return `SELECT * FROM cliente WHERE id_cliente = ${this.id}`;
+    if (this.id_cliente == undefined) return `SELECT * FROM cliente`;
+    else return `SELECT * FROM cliente WHERE id = '${this.id}'`;
   }
 
   entrar() {
-    return `SELECT * FROM cliente WHERE email = '${this.email}' AND senha = PASSWORD('${this.senha}')`
+    return `SELECT * FROM cliente WHERE email = '${this.email}' AND senha = PASSWORD('${this.senha}')`;
   }
 }
 

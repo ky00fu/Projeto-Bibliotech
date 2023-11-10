@@ -24,7 +24,13 @@ class Emprestimo {
     }
 
     update() {
-            return `UPDATE emprestimo SET  data_prevista = '${this.data_prevista}', data_devolucao = '${this.data_devolucao}', valor = '${this.valor}' WHERE id = '${this.id}'`
+        const updateFields = []
+
+        if (this.data_prevista !== undefined) updateFields.push(`data_prevista = '${this.data_prevista}'`)
+        if (this.data_devolucao !== undefined) updateFields.push(`data_devolucao = '${this.data_devolucao}'`)
+        if (this.valor !== undefined) updateFields.push(`valor = '${this.valor}'`)
+
+        return `UPDATE emprestimo SET ${updateFields.join(', ')} WHERE id = '${this.id}'`
     }
 
     delete() {

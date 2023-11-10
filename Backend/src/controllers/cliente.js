@@ -3,6 +3,7 @@ const Cliente = require('../models/cliente')
 
 const criar = (req, res) => {
     let cliente = new Cliente(req.body)
+    
     con.query(cliente.create(), (err, result) => {
         if (err == null)
             res.status(201).end()
@@ -13,6 +14,7 @@ const criar = (req, res) => {
 
 const listar = (req, res) => {
     let cliente = new Cliente(req.params)
+
     con.query(cliente.read(), (err, result) => {
         if (err == null)
             res.json(result).end()
