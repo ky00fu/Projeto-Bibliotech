@@ -511,12 +511,14 @@ main {
   align-self: center;
 }
 
+.atualizar input,
 .btn-atualizar,
 .btn-cancelar {
   width: 7rem;
   height: 2rem;
 
   font-family: var(--lexend);
+  font-size: 0.9rem;
 
   background: #4a77ce;
   color: white;

@@ -328,14 +328,16 @@ function montarlista(vetor) {
     let divBtnAtualizar = document.createElement("div");
     divBtnAtualizar.className = "atualizar";
 
-    let btnAtualizar = document.createElement("button");
+    let btnAtualizar = document.createElement("input");
+    btnAtualizar.type = "submit";
+    btnAtualizar.value = "Atualizar";
     btnAtualizar.className = "btn-atualizar";
-    btnAtualizar.innerHTML = "Atualizar";
-    btnAtualizar.setAttribute("onclick", `alterarItem('${e.id_emprestimo}')`);
+    // btnAtualizar.setAttribute("onclick", `alterarItem('${e.id_emprestimo}')`);
 
     btnAtualizar.addEventListener("click", () => {
       col2.style.display = "none";
       col1.style.display = "";
+      alterarItem(`${e.id_emprestimo}`)
     });
 
     divBtnAtualizar.appendChild(btnAtualizar);
@@ -388,29 +390,44 @@ function excluirItem(i) {
 }
 
 function alterarItem(i) {
-  let inpDP = document.querySelector('#data_prevista')
-  let inpDD = document.querySelector('#data_devolucao')
-  let inpValor = document.querySelector('#valor')
+  event.preventDefault();
 
-  const dadosPUT = {
-    id: i,
-    data_prevista: inpDP.value,
-    data_devolucao: inpDD.value,
-    valor: inpValor.value,
+  let inpDP = document.querySelector('#data_prevista');
+  let inpDD = document.querySelector('#data_devolucao');
+  let inpValor = document.querySelector('#valor');
+
+  let dadosPATCH = {}
+
+  if (inpDP.value) {
+      dadosPATCH.data_prevista = inpDP.value;
+  }
+
+  if (inpDD.value) {
+      dadosPATCH.data_devolucao = inpDD.value;
+  }
+
+  if (inpValor.value) {
+      dadosPATCH.valor = inpValor.value;
+  }
+
+  const optionsPATCH = {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(dadosPATCH),
   };
 
-  const optionsPUT = {
-    method: "PUT",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(dadosPUT),
-  };
-
-  fetch(url + "/emprestimo/alterar/" + i, optionsPUT)
-    .then((resp) => {
-      alert("Dados alterados com sucesso");
-      window.location.reload();
-    })
-    .catch((err) => console.error(err));
+  fetch(uri + "/emprestimo/alterar/" + i, optionsPATCH)
+      // .then((resp) => {
+      //     // alert("Dados alterados com sucesso");
+      //     // window.location.reload();
+      // })
+      // .catch((err) => console.error(err));
+      .then((resp) => resp.json())
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((err) => console.error(err));
+  
 }
 
 const perror = document.querySelector(".error");
