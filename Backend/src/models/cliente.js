@@ -7,7 +7,7 @@ class Cliente {
   }
 
   create() {
-    return `INSERT INTO cliente(nome, email, senha) VALUE('${this.nome}','${this.email}','${this.senha}')`;
+    return `INSERT INTO cliente(nome, email, senha) VALUE('${this.nome}','${this.email}', PASSWORD('${this.senha}'))`;
   }
 
   read() {
