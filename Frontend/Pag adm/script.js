@@ -328,17 +328,36 @@ function montarlista(vetor) {
     let divBtnAtualizar = document.createElement("div");
     divBtnAtualizar.className = "atualizar";
 
-    let btnAtualizar = document.createElement("input");
+    let btnAtualizar = document.createElement("button");
+    // let btnAtualizar = document.createElement("input");
     btnAtualizar.type = "submit";
-    btnAtualizar.value = "Atualizar";
+    // btnAtualizar.value = "Atualizar";
+    btnAtualizar.innerHTML = "Atualizar";
     btnAtualizar.className = "btn-atualizar";
-    // btnAtualizar.setAttribute("onclick", `alterarItem('${e.id_emprestimo}')`);
+    btnAtualizar.setAttribute("onclick", `alterarItem('${e.id_emprestimo}')`);
 
     btnAtualizar.addEventListener("click", () => {
       col2.style.display = "none";
       col1.style.display = "";
-      alterarItem(`${e.id_emprestimo}`)
     });
+
+    let inpDP = document.querySelector("#data_prevista");
+    let inpDD = document.querySelector("#data_devolucao");
+    let inpValor = document.querySelector("#valor");
+
+    const form = document.createElement("form");
+    form.setAttribute("id", "editForm");
+
+    form.appendChild(inpDP);
+    form.appendChild(inpDD);
+    form.appendChild(inpValor);
+    form.appendChild(btnAtualizar)
+
+    col2.appendChild(form)
+
+    // document.getElementById('editForm').addEventListener('submit', function(event) {
+    //   alterarItem(e.id_emprestimo)
+    // })
 
     divBtnAtualizar.appendChild(btnAtualizar);
     cancelarAtualizar.appendChild(divBtnAtualizar);
@@ -390,44 +409,44 @@ function excluirItem(i) {
 }
 
 function alterarItem(i) {
-  event.preventDefault();
 
-  let inpDP = document.querySelector('#data_prevista');
-  let inpDD = document.querySelector('#data_devolucao');
-  let inpValor = document.querySelector('#valor');
+  let form = document.getElementById('editForm')
 
-  let dadosPATCH = {}
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
 
-  if (inpDP.value) {
-      dadosPATCH.data_prevista = inpDP.value;
-  }
+    let inpDP = document.querySelector('#data_prevista');
+    let inpDD = document.querySelector('#data_devolucao');
+    let inpValor = document.querySelector('#valor');
 
-  if (inpDD.value) {
-      dadosPATCH.data_devolucao = inpDD.value;
-  }
+    let dadosPATCH = {}
 
-  if (inpValor.value) {
-      dadosPATCH.valor = inpValor.value;
-  }
+    if (inpDP.value) {
+        dadosPATCH.data_prevista = inpDP.value;
+    }
 
-  const optionsPATCH = {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(dadosPATCH),
-  };
+    if (inpDD.value) {
+        dadosPATCH.data_devolucao = inpDD.value;
+    }
 
-  fetch(uri + "/emprestimo/alterar/" + i, optionsPATCH)
-      // .then((resp) => {
-      //     // alert("Dados alterados com sucesso");
-      //     // window.location.reload();
-      // })
-      // .catch((err) => console.error(err));
-      .then((resp) => resp.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => console.error(err));
-  
+    if (inpValor.value) {
+        dadosPATCH.valor = inpValor.value;
+    }
+
+    const optionsPATCH = {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(dadosPATCH),
+    };
+
+    fetch(uri + "/emprestimo/alterar/" + i, optionsPATCH)
+        .then((resp) => resp.json())
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((err) => console.error(err));
+  });
+
 }
 
 const perror = document.querySelector(".error");
