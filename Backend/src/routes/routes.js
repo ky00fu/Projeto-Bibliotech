@@ -7,7 +7,6 @@ const Cliente = require('../controllers/cliente');
 router.post('/cliente', Cliente.logar);
 router.post('/cliente/registro', Cliente.criar);
 router.get('/cliente/listar', Cliente.listar);
-router.get('/cliente/listar/:id', Cliente.listar);
 
 
 
@@ -21,7 +20,7 @@ const Emprestimo = require('../controllers/emprestimo');
 router.post('/emprestimo/criar', Emprestimo.criar);
 router.get('/emprestimo/listar', Emprestimo.listar);
 router.get('/emprestimo/listar/:id_cliente', Emprestimo.listar);
-router.put('/emprestimo/alterar', Emprestimo.alterar);
+router.patch('/emprestimo/alterar/:id', Emprestimo.alterar);
 router.delete('/emprestimo/excluir/:id', Emprestimo.excluir);
 
 
