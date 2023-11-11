@@ -168,17 +168,16 @@ function montarlista(vetor) {
   });
 }
 
-document.querySelector("#button").addEventListener("click", (e) => {
+// document.querySelector("#button").addEventListener("click", (e) => {
+document.querySelector("#cadastro").addEventListener("submit", (e) => {
   e.preventDefault();
 
   const body = {
+    id_cliente: dado.id,
     titulo: titulo.value,
-    // "autor": autor.value,
-    data_emprestimo: data_emprestimo.value,
-    data_prevista: data_prevista.value,
-    // "data_devolucao": data_devolucao.value,
+    autor: autor.value,
+    url: urlimg.value,
     valor: valor.value,
-    img: urlimg.value,
   };
 
   const options = {
@@ -188,11 +187,9 @@ document.querySelector("#button").addEventListener("click", (e) => {
 
   options.body = JSON.stringify(body);
 
-  fetch(uri + "/criar", options)
-    .then((resp) => resp.status)
-    .then((resp) => {
-      if (resp != 201) alert("Erro ao enviar dados");
-    });
+  fetch(uri + "/emprestimo/criar", options)
+    .then((resp) => window.location.reload())
+    .catch((err) => console.error(err));
 
   add();
 });

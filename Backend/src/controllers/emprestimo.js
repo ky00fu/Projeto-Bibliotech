@@ -7,9 +7,10 @@ const teste = (req, res) => {
 
 const criar = (req, res) => {
     let emprestimo = new Emprestimo(req.body)
+
     con.query(emprestimo.create(), (err, result) => {
         if (err == null)
-            res.status(201).end()
+            res.status(201).json(result).end()
         else
             res.status(500).json(err).end()
     })
@@ -34,8 +35,8 @@ const listar = (req, res) => {
 // }
 
 const alterar = (req, res) => {
-    const id_emprestimo = req.params.id
-    const updateData = req.body
+    let id_emprestimo = req.params.id
+    let updateData = req.body
 
     if (!id_emprestimo || Object.keys(updateData).length === 0) {
         return res.status(404).json({ error: 'Invalid request data' }).end()
