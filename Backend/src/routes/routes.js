@@ -4,8 +4,8 @@ const router = express.Router();
 
 
 const Cliente = require('../controllers/cliente');
-router.post('/cliente', Cliente.logar);
 router.post('/cliente/registro', Cliente.criar);
+router.post('/cliente', Cliente.logar);
 router.get('/cliente/listar', Cliente.listar);
 
 

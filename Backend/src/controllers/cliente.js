@@ -6,7 +6,7 @@ const criar = (req, res) => {
     
     con.query(cliente.create(), (err, result) => {
         if (err == null)
-            res.status(201).end()
+            res.status(201).json(req.body).end()
         else
             res.status(500).json(err).end()
     })

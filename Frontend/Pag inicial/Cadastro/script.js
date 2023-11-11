@@ -1,7 +1,8 @@
 const url = "http://localhost:3000"
 
 const cadastro = document.querySelector('.cadastro');
-const msgErro = document.querySelector('#msgErro');
+const mensagem = document.querySelector('#msg');
+// const msgSucesso = document.querySelector('#msgSucesso');
 
 cadastro.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -25,15 +26,13 @@ cadastro.addEventListener('submit', function (e) {
             let inpSenha = document.getElementById('senha')
 
             if (inpNome.value === "" || inpEmail.value === "" || inpSenha.value === "") {
-                msgErro.textContent = "Preencha os campos abaixo"
+                mensagem.textContent = "Preencha os campos abaixo"
             } else if (inpNome.value && inpEmail.value && inpSenha.value) {
                 if (resp.length > 0) {
-                    // window.localStorage.setItem('dados', JSON.stringify(resp[0]))
-                    msgErro.textContent = "Usuário criado com sucesso"
-                    msgErro.classList.add("sucesso")
-                    // window.location.href = `../Login/Cliente/index.html`
+                    mensagem.textContent = "Usuário não criado"
                 } else {
-                    msgErro.textContent = "Usuário não encontrado"
+                    mensagem.classList.add("sucesso")
+                    mensagem.textContent = "Usuário criado com sucesso"
                 }
             }
         })
