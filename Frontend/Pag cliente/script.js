@@ -112,6 +112,12 @@ function montarlista(vetor) {
     ee3.appendChild(pdata_p);
     col1.appendChild(ee3);
 
+    function calculoRenovar() {
+      resultData = e.data_prevista.setDate(e.data_prevista + 20);
+    
+      return resultData;
+    }
+
     // cálculo cobrança
     function valorcobranca() {
       if (e.data_prevista == null && e.data_devolucao == null)
@@ -156,6 +162,7 @@ function montarlista(vetor) {
     let btnRenovar = document.createElement("button");
     btnRenovar.className = "btnRenovar";
     btnRenovar.innerHTML = "Renovar";
+    btnRenovar.setAttribute('onclick', calculoRenovar())
 
     eee1.appendChild(eee1img);
     eee1.appendChild(pcobranca);
@@ -168,7 +175,6 @@ function montarlista(vetor) {
   });
 }
 
-// document.querySelector("#button").addEventListener("click", (e) => {
 document.querySelector("#cadastro").addEventListener("submit", (e) => {
   e.preventDefault();
 

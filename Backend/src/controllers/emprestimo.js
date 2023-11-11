@@ -10,7 +10,7 @@ const criar = (req, res) => {
 
     con.query(emprestimo.create(), (err, result) => {
         if (err == null)
-            res.status(201).json(result).end()
+            res.status(201).json(req.body).end()
         else
             res.status(500).json(err).end()
     })
