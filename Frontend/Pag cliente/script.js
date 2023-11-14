@@ -36,7 +36,7 @@ if (dado !== null) {
   alert("Usuário não encontrado");
 }
 
-fetch(uri + "/emprestimo/listar/" + dado.id, { method: "GET" })
+fetch(uri + "/emprestimo/" + dado.id, { method: "GET" })
   .then((resp) => resp.json())
   .then((resp) => montarlista(resp))
   .catch((err) => console.error(err));
@@ -81,7 +81,7 @@ function montarlista(vetor) {
     let pdata_e = document.createElement("p");
     pdata_e.style.marginLeft = "4%";
 
-    let forde = new Date(e.data_emprestimo).toLocaleDateString();
+    let forde = new Date(e.data_emprestimo).toLocaleDateString('pt-BR');
     pdata_e.innerHTML = forde;
 
     ee2.appendChild(ee2img);
@@ -103,7 +103,7 @@ function montarlista(vetor) {
     let pdata_p = document.createElement("p");
     pdata_p.style.marginLeft = "4%";
 
-    let fordp = new Date(e.data_prevista).toLocaleDateString();
+    let fordp = new Date(e.data_prevista).toLocaleDateString('pt-BR');
 
     if (e.data_prevista != null) pdata_p.innerHTML = fordp;
     else pdata_p.innerHTML = "";
@@ -111,12 +111,6 @@ function montarlista(vetor) {
     ee3.appendChild(ee3img);
     ee3.appendChild(pdata_p);
     col1.appendChild(ee3);
-
-    function calculoRenovar() {
-      resultData = e.data_prevista.setDate(e.data_prevista + 20);
-    
-      return resultData;
-    }
 
     // cálculo cobrança
     function valorcobranca() {
@@ -162,7 +156,26 @@ function montarlista(vetor) {
     let btnRenovar = document.createElement("button");
     btnRenovar.className = "btnRenovar";
     btnRenovar.innerHTML = "Renovar";
-    btnRenovar.setAttribute('onclick', calculoRenovar())
+    btnRenovar.addEventListener('click', () => renovar(e.id_emprestimo))
+
+    function renovar(id_emprestimo) {
+      var dataPrevista = new Date(e.data_prevista);    
+      dataPrevista.setDate(dataPrevista.getDate() + 20);
+    
+      const bodyDP = {
+        data_prevista: dataPrevista
+      }
+    
+      const optionsDP = {
+        method: 'PATCH',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(bodyDP)
+      };
+      
+      fetch(uri + '/emprestimo/' + id_emprestimo, optionsDP)
+        .then(response => window.location.reload())
+        .catch(err => console.error(err));
+    }
 
     eee1.appendChild(eee1img);
     eee1.appendChild(pcobranca);
@@ -178,7 +191,7 @@ function montarlista(vetor) {
 document.querySelector("#cadastro").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const body = {
+  let body = {
     id_cliente: dado.id,
     titulo: titulo.value,
     autor: autor.value,
@@ -186,21 +199,20 @@ document.querySelector("#cadastro").addEventListener("submit", (e) => {
     valor: valor.value,
   };
 
-  const options = {
+  let options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body)
   };
 
-  options.body = JSON.stringify(body);
-
-  fetch(uri + "/emprestimo/criar", options)
+  fetch(uri + "/emprestimo", options)
     .then((resp) => window.location.reload())
     .catch((err) => console.error(err));
 
   add();
 });
 
-updateWorkspaceTextVisibility();
+// updateWorkspaceTextVisibility();
 
 const perror = document.querySelector(".error");
 

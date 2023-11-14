@@ -265,7 +265,7 @@ input {
 
 #titulo,
 #autor,
-#image,
+#url,
 #valor {
     transition: width 0.4s ease-in-out;
     border-radius: 1%;
@@ -279,7 +279,7 @@ input {
 
 #titulo,
 #autor,
-#image,
+#url,
 #valor {
     width: 60%;
     height: 80%;
@@ -298,7 +298,7 @@ input {
 #titulo:focus,
 #autor:focus,
 #valor:focus,
-#image:focus {
+#url:focus {
     width: 90%;
     border-bottom: 0.4vh solid #6282BF;
 }
