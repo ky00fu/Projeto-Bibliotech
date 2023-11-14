@@ -323,6 +323,8 @@ function montarlista(vetor) {
     divBtnCancelar.appendChild(btnCancelar);
     cancelarAtualizar.appendChild(divBtnCancelar);
 
+    const form = document.getElementById("edit");
+
     btnCancelar.addEventListener("click", () => {
       col2.style.display = "none";
       col1.style.display = "";
@@ -344,45 +346,92 @@ function montarlista(vetor) {
       const id_emprestimo = e.id_emprestimo;
 
       alterarItem(id_emprestimo);
-      
+
       form.reset();
     });
 
     function alterarItem(id_emprestimo) {
-      const form = document.getElementById("edit");
-
+      console.log("alterarItem function called"); // Add this line for debugging
+    
       form.addEventListener("submit", function (event) {
         event.preventDefault();
-
+    
+        console.log("Form submitted"); // Add this line for debugging
+    
         const dataPrevistaInput = document.getElementById("data_prevista");
         const dataDevolucaoInput = document.getElementById("data_devolucao");
         const valorInput = document.getElementById("valor");
-
+    
         const dataPrevistaValue = dataPrevistaInput.value;
         const dataDevolucaoValue = dataDevolucaoInput.value;
         const valorValue = valorInput.value;
-
+    
+        console.log("Data Prevista:", dataPrevistaValue);
+        console.log("Data Devolucao:", dataDevolucaoValue);
+        console.log("Valor:", valorValue);
+    
         const dadosPATCH = {
           data_prevista: dataPrevistaValue,
           data_devolucao: dataDevolucaoValue,
-          valor: valorValue,
+          valor: valorValue
         };
-
+    
         const optionsPATCH = {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(dadosPATCH),
         };
-
+    
         fetch(uri + "/emprestimo/" + id_emprestimo, optionsPATCH)
           .then((resp) => resp.json())
           .then((resp) => {
             console.log(resp);
-            console.log("Valor:", valorValue);
           })
           .catch((err) => console.error(err));
       });
     }
+    
+    // Ensure that alterarItem is called when the button is clicked
+    document.querySelector(".btn-atualizar").addEventListener("click", function() {
+      alterarItem(e.id_emprestimo);
+    });
+    
+
+    // function alterarItem(id_emprestimo) {
+    //   const form = document.getElementById("edit");
+
+    //   form.addEventListener("submit", function (event) {
+    //     event.preventDefault();
+
+    //     const dataPrevistaInput = document.getElementById("data_prevista");
+    //     const dataDevolucaoInput = document.getElementById("data_devolucao");
+    //     const valorInput = document.getElementById("valor");
+
+    //     const dataPrevistaValue = dataPrevistaInput.value;
+    //     const dataDevolucaoValue = dataDevolucaoInput.value;
+    //     const valorValue = valorInput.value;
+
+    //     const dadosPATCH = {
+    //       data_prevista: dataPrevistaValue,
+    //       data_devolucao: dataDevolucaoValue,
+    //       valor: valorValue,
+    //     };
+
+    //     const optionsPATCH = {
+    //       method: "PATCH",
+    //       headers: { "Content-Type": "application/json" },
+    //       body: JSON.stringify(dadosPATCH),
+    //     };
+
+    //     fetch(uri + "/emprestimo/" + id_emprestimo, optionsPATCH)
+    //       .then((resp) => resp.json())
+    //       .then((resp) => {
+    //         console.log(resp);
+    //         console.log("Valor:", valorValue);
+    //       })
+    //       .catch((err) => console.error(err));
+    //   });
+    // }
 
     // form.addEventListener("submit", (e) => {
     // e.preventDefault();
