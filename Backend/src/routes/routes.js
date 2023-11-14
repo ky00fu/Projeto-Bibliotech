@@ -6,22 +6,22 @@ const router = express.Router();
 const Cliente = require('../controllers/cliente');
 router.post('/cliente/registro', Cliente.criar);
 router.post('/cliente', Cliente.logar);
-router.get('/cliente/listar', Cliente.listar);
+router.get('/cliente', Cliente.listar);
 
 
 
 const Adm = require('../controllers/adm');
 router.post('/adm', Adm.logar);
-router.get('/adm/listar', Adm.listar);
+router.get('/adm', Adm.listar);
 
 
 
 const Emprestimo = require('../controllers/emprestimo');
-router.post('/emprestimo/criar', Emprestimo.criar);
-router.get('/emprestimo/listar', Emprestimo.listar);
-router.get('/emprestimo/listar/:id_cliente', Emprestimo.listar);
-router.patch('/emprestimo/alterar/:id', Emprestimo.alterar);
-router.delete('/emprestimo/excluir/:id', Emprestimo.excluir);
+router.post('/emprestimo', Emprestimo.criar);
+router.get('/emprestimo', Emprestimo.listar);
+router.get('/emprestimo/:id_cliente', Emprestimo.listar);
+router.patch('/emprestimo/:id', Emprestimo.alterar);
+router.delete('/emprestimo/:id', Emprestimo.excluir);
 
 
 
