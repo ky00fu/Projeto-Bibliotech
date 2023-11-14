@@ -28,7 +28,7 @@ function hideWorkspaceText() {
 
 hideWorkspaceText();
 
-fetch(uri + "/emprestimo/listar", { method: "GET" })
+fetch(uri + "/emprestimo", { method: "GET" })
   .then((resp) => resp.json())
   .then((resp) => montarlista(resp))
   .catch((err) => console.error(err));
@@ -118,7 +118,7 @@ function montarlista(vetor) {
     let pdata_e = document.createElement("p");
     pdata_e.style.marginLeft = "4%";
 
-    let forde = new Date(e.data_emprestimo).toLocaleDateString();
+    let forde = new Date(e.data_emprestimo).toLocaleDateString("pt-BR");
 
     pdata_e.innerHTML = forde;
 
@@ -136,7 +136,7 @@ function montarlista(vetor) {
     let pdata_eb = document.createElement("p");
     pdata_eb.style.marginLeft = "4%";
 
-    let fordeb = new Date(e.data_emprestimo).toLocaleDateString();
+    let fordeb = new Date(e.data_emprestimo).toLocaleDateString("pt-BR");
 
     pdata_eb.innerHTML = fordeb;
 
@@ -149,6 +149,10 @@ function montarlista(vetor) {
       e.data_devolucao = null;
     }
 
+    let formDiv = document.createElement("form");
+    formDiv.setAttribute("id", "edit");
+    // let form = document.getElementById("edit");
+
     // div data_prevista
     let ee3 = document.createElement("div");
     ee3.className = "data_prevista";
@@ -159,7 +163,7 @@ function montarlista(vetor) {
     let pdata_p = document.createElement("p");
     pdata_p.style.marginLeft = "4%";
 
-    let fordp = new Date(e.data_prevista).toLocaleDateString();
+    let fordp = new Date(e.data_prevista).toLocaleDateString("pt-BR");
 
     if (e.data_prevista != null) pdata_p.innerHTML = fordp;
     else pdata_p.innerHTML = "00/00/0000";
@@ -196,7 +200,7 @@ function montarlista(vetor) {
     let data_d = document.createElement("p");
     data_d.style.marginLeft = "4%";
 
-    let fordd = new Date(e.data_devolucao).toLocaleDateString();
+    let fordd = new Date(e.data_devolucao).toLocaleDateString("pt-BR");
 
     if (e.data_devolucao != null) data_d.innerHTML = fordd;
     else data_d.innerHTML = "00/00/0000";
@@ -322,6 +326,7 @@ function montarlista(vetor) {
     btnCancelar.addEventListener("click", () => {
       col2.style.display = "none";
       col1.style.display = "";
+      form.reset();
     });
 
     // div botão atualizar edit
@@ -329,35 +334,137 @@ function montarlista(vetor) {
     divBtnAtualizar.className = "atualizar";
 
     let btnAtualizar = document.createElement("button");
-    // let btnAtualizar = document.createElement("input");
     btnAtualizar.type = "submit";
-    // btnAtualizar.value = "Atualizar";
     btnAtualizar.innerHTML = "Atualizar";
     btnAtualizar.className = "btn-atualizar";
-    btnAtualizar.setAttribute("onclick", `alterarItem('${e.id_emprestimo}')`);
-
     btnAtualizar.addEventListener("click", () => {
       col2.style.display = "none";
       col1.style.display = "";
+
+      const id_emprestimo = e.id_emprestimo;
+
+      alterarItem(id_emprestimo);
+      
+      form.reset();
     });
 
-    let inpDP = document.querySelector("#data_prevista");
-    let inpDD = document.querySelector("#data_devolucao");
-    let inpValor = document.querySelector("#valor");
+    function alterarItem(id_emprestimo) {
+      const form = document.getElementById("edit");
 
-    const form = document.createElement("form");
-    form.setAttribute("id", "editForm");
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
 
-    form.appendChild(inpDP);
-    form.appendChild(inpDD);
-    form.appendChild(inpValor);
-    form.appendChild(btnAtualizar)
+        const dataPrevistaInput = document.getElementById("data_prevista");
+        const dataDevolucaoInput = document.getElementById("data_devolucao");
+        const valorInput = document.getElementById("valor");
 
-    col2.appendChild(form)
+        const dataPrevistaValue = dataPrevistaInput.value;
+        const dataDevolucaoValue = dataDevolucaoInput.value;
+        const valorValue = valorInput.value;
 
-    // document.getElementById('editForm').addEventListener('submit', function(event) {
-    //   alterarItem(e.id_emprestimo)
-    // })
+        const dadosPATCH = {
+          data_prevista: dataPrevistaValue,
+          data_devolucao: dataDevolucaoValue,
+          valor: valorValue,
+        };
+
+        const optionsPATCH = {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(dadosPATCH),
+        };
+
+        fetch(uri + "/emprestimo/" + id_emprestimo, optionsPATCH)
+          .then((resp) => resp.json())
+          .then((resp) => {
+            console.log(resp);
+            console.log("Valor:", valorValue);
+          })
+          .catch((err) => console.error(err));
+      });
+    }
+
+    // form.addEventListener("submit", (e) => {
+    // e.preventDefault();
+
+    // function alterarItem(id_emprestimo, form) {
+    //   // const dadosPATCH = {};
+
+    //   const dadosPATCH = {
+    //     data_prevista: form.data_prevista.value,
+    //     data_devolucao: form.data_devolucao.value,
+    //     valor: form.valor.value,
+    //   };
+
+    //   // const dadosPATCH = {
+    //   //   data_prevista: form.querySelector("#data_prevista").value,
+    //   //   data_devolucao: form.querySelector("#data_devolucao").value,
+    //   //   valor: form.querySelector("#valor").value,
+    //   // };
+
+    //   // Check if data_prevista is defined before accessing its value
+    //   // if (form.data_prevista) {
+    //   //   dadosPATCH.data_prevista = form.data_prevista.value;
+    //   // }
+
+    //   // if (form.data_devolucao) {
+    //   //   dadosPATCH.data_devolucao = form.data_devolucao.value;
+    //   // }
+
+    //   // if (form.valor) {
+    //   //   dadosPATCH.valor = form.valor.value;
+    //   // }
+
+    //   // if (data_prevista.value) {
+    //   //   dadosPATCH.data_prevista = form.data_prevista.value;
+    //   // }
+
+    //   // if (data_devolucao.value) {
+    //   //   dadosPATCH.data_devolucao = form.data_devolucao.value;
+    //   // }
+
+    //   // if (valor.value) {
+    //   //   dadosPATCH.valor = form.valor.value;
+    //   // }
+
+    //   const optionsPATCH = {
+    //     method: "PATCH",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(dadosPATCH),
+    //   };
+
+    //   fetch(uri + "/emprestimo/" + id_emprestimo, optionsPATCH)
+    //     .then((resp) => resp.json())
+    //     .then((resp) => {
+    //       console.log(resp);
+    //       // console.log(valor.value);
+    //       console.log(form); // Check if the form is defined
+    //       console.log(form.valor); // Check if data_prevista is defined
+    //       console.log(form.valor.value); // Check if value is accessible
+    //     })
+    //     .catch((err) => console.error(err));
+    // }
+    // // });
+
+    formDiv.appendChild(ee3b);
+    formDiv.appendChild(ee4b);
+    formDiv.appendChild(eee2b);
+    formDiv.appendChild(btnAtualizar);
+
+    col2.appendChild(formDiv);
+
+    // let inpDP = document.querySelector("#data_prevista");
+    // let inpDD = document.querySelector("#data_devolucao");
+    // let inpValor = document.querySelector("#valor");
+
+    // const form = document.createElement("form");
+    // form.setAttribute("id", "editForm");
+
+    // form.appendChild(inpDP);
+    // form.appendChild(inpDD);
+    // form.appendChild(inpValor);
+
+    // col2.appendChild(form)
 
     divBtnAtualizar.appendChild(btnAtualizar);
     cancelarAtualizar.appendChild(divBtnAtualizar);
@@ -400,53 +507,12 @@ function montarlista(vetor) {
 }
 
 function excluirItem(i) {
-  fetch(uri + "/emprestimo/excluir/" + i, { method: "DELETE" })
+  fetch(uri + "/emprestimo/" + i, { method: "DELETE" })
     .then((resp) => resp.status)
     .then((resp) => {
       if (resp != 204) alert("Erro ao enviar dados");
       else window.location.reload();
     });
-}
-
-function alterarItem(i) {
-
-  let form = document.getElementById('editForm')
-
-  form.addEventListener("submit", function (event) {
-    event.preventDefault();
-
-    let inpDP = document.querySelector('#data_prevista');
-    let inpDD = document.querySelector('#data_devolucao');
-    let inpValor = document.querySelector('#valor');
-
-    let dadosPATCH = {}
-
-    if (inpDP.value) {
-        dadosPATCH.data_prevista = inpDP.value;
-    }
-
-    if (inpDD.value) {
-        dadosPATCH.data_devolucao = inpDD.value;
-    }
-
-    if (inpValor.value) {
-        dadosPATCH.valor = inpValor.value;
-    }
-
-    const optionsPATCH = {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(dadosPATCH),
-    };
-
-    fetch(uri + "/emprestimo/alterar/" + i, optionsPATCH)
-        .then((resp) => resp.json())
-        .then((data) => {
-          console.log(data);
-        })
-        .catch((err) => console.error(err));
-  });
-
 }
 
 const perror = document.querySelector(".error");

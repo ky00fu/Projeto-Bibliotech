@@ -19,7 +19,7 @@ cadastro.addEventListener('submit', function (e) {
         body: JSON.stringify(dados)
     }
 
-    fetch(url + '/cliente/registro', options)
+    fetch(url + '/cliente', options)
         .then((resp) => {
             let inpNome = document.getElementById('nome')
             let inpEmail = document.getElementById('email')
