@@ -258,8 +258,7 @@ main {
   text-align: center;
   align-items: center;
 
-  overflow: hidden;
-  overflow-y: visible;
+  overflow: visible;
 }
 
 .id_cliente {
