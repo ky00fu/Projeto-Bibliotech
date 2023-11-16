@@ -41,11 +41,19 @@ cadastro.addEventListener('submit', function (e) {
         })
         .then((data) => {
             mensagem.classList.add("sucesso")
-            mensagem.textContent = "Usuário criado com sucesso. Você será redirecionado"
-            
-            setTimeout(() => {
-                window.location.href = '../Login/Cliente/index.html'
-            }, 3000)
+            mensagem.innerHTML = "Usuário criado com sucesso<br><br>Redirecionando em <span id='countdown'>5</span> segundos"
+
+            let countdownValue = 5
+            const countdownSpan = document.getElementById('countdown')
+            const countdownInterval = setInterval(() => {
+                countdownValue--
+                countdownSpan.textContent = countdownValue
+
+                if (countdownValue <= 0) {
+                    clearInterval(countdownInterval)
+                    window.location.href = '../Login/Cliente/index.html'
+                }
+            }, 1000)
         })
         .catch((error) => {
             mensagem.textContent = "Erro ao criar usuário"

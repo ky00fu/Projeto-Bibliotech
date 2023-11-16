@@ -126,8 +126,11 @@ form {
 }
 
 #msg {
-  font-size: 1.875rem;
   text-align: center;
+}
+
+.erro {
+  font-size: 1.875rem;
   color: #FF9D9D;
 }
 
