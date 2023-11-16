@@ -6,7 +6,7 @@ const autor = document.querySelector("#autor");
 const data_emprestimo = document.querySelector("#data_emprestimo");
 const data_prevista = document.querySelector("#data_prevista");
 const valor = document.querySelector("#valor");
-const urlimg = document.querySelector("#image");
+const urlimg = document.querySelector("#url");
 
 const main = document.querySelector("main");
 const workspace = document.querySelector(".workspace");
