@@ -81,7 +81,7 @@ function montarlista(vetor) {
     let pdata_e = document.createElement("p");
     pdata_e.style.marginLeft = "4%";
 
-    let forde = new Date(e.data_emprestimo).toLocaleDateString('pt-BR');
+    let forde = new Date(e.data_emprestimo).toLocaleDateString("pt-BR");
     pdata_e.innerHTML = forde;
 
     ee2.appendChild(ee2img);
@@ -103,7 +103,7 @@ function montarlista(vetor) {
     let pdata_p = document.createElement("p");
     pdata_p.style.marginLeft = "4%";
 
-    let fordp = new Date(e.data_prevista).toLocaleDateString('pt-BR');
+    let fordp = new Date(e.data_prevista).toLocaleDateString("pt-BR");
 
     if (e.data_prevista != null) pdata_p.innerHTML = fordp;
     else pdata_p.innerHTML = "";
@@ -156,25 +156,25 @@ function montarlista(vetor) {
     let btnRenovar = document.createElement("button");
     btnRenovar.className = "btnRenovar";
     btnRenovar.innerHTML = "Renovar";
-    btnRenovar.addEventListener('click', () => renovar(e.id_emprestimo))
+    btnRenovar.addEventListener("click", () => renovar(e.id_emprestimo));
 
     function renovar(id_emprestimo) {
-      var dataPrevista = new Date(e.data_prevista);    
+      var dataPrevista = new Date(e.data_prevista);
       dataPrevista.setDate(dataPrevista.getDate() + 20);
-    
+
       const bodyDP = {
-        data_prevista: dataPrevista
-      }
-    
-      const optionsDP = {
-        method: 'PATCH',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(bodyDP)
+        data_prevista: dataPrevista,
       };
-      
-      fetch(uri + '/emprestimo/' + id_emprestimo, optionsDP)
-        .then(response => window.location.reload())
-        .catch(err => console.error(err));
+
+      const optionsDP = {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(bodyDP),
+      };
+
+      fetch(uri + "/emprestimo/" + id_emprestimo, optionsDP)
+        .then((response) => window.location.reload())
+        .catch((err) => console.error(err));
     }
 
     eee1.appendChild(eee1img);
@@ -202,7 +202,7 @@ document.querySelector("#cadastro").addEventListener("submit", (e) => {
   let options = {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body)
+    body: JSON.stringify(body),
   };
 
   fetch(uri + "/emprestimo", options)
@@ -286,6 +286,13 @@ function add() {
     cloneinfo.querySelector("#dd").innerHTML = data_devolucao.value;
 
     function cobrar() {
+      if (data_prevista.value === "") {
+        let dataPrevista = new Date(data_emprestimo.value);
+        dataPrevista.setDate(dataPrevista.getDate() + 20);
+
+        data_prevista.value = dataPrevista.toLocaleDateString("pt-BR");
+      }
+
       if (data_prevista.value == "" && data_devolucao.value == "")
         return "Sem datas";
       else if (data_devolucao.value != "" && data_prevista.value == "")
@@ -322,7 +329,7 @@ function add() {
 }
 
 function redirectHome() {
-  window.location.href = `../Pag inicial/Entrada/index.html`
+  window.location.href = `../Pag inicial/Entrada/index.html`;
 }
 
 console.info("Script running");
