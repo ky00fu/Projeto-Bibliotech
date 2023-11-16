@@ -1,18 +1,23 @@
 const url = "http://localhost:3000"
 
-const cadastro = document.querySelector('.cadastro');
-const mensagem = document.querySelector('#msg');
+const cadastro = document.querySelector('.cadastro')
+const mensagem = document.querySelector('#msg')
 
 cadastro.addEventListener('submit', function (e) {
-    e.preventDefault();
+    e.preventDefault()
 
-    const inpNome = document.getElementById('nome');
-    const inpEmail = document.getElementById('email');
-    const inpSenha = document.getElementById('senha');
+    const inpNome = document.getElementById('nome')
+    const inpEmail = document.getElementById('email')
+    const inpSenha = document.getElementById('senha')
 
+    if (inpNome.value === "" || inpEmail.value === "" || inpSenha.value === "") {
+        mensagem.textContent = "Preencha todos os campos abaixo"
+        return
+    }
+    
     if (inpSenha.value.length < 8) {
-        mensagem.textContent = "A senha deve ter pelo menos 8 caracteres.";
-        return; // Stop execution if the password is too short
+        mensagem.textContent = "A senha deve ter pelo menos 8 caracteres"
+        return
     }
 
     const dados = {
@@ -27,17 +32,22 @@ cadastro.addEventListener('submit', function (e) {
         body: JSON.stringify(dados)
     }
 
-    fetch(url + '/cliente', options)
+    fetch(url + '/cliente/registro', options)
         .then((resp) => {
-            if (inpNome.value === "" || inpEmail.value === "" || inpSenha.value === "") {
-                mensagem.textContent = "Preencha todos os campos abaixo."
-            } else if (inpNome.value && inpEmail.value && inpSenha.value) {
-                if (resp.length > 0) {
-                    mensagem.textContent = "Usuário não criado.";
-                } else {
-                    mensagem.classList.add("sucesso");
-                    mensagem.textContent = "Usuário criado com sucesso.";
-                }
+            if (!resp.ok) {
+                throw new Error("Erro ao criar usuário")
             }
+            return resp.json()            
         })
-});
+        .then((data) => {
+            mensagem.classList.add("sucesso")
+            mensagem.textContent = "Usuário criado com sucesso. Você será redirecionado"
+            
+            setTimeout(() => {
+                window.location.href = '../Login/Cliente/index.html'
+            }, 3000)
+        })
+        .catch((error) => {
+            mensagem.textContent = "Erro ao criar usuário"
+        })
+})

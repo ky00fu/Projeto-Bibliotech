@@ -61,6 +61,7 @@ body {
 
 .btn button {
   border: none;
+  outline: none;
   background-color: #fff9eb;
   
   border-top-left-radius: 4rem;
@@ -83,7 +84,8 @@ body {
   color: #fff9eb;
 }
 
-.login button:hover {
+.login button:hover,
+.login button:focus {
   background-color: #fff9eb;
   color: #393939;
   transition: all .2s ease;
@@ -123,13 +125,14 @@ form {
   border-bottom: 5px solid #D9D9D9;
 }
 
-.erro {
+#msg {
   font-size: 1.875rem;
+  text-align: center;
   color: #FF9D9D;
 }
 
 .sucesso {
-  color: #90ee90;
+  color: #393939;
 }
 
 .info img {
@@ -158,12 +161,8 @@ input::placeholder {
 }
 
 .submit {
-  /* background-color: #FFBC7A; */
-  /* border: 1px solid gray; */
-
   display: flex;
   justify-content: center;
-  /* align-items: center; */
 }
 
 #registrar-btn {
