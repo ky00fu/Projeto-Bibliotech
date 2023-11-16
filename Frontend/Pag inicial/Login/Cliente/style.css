@@ -61,6 +61,7 @@ body {
 
 .btn button {
   border: none;
+  outline: none;
   background-color: #fff9eb;
   
   border-top-left-radius: 64px;
@@ -68,7 +69,7 @@ body {
   width: 18rem;
   padding: 1.5ch 1ch;
   
-  font-size: 2rem; 
+  font-size: 2rem;
   
   color: #393939;
   cursor: pointer;
@@ -83,7 +84,8 @@ body {
   color: #fff9eb;
 }
 
-.cadastrar button:hover {
+.cadastrar button:hover,
+.cadastrar button:focus {
   background-color: #fff9eb;
   color: #393939;
   transition: all .2s ease;
