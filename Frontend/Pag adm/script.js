@@ -8,7 +8,6 @@ const data_prevista = document.querySelector("#data_prevista");
 const data_devolucao = document.querySelector("#data_devolucao");
 const valor = document.querySelector("#valor");
 const urlimg = document.querySelector("#image");
-const form = document.querySelector(".edit");
 
 const main = document.querySelector("main");
 const workspace = document.querySelector(".workspace");
@@ -340,7 +339,8 @@ function montarlista(vetor) {
     btnCancelar.addEventListener("click", () => {
       col2.style.display = "none";
       col1.style.display = "";
-      form.reset();
+
+      formDiv.reset();
     });
 
     // div botão atualizar edit
@@ -362,7 +362,7 @@ function montarlista(vetor) {
 
       alterarItem(id_emprestimo);
 
-      form.reset();
+      formDiv.reset();
     });
 
     // atualiza data_prevista, data_devolucao e valor do livro
@@ -393,12 +393,7 @@ function montarlista(vetor) {
         };
     
         fetch(uri + "/emprestimo/" + id_emprestimo, optionsPATCH)
-          .then((response) => {
-            console.log(response);
-            console.log("Data Prevista: " + data_prevista);
-            console.log("Data Devolução: " + data_devolucao);
-            console.log("Valor: " + valor);
-          })
+          .then((resp) => window.location.reload())
           .catch((err) => console.error(err));
       }
     }
