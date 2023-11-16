@@ -400,8 +400,6 @@ function montarlista(vetor) {
             console.log("Valor: " + valor);
           })
           .catch((err) => console.error(err));
-      } else {
-        console.log("No input values to update. PATCH request not sent.");
       }
     }
 
