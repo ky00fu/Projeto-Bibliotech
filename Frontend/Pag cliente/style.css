@@ -58,6 +58,7 @@ header {
 #logo-bbtech:hover {
   scale: 120%;
   transition: scale 0.5s ease;
+  cursor: pointer;
 }
 
 .icon-usuario {
