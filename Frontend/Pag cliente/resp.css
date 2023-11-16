@@ -19,6 +19,8 @@
   /* header */
   #logo-bbtech {
     order: -1;
+    position: relative;
+    left: -35%;    
   }
 
   .header-h1-container {
@@ -33,9 +35,16 @@
 
   .icon-usuario {
     order: -1;
-    gap: 5%;
 
     font-size: 0.6rem;
+    position: absolute;
+    right: 1%;
+  }
+
+  #nome-usuario {
+    text-align: center;
+    position: inherit;
+    right: 110%;
   }
 
   /* botão adicionar livro */
