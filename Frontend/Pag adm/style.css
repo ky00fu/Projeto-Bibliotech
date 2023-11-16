@@ -61,6 +61,11 @@ header {
   font-size: 3rem;
 }
 
+#logo-bbtech:hover {
+  scale: 120%;
+  transition: scale 0.5s ease;
+}
+
 @keyframes aparecer {
   from {
     opacity: 1;
@@ -431,7 +436,8 @@ main {
 
 .cobranca input {
   position: relative;
-  margin-right: 10%;
+  margin-right: 5%;
+  right: 3%;
 }
 
 .cobranca input::-webkit-inner-spin-button {

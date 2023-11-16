@@ -59,7 +59,7 @@ function montarlista(vetor) {
 
     let pMsgErro = document.createElement("div");
     pMsgErro.className = "msg-erro";
-    pMsgErro.innerHTML = "Mensagem de erro";
+    // pMsgErro.innerHTML = "Mensagem de erro";
 
     msgErro.appendChild(pMsgErro);
     col2.appendChild(msgErro);
@@ -311,6 +311,7 @@ function montarlista(vetor) {
     icobrancaLabel.setAttribute("name", "valor")
 
     let icobranca = document.createElement("input");
+    icobranca.type = "number";
     icobranca.setAttribute("name", "valor");
     icobranca.setAttribute("id", "valor");
     icobranca.placeholder = `R$ ${e.valor}`;
@@ -402,6 +403,8 @@ function montarlista(vetor) {
     let formDiv = document.createElement("form");
     formDiv.className = "edit";
 
+    formDiv.appendChild(ee1b);
+    formDiv.appendChild(ee2b);
     formDiv.appendChild(ee3b);
     formDiv.appendChild(ee4b);
     formDiv.appendChild(eee2b);
@@ -456,6 +459,10 @@ function excluirItem(i) {
       if (resp != 204) alert("Erro ao enviar dados");
       else window.location.reload();
     });
+}
+
+function redirectHome() {
+  window.location.href = `../Pag inicial/Entrada/index.html`
 }
 
 const perror = document.querySelector(".error");
