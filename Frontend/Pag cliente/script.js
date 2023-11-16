@@ -321,4 +321,8 @@ function add() {
   }
 }
 
+function redirectHome() {
+  window.location.href = `../Pag inicial/Entrada/index.html`
+}
+
 console.info("Script running");
