@@ -212,8 +212,6 @@ document.querySelector("#cadastro").addEventListener("submit", (e) => {
   add();
 });
 
-// updateWorkspaceTextVisibility();
-
 const perror = document.querySelector(".error");
 
 function tipourl() {

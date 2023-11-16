@@ -8,6 +8,7 @@ const data_prevista = document.querySelector("#data_prevista");
 const data_devolucao = document.querySelector("#data_devolucao");
 const valor = document.querySelector("#valor");
 const urlimg = document.querySelector("#image");
+const form = document.querySelector(".edit");
 
 const main = document.querySelector("main");
 const workspace = document.querySelector(".workspace");
@@ -149,10 +150,6 @@ function montarlista(vetor) {
       e.data_devolucao = null;
     }
 
-    let formDiv = document.createElement("form");
-    formDiv.setAttribute("id", "edit");
-    // let form = document.getElementById("edit");
-
     // div data_prevista
     let ee3 = document.createElement("div");
     ee3.className = "data_prevista";
@@ -179,14 +176,20 @@ function montarlista(vetor) {
     let ee3bimg = document.createElement("img");
     ee3bimg.className = "ee3bimg";
 
+    let idata_pLabel = document.createElement("label");
+    idata_pLabel.setAttribute("name", "data_prevista")
+
     let idata_p = document.createElement("input");
     idata_p.type = "text";
+    idata_p.setAttribute("name", "data_prevista");
+    idata_p.setAttribute("id", "data_prevista");
     pdata_p.style.marginLeft = "4%";
 
     if (e.data_prevista != null) idata_p.placeholder = fordp;
     else idata_p.placeholder = "00/00/0000";
 
     ee3b.appendChild(ee3bimg);
+    ee3b.appendChild(idata_pLabel);
     ee3b.appendChild(idata_p);
     col2.appendChild(ee3b);
 
@@ -216,14 +219,20 @@ function montarlista(vetor) {
     let ee4bimg = document.createElement("img");
     ee4bimg.className = "ee4bimg";
 
+    let idata_dLabel = document.createElement("label");
+    idata_dLabel.setAttribute("name", "data_devolucao")
+
     let idata_d = document.createElement("input");
     idata_d.type = "text";
+    idata_d.setAttribute("name", "data_devolucao");
+    idata_d.setAttribute("id", "data_devolucao");
     idata_d.style.marginLeft = "4%";
 
     if (e.data_devolucao != null) idata_d.placeholder = fordd;
     else idata_d.placeholder = "00/00/0000";
 
     ee4b.appendChild(ee4bimg);
+    ee4b.appendChild(idata_dLabel);
     ee4b.appendChild(idata_d);
     col2.appendChild(ee4b);
 
@@ -299,13 +308,18 @@ function montarlista(vetor) {
     eee2bimg.className = "eee2bimg";
 
     // cálculo cobrança
+    let icobrancaLabel = document.createElement("label");
+    icobrancaLabel.setAttribute("name", "valor")
+
     let icobranca = document.createElement("input");
-    icobranca.type = "number";
+    icobranca.setAttribute("name", "valor");
+    icobranca.setAttribute("id", "valor");
     icobranca.placeholder = `R$ ${e.valor}`;
     icobranca.style.fontStyle = "normal";
     icobranca.style.marginLeft = "4%";
 
     eee2b.appendChild(eee2bimg);
+    eee2b.appendChild(icobrancaLabel);
     eee2b.appendChild(icobranca);
     col2.appendChild(eee2b);
 
@@ -323,8 +337,6 @@ function montarlista(vetor) {
     divBtnCancelar.appendChild(btnCancelar);
     cancelarAtualizar.appendChild(divBtnCancelar);
 
-    const form = document.getElementById("edit");
-
     btnCancelar.addEventListener("click", () => {
       col2.style.display = "none";
       col1.style.display = "";
@@ -339,7 +351,10 @@ function montarlista(vetor) {
     btnAtualizar.type = "submit";
     btnAtualizar.innerHTML = "Atualizar";
     btnAtualizar.className = "btn-atualizar";
-    btnAtualizar.addEventListener("click", () => {
+
+    btnAtualizar.addEventListener("click", (ev) => {
+      ev.preventDefault()
+
       col2.style.display = "none";
       col1.style.display = "";
 
@@ -350,150 +365,49 @@ function montarlista(vetor) {
       form.reset();
     });
 
+    // atualiza data_prevista, data_devolucao e valor do livro
     function alterarItem(id_emprestimo) {
-      console.log("alterarItem function called"); // Add this line for debugging
+      let data_prevista = formDiv.querySelector("#data_prevista").value.trim();
+      let data_devolucao = formDiv.querySelector("#data_devolucao").value.trim();
+      let valor = formDiv.querySelector("#valor").value.trim();
     
-      form.addEventListener("submit", function (event) {
-        event.preventDefault();
+      const bodyPATCH = {};
     
-        console.log("Form submitted"); // Add this line for debugging
+      if (data_prevista !== "") {
+        bodyPATCH.data_prevista = data_prevista;
+      }
     
-        const dataPrevistaInput = document.getElementById("data_prevista");
-        const dataDevolucaoInput = document.getElementById("data_devolucao");
-        const valorInput = document.getElementById("valor");
+      if (data_devolucao !== "") {
+        bodyPATCH.data_devolucao = data_devolucao;
+      }
     
-        const dataPrevistaValue = dataPrevistaInput.value;
-        const dataDevolucaoValue = dataDevolucaoInput.value;
-        const valorValue = valorInput.value;
+      if (valor !== "") {
+        bodyPATCH.valor = valor;
+      }
     
-        console.log("Data Prevista:", dataPrevistaValue);
-        console.log("Data Devolucao:", dataDevolucaoValue);
-        console.log("Valor:", valorValue);
-    
-        const dadosPATCH = {
-          data_prevista: dataPrevistaValue,
-          data_devolucao: dataDevolucaoValue,
-          valor: valorValue
-        };
-    
+      if (Object.keys(bodyPATCH).length > 0) {
         const optionsPATCH = {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(dadosPATCH),
+          body: JSON.stringify(bodyPATCH),
         };
     
         fetch(uri + "/emprestimo/" + id_emprestimo, optionsPATCH)
-          .then((resp) => resp.json())
-          .then((resp) => {
-            console.log(resp);
+          .then((response) => {
+            console.log(response);
+            console.log("Data Prevista: " + data_prevista);
+            console.log("Data Devolução: " + data_devolucao);
+            console.log("Valor: " + valor);
           })
           .catch((err) => console.error(err));
-      });
+      } else {
+        console.log("No input values to update. PATCH request not sent.");
+      }
     }
-    
-    // Ensure that alterarItem is called when the button is clicked
-    document.querySelector(".btn-atualizar").addEventListener("click", function() {
-      alterarItem(e.id_emprestimo);
-    });
-    
 
-    // function alterarItem(id_emprestimo) {
-    //   const form = document.getElementById("edit");
-
-    //   form.addEventListener("submit", function (event) {
-    //     event.preventDefault();
-
-    //     const dataPrevistaInput = document.getElementById("data_prevista");
-    //     const dataDevolucaoInput = document.getElementById("data_devolucao");
-    //     const valorInput = document.getElementById("valor");
-
-    //     const dataPrevistaValue = dataPrevistaInput.value;
-    //     const dataDevolucaoValue = dataDevolucaoInput.value;
-    //     const valorValue = valorInput.value;
-
-    //     const dadosPATCH = {
-    //       data_prevista: dataPrevistaValue,
-    //       data_devolucao: dataDevolucaoValue,
-    //       valor: valorValue,
-    //     };
-
-    //     const optionsPATCH = {
-    //       method: "PATCH",
-    //       headers: { "Content-Type": "application/json" },
-    //       body: JSON.stringify(dadosPATCH),
-    //     };
-
-    //     fetch(uri + "/emprestimo/" + id_emprestimo, optionsPATCH)
-    //       .then((resp) => resp.json())
-    //       .then((resp) => {
-    //         console.log(resp);
-    //         console.log("Valor:", valorValue);
-    //       })
-    //       .catch((err) => console.error(err));
-    //   });
-    // }
-
-    // form.addEventListener("submit", (e) => {
-    // e.preventDefault();
-
-    // function alterarItem(id_emprestimo, form) {
-    //   // const dadosPATCH = {};
-
-    //   const dadosPATCH = {
-    //     data_prevista: form.data_prevista.value,
-    //     data_devolucao: form.data_devolucao.value,
-    //     valor: form.valor.value,
-    //   };
-
-    //   // const dadosPATCH = {
-    //   //   data_prevista: form.querySelector("#data_prevista").value,
-    //   //   data_devolucao: form.querySelector("#data_devolucao").value,
-    //   //   valor: form.querySelector("#valor").value,
-    //   // };
-
-    //   // Check if data_prevista is defined before accessing its value
-    //   // if (form.data_prevista) {
-    //   //   dadosPATCH.data_prevista = form.data_prevista.value;
-    //   // }
-
-    //   // if (form.data_devolucao) {
-    //   //   dadosPATCH.data_devolucao = form.data_devolucao.value;
-    //   // }
-
-    //   // if (form.valor) {
-    //   //   dadosPATCH.valor = form.valor.value;
-    //   // }
-
-    //   // if (data_prevista.value) {
-    //   //   dadosPATCH.data_prevista = form.data_prevista.value;
-    //   // }
-
-    //   // if (data_devolucao.value) {
-    //   //   dadosPATCH.data_devolucao = form.data_devolucao.value;
-    //   // }
-
-    //   // if (valor.value) {
-    //   //   dadosPATCH.valor = form.valor.value;
-    //   // }
-
-    //   const optionsPATCH = {
-    //     method: "PATCH",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(dadosPATCH),
-    //   };
-
-    //   fetch(uri + "/emprestimo/" + id_emprestimo, optionsPATCH)
-    //     .then((resp) => resp.json())
-    //     .then((resp) => {
-    //       console.log(resp);
-    //       // console.log(valor.value);
-    //       console.log(form); // Check if the form is defined
-    //       console.log(form.valor); // Check if data_prevista is defined
-    //       console.log(form.valor.value); // Check if value is accessible
-    //     })
-    //     .catch((err) => console.error(err));
-    // }
-    // // });
+    // edit form div
+    let formDiv = document.createElement("form");
+    formDiv.className = "edit";
 
     formDiv.appendChild(ee3b);
     formDiv.appendChild(ee4b);
@@ -501,19 +415,6 @@ function montarlista(vetor) {
     formDiv.appendChild(btnAtualizar);
 
     col2.appendChild(formDiv);
-
-    // let inpDP = document.querySelector("#data_prevista");
-    // let inpDD = document.querySelector("#data_devolucao");
-    // let inpValor = document.querySelector("#valor");
-
-    // const form = document.createElement("form");
-    // form.setAttribute("id", "editForm");
-
-    // form.appendChild(inpDP);
-    // form.appendChild(inpDD);
-    // form.appendChild(inpValor);
-
-    // col2.appendChild(form)
 
     divBtnAtualizar.appendChild(btnAtualizar);
     cancelarAtualizar.appendChild(divBtnAtualizar);
@@ -565,112 +466,5 @@ function excluirItem(i) {
 }
 
 const perror = document.querySelector(".error");
-
-function tipourl() {
-  var a = urlimg.value;
-  var tipo = [];
-
-  for (let i = 4; i > 0; i--) {
-    tipo.push(a[a.length - i]);
-  }
-
-  if (
-    (tipo[0] == "." && tipo[1] == "p") ||
-    (tipo[1] == "j" && tipo[2] == "n") ||
-    (tipo[2] == "p" && tipo[3] == "g")
-  ) {
-    return true;
-  } else return false;
-}
-
-function add() {
-  if (
-    titulo.value == "" ||
-    autor.value == "" ||
-    urlimg.value == "" ||
-    data_emprestimo.value == ""
-  ) {
-    perror.innerHTML =
-      "Titulo, autor, data de emprestimo e URL da imagem não podem ser vazios.";
-    perror.classList.remove("card");
-  } else if (
-    data_prevista.value != "" &&
-    data_prevista.value < data_emprestimo.value
-  ) {
-    perror.classList.remove("card");
-    perror.innerHTML =
-      "Indique uma data de previsão que seja superior a data de emprestimo";
-    data_prevista.value = "";
-  } else if (
-    data_devolucao.value != "" &&
-    data_devolucao.value < data_emprestimo.value
-  ) {
-    perror.classList.remove("card");
-    perror.innerHTML =
-      "Indique uma data de devolução que seja superior a data de emprestimo";
-    data_devolucao.value = "";
-  } else if (Number(valor.value) < 0 || Number(valor.value) == "") {
-    perror.classList.remove("card");
-    perror.innerHTML =
-      "O valor do livro não pode ser vazio ou negativo. Informe números inteiros";
-    valor.value = "";
-  } else if (tipourl() == false) {
-    perror.classList.remove("card");
-    perror.innerHTML =
-      "A URL do campo imagem precisar ter o formato de imagem png ou jpg.";
-    urlimg.value = "";
-  } else {
-    perror.classList.add("card");
-
-    clonemain.classList.remove("card");
-
-    clonemain.querySelector(".asset").remove();
-    // clonemain.querySelector(".info").remove();
-
-    cloneasset.querySelector(
-      ".foto"
-    ).style.backgroundImage = `url(${image.value})`;
-    cloneasset.querySelector("#ti").innerHTML = titulo.value;
-
-    cloneinfo.querySelector("#au").innerHTML = autor.value;
-    cloneinfo.querySelector("#de").innerHTML = data_emprestimo.value;
-    cloneinfo.querySelector("#dp").innerHTML = data_prevista.value;
-    cloneinfo.querySelector("#dd").innerHTML = data_devolucao.value;
-
-    function cobrar() {
-      if (data_prevista.value == "" && data_devolucao.value == "")
-        return "Sem datas";
-      else if (data_devolucao.value != "" && data_prevista.value == "")
-        return "Sem data prevista";
-      else if (data_prevista.value != "" && data_devolucao.value == "")
-        return "Sem devolução";
-      else if (data_prevista.value < data_devolucao.value) {
-        let porcen = Number(valor.value) * 0.1;
-
-        let ddv = new Date(data_devolucao.value);
-        let dpv = new Date(data_prevista.value);
-
-        let diferenca = (ddv - dpv) / (1000 * 60 * 60 * 24);
-
-        return porcen * diferenca;
-      } else return "devolvido no prazo";
-    }
-
-    cloneinfo.querySelector("#cobr").innerHTML = cobrar();
-
-    clonemain.appendChild(cloneasset);
-    clonemain.appendChild(cloneinfo);
-    modelo.appendChild(clonemain);
-    workspace.appendChild(clonemain);
-
-    titulo.value = "";
-    autor.value = "";
-    data_emprestimo.value = "";
-    data_prevista.value = "";
-    data_devolucao.value = "";
-    valor.value = "";
-    urlimg.value = "";
-  }
-}
 
 console.info("Script running");
