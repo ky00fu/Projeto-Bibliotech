@@ -88,8 +88,7 @@ function montarlista(vetor) {
     ee2.appendChild(pdata_e);
     col1.appendChild(ee2);
 
-    if (e.data_prevista == "0000-00-00" || e.data_devolucao == "0000-00-00") {
-      e.data_prevista = null;
+    if (e.data_devolucao == "0000-00-00") {
       e.data_devolucao = null;
     }
 
@@ -105,8 +104,7 @@ function montarlista(vetor) {
 
     let fordp = new Date(e.data_prevista).toLocaleDateString("pt-BR");
 
-    if (e.data_prevista != null) pdata_p.innerHTML = fordp;
-    else pdata_p.innerHTML = "";
+    pdata_p.innerHTML = fordp;
 
     ee3.appendChild(ee3img);
     ee3.appendChild(pdata_p);
@@ -232,40 +230,28 @@ function tipourl() {
 }
 
 function add() {
-  if (
-    titulo.value == "" ||
-    autor.value == "" ||
-    urlimg.value == "" ||
-    data_emprestimo.value == ""
-  ) {
-    perror.innerHTML =
-      "Titulo, autor, data de emprestimo e URL da imagem não podem ser vazios.";
+  if (titulo.value == "" || autor.value == "" || urlimg.value == "") {
+    perror.innerHTML = "Titulo, autor e URL da imagem não podem ser vazios.";
     perror.classList.remove("card");
-  } else if (
-    data_prevista.value != "" &&
-    data_prevista.value < data_emprestimo.value
-  ) {
-    perror.classList.remove("card");
-    perror.innerHTML =
-      "Indique uma data de previsão que seja superior a data de emprestimo";
-    data_prevista.value = "";
-  } else if (
-    data_devolucao.value != "" &&
-    data_devolucao.value < data_emprestimo.value
-  ) {
-    perror.classList.remove("card");
-    perror.innerHTML =
-      "Indique uma data de devolução que seja superior a data de emprestimo";
-    data_devolucao.value = "";
-  } else if (Number(valor.value) < 0 || Number(valor.value) == "") {
+  }
+  // else if (data_prevista.value != "" && data_prevista.value < data_emprestimo.value) {
+  //   perror.classList.remove("card");
+  //   perror.innerHTML = "Indique uma data de previsão que seja superior a data de emprestimo";
+  //   data_prevista.value = "";
+  // }
+  // else if (data_devolucao.value != "" && data_devolucao.value < data_emprestimo.value) {
+  //   perror.classList.remove("card");
+  //   perror.innerHTML = "Indique uma data de devolução que seja superior a data de emprestimo";
+  //   data_devolucao.value = "";
+  // } 
+  else if (Number(valor.value) < 0 || Number(valor.value) == "") {
     perror.classList.remove("card");
     perror.innerHTML =
       "O valor do livro não pode ser vazio ou negativo. Informe números inteiros";
     valor.value = "";
   } else if (tipourl() == false) {
     perror.classList.remove("card");
-    perror.innerHTML =
-      "A URL do campo imagem precisar ter o formato de imagem png ou jpg.";
+    perror.innerHTML = "A URL do campo imagem precisar ter o formato de imagem png ou jpg.";
     urlimg.value = "";
   } else {
     perror.classList.add("card");
@@ -273,26 +259,16 @@ function add() {
     clonemain.classList.remove("card");
 
     clonemain.querySelector(".asset").remove();
-    // clonemain.querySelector(".info").remove();
 
-    cloneasset.querySelector(
-      ".foto"
-    ).style.backgroundImage = `url(${image.value})`;
+    cloneasset.querySelector(".foto").style.backgroundImage = `url(${image.value})`;
     cloneasset.querySelector("#ti").innerHTML = titulo.value;
+    cloneasset.querySelector("#au").innerHTML = autor.value;
 
-    cloneinfo.querySelector("#au").innerHTML = autor.value;
-    cloneinfo.querySelector("#de").innerHTML = data_emprestimo.value;
-    cloneinfo.querySelector("#dp").innerHTML = data_prevista.value;
-    cloneinfo.querySelector("#dd").innerHTML = data_devolucao.value;
+    // cloneasset.querySelector("#de").innerHTML = data_emprestimo.value;
+  // cloneasset.querySelector("#dp").innerHTML = data_prevista.value;
+    // cloneinfo.querySelector("#dd").innerHTML = data_devolucao.value;
 
-    function cobrar() {
-      if (data_prevista.value === "") {
-        let dataPrevista = new Date(data_emprestimo.value);
-        dataPrevista.setDate(dataPrevista.getDate() + 20);
-
-        data_prevista.value = dataPrevista.toLocaleDateString("pt-BR");
-      }
-
+    function cobrar() {      
       if (data_prevista.value == "" && data_devolucao.value == "")
         return "Sem datas";
       else if (data_devolucao.value != "" && data_prevista.value == "")
@@ -308,13 +284,13 @@ function add() {
         let diferenca = (ddv - dpv) / (1000 * 60 * 60 * 24);
 
         return porcen * diferenca;
-      } else return "devolvido no prazo";
+      } else return "Devolvido no prazo";
     }
 
-    cloneinfo.querySelector("#cobr").innerHTML = cobrar();
+    cloneasset.querySelector("#cobr").innerHTML = cobrar();
 
     clonemain.appendChild(cloneasset);
-    clonemain.appendChild(cloneinfo);
+    // clonemain.appendChild(cloneinfo);
     modelo.appendChild(clonemain);
     workspace.appendChild(clonemain);
 
@@ -322,7 +298,7 @@ function add() {
     autor.value = "";
     data_emprestimo.value = "";
     data_prevista.value = "";
-    data_devolucao.value = "";
+    // data_devolucao.value = "";
     valor.value = "";
     urlimg.value = "";
   }
