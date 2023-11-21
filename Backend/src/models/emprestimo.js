@@ -13,7 +13,7 @@ class Emprestimo {
     }
 
     create() {
-        return `INSERT INTO emprestimo VALUE(default,'${this.id_cliente}','${this.titulo}','${this.url}','${this.autor}','${this.valor}', NULL , CURRENT_DATE(), '${this.data_prevista}', '${this.data_devolucao}')`
+        return `INSERT INTO emprestimo VALUE(default,'${this.id_cliente}','${this.titulo}','${this.url}','${this.autor}','${this.valor}', NULL , CURRENT_DATE(), DATE_ADD(CURRENT_DATE(), INTERVAL 20 DAY), '${this.data_devolucao}')`
     }
 
     read() {
