@@ -233,18 +233,7 @@ function add() {
   if (titulo.value == "" || autor.value == "" || urlimg.value == "") {
     perror.innerHTML = "Titulo, autor e URL da imagem não podem ser vazios.";
     perror.classList.remove("card");
-  }
-  // else if (data_prevista.value != "" && data_prevista.value < data_emprestimo.value) {
-  //   perror.classList.remove("card");
-  //   perror.innerHTML = "Indique uma data de previsão que seja superior a data de emprestimo";
-  //   data_prevista.value = "";
-  // }
-  // else if (data_devolucao.value != "" && data_devolucao.value < data_emprestimo.value) {
-  //   perror.classList.remove("card");
-  //   perror.innerHTML = "Indique uma data de devolução que seja superior a data de emprestimo";
-  //   data_devolucao.value = "";
-  // } 
-  else if (Number(valor.value) < 0 || Number(valor.value) == "") {
+  } else if (Number(valor.value) < 0 || Number(valor.value) == "") {
     perror.classList.remove("card");
     perror.innerHTML =
       "O valor do livro não pode ser vazio ou negativo. Informe números inteiros";
@@ -263,10 +252,6 @@ function add() {
     cloneasset.querySelector(".foto").style.backgroundImage = `url(${image.value})`;
     cloneasset.querySelector("#ti").innerHTML = titulo.value;
     cloneasset.querySelector("#au").innerHTML = autor.value;
-
-    // cloneasset.querySelector("#de").innerHTML = data_emprestimo.value;
-  // cloneasset.querySelector("#dp").innerHTML = data_prevista.value;
-    // cloneinfo.querySelector("#dd").innerHTML = data_devolucao.value;
 
     function cobrar() {      
       if (data_prevista.value == "" && data_devolucao.value == "")
@@ -290,7 +275,6 @@ function add() {
     cloneasset.querySelector("#cobr").innerHTML = cobrar();
 
     clonemain.appendChild(cloneasset);
-    // clonemain.appendChild(cloneinfo);
     modelo.appendChild(clonemain);
     workspace.appendChild(clonemain);
 
@@ -298,7 +282,6 @@ function add() {
     autor.value = "";
     data_emprestimo.value = "";
     data_prevista.value = "";
-    // data_devolucao.value = "";
     valor.value = "";
     urlimg.value = "";
   }
