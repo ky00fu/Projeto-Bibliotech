@@ -8,6 +8,7 @@ const data_prevista = document.querySelector("#data_prevista");
 const data_devolucao = document.querySelector("#data_devolucao");
 const valor = document.querySelector("#valor");
 const urlimg = document.querySelector("#image");
+const formDiv = document.querySelector(".edit");
 
 const main = document.querySelector("main");
 const workspace = document.querySelector(".workspace");
@@ -171,9 +172,10 @@ function montarlista(vetor) {
     ee3bimg.className = "ee3bimg";
 
     let idata_pLabel = document.createElement("label");
-    idata_pLabel.setAttribute("name", "data_prevista")
+    idata_pLabel.setAttribute("name", "data_prevista");
 
     let idata_p = document.createElement("input");
+    // idata_p.type = "date";
     idata_p.type = "text";
     idata_p.setAttribute("name", "data_prevista");
     idata_p.setAttribute("id", "data_prevista");
@@ -214,14 +216,16 @@ function montarlista(vetor) {
     ee4bimg.className = "ee4bimg";
 
     let idata_dLabel = document.createElement("label");
-    idata_dLabel.setAttribute("name", "data_devolucao")
+    idata_dLabel.setAttribute("name", "data_devolucao");
 
     let idata_d = document.createElement("input");
-    idata_d.type = "text";
+    idata_d.type = "date";
+    // idata_d.value = formatDate(e.data_devolucao)
     idata_d.setAttribute("name", "data_devolucao");
     idata_d.setAttribute("id", "data_devolucao");
     idata_d.style.marginLeft = "4%";
 
+    // idata_d.placeholder = fordd;
     if (e.data_devolucao != null) idata_d.placeholder = fordd;
     else idata_d.placeholder = "00/00/0000";
 
@@ -232,14 +236,10 @@ function montarlista(vetor) {
 
     // cálculo cobrança
     function valorcobranca() {
-      if (e.data_prevista == null && e.data_devolucao == null)
-        // return "Sem datas";
-        return "R$ 0.00";
+      if (e.data_prevista == null && e.data_devolucao == null) return "0.00";
       else if (e.data_devolucao != null && e.data_prevista == null)
-        // return "Sem data prevista";
-        return "R$ 0.00";
+        return "0.00";
       else if (e.data_prevista != null && e.data_devolucao == null)
-        // return "Sem devolução";
         return "R$ 0.00";
       else if (e.data_prevista < e.data_devolucao) {
         let porcen = Number(e.valor) * 0.1;
@@ -250,9 +250,7 @@ function montarlista(vetor) {
         let diferenca = (ddv - dpv) / (1000 * 60 * 60 * 24);
 
         return porcen * diferenca;
-      }
-      //  return "Devolvido no prazo";
-      else return "R$ 0.00";
+      } else return "0.00";
     }
 
     // div campo_cobranca
@@ -283,7 +281,14 @@ function montarlista(vetor) {
     let pcobranca = document.createElement("p");
     pcobranca.style.fontStyle = "normal";
     pcobranca.style.marginLeft = "4%";
-    pcobranca.innerHTML = valorcobranca();
+
+    let valorCobranca = valorcobranca();
+
+    if (typeof valorCobranca === "number") {
+      pcobranca.innerHTML = "R$ " + valorCobranca.toFixed(2);
+    } else {
+      pcobranca.innerHTML = valorCobranca;
+    }
 
     eee1.appendChild(eee1img);
     eee1.appendChild(pValorOriginal);
@@ -303,7 +308,7 @@ function montarlista(vetor) {
 
     // cálculo cobrança
     let icobrancaLabel = document.createElement("label");
-    icobrancaLabel.setAttribute("name", "valor")
+    icobrancaLabel.setAttribute("name", "valor");
 
     let icobranca = document.createElement("input");
     icobranca.type = "number";
@@ -349,7 +354,7 @@ function montarlista(vetor) {
     btnAtualizar.className = "btn-atualizar";
 
     btnAtualizar.addEventListener("click", (ev) => {
-      ev.preventDefault()
+      ev.preventDefault();
 
       col2.style.display = "none";
       col1.style.display = "";
@@ -364,34 +369,45 @@ function montarlista(vetor) {
     // atualiza data_prevista, data_devolucao e valor do livro
     function alterarItem(id_emprestimo) {
       let data_prevista = formDiv.querySelector("#data_prevista").value.trim();
-      let data_devolucao = formDiv.querySelector("#data_devolucao").value.trim();
+      let data_devolucao = formDiv
+        .querySelector("#data_devolucao")
+        .value.trim();
       let valor = formDiv.querySelector("#valor").value.trim();
-    
+
       const bodyPATCH = {};
-    
+
       if (data_prevista !== "") {
-        bodyPATCH.data_prevista = data_prevista;
+        bodyPATCH.data_prevista = formatDate(data_prevista);
       }
-    
+
       if (data_devolucao !== "") {
-        bodyPATCH.data_devolucao = data_devolucao;
+        bodyPATCH.data_devolucao = formatDate(data_devolucao);
       }
-    
+
       if (valor !== "") {
         bodyPATCH.valor = valor;
       }
-    
+
       if (Object.keys(bodyPATCH).length > 0) {
         const optionsPATCH = {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(bodyPATCH),
         };
-    
+
         fetch(uri + "/emprestimo/" + id_emprestimo, optionsPATCH)
           .then((resp) => window.location.reload())
           .catch((err) => console.error(err));
       }
+    }
+
+    // formatar input data
+    function formatDate(inputDate) {
+      let date = new Date(inputDate);
+      let year = date.getFullYear();
+      let month = (date.getMonth() + 1).toString().padStart(2, "0");
+      let day = date.getDate().toString().padStart(2, "0");
+      return `${year}-${month}-${day}`;
     }
 
     // edit form div
@@ -457,7 +473,7 @@ function excluirItem(i) {
 }
 
 function redirectHome() {
-  window.location.href = `../Pag inicial/Entrada/index.html`
+  window.location.href = `../Pag inicial/Entrada/index.html`;
 }
 
 const perror = document.querySelector(".error");
