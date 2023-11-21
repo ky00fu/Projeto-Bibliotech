@@ -15,9 +15,6 @@ const workspaceText = document.querySelector("#workspace-text");
 const modelo = document.querySelector(".modelo");
 const asset = document.querySelector(".asset");
 
-const clonemain = modelo.cloneNode(true);
-const cloneasset = asset.cloneNode(true);
-
 function hideWorkspaceText() {
   if (asset.style.display !== "none") {
     workspaceText.style.display = "none";
@@ -144,8 +141,7 @@ function montarlista(vetor) {
     ee2b.appendChild(pdata_eb);
     col2.appendChild(ee2b);
 
-    if (e.data_prevista == "0000-00-00" || e.data_devolucao == "0000-00-00") {
-      e.data_prevista = null;
+    if (e.data_devolucao == "0000-00-00") {
       e.data_devolucao = null;
     }
 
@@ -161,8 +157,7 @@ function montarlista(vetor) {
 
     let fordp = new Date(e.data_prevista).toLocaleDateString("pt-BR");
 
-    if (e.data_prevista != null) pdata_p.innerHTML = fordp;
-    else pdata_p.innerHTML = "00/00/0000";
+    pdata_p.innerHTML = fordp;
 
     ee3.appendChild(ee3img);
     ee3.appendChild(pdata_p);
