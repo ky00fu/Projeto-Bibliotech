@@ -171,6 +171,7 @@ function montarlista(vetor) {
       btnRenovar.addEventListener("click", () => renovar(e.id_emprestimo));
     } else {
       btnRenovar.style.display = "none";
+      eee2.style.background = "linear-gradient(to left, #e0ffed 100%, #c8ffdf 90%)";
     }
 
     function renovar(id_emprestimo) {
