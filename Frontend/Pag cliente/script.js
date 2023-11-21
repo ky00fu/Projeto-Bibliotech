@@ -128,6 +128,10 @@ function montarlista(vetor) {
 
         return porcen * diferenca;
       } else return "Devolvido no prazo";
+      // } else {
+      //   excluirItem(e.id_emprestimo)
+      //   return ""
+      // }
     }
 
     // div cobranca
@@ -141,7 +145,14 @@ function montarlista(vetor) {
     let pcobranca = document.createElement("p");
     pcobranca.style.fontStyle = "normal";
     pcobranca.style.marginLeft = "4%";
-    pcobranca.innerHTML = valorcobranca();
+
+    let valorCobranca = valorcobranca();
+
+    if (typeof valorCobranca === "number") {
+      pcobranca.innerHTML = "R$ " + valorCobranca.toFixed(2);
+    } else {
+      pcobranca.innerHTML = valorCobranca;
+    }
 
     eee1.appendChild(eee1img);
     eee1.appendChild(pcobranca);
@@ -154,7 +165,13 @@ function montarlista(vetor) {
     let btnRenovar = document.createElement("button");
     btnRenovar.className = "btnRenovar";
     btnRenovar.innerHTML = "Renovar";
-    btnRenovar.addEventListener("click", () => renovar(e.id_emprestimo));
+    // btnRenovar.addEventListener("click", () => renovar(e.id_emprestimo));
+
+    if (e.data_devolucao === null) {
+      btnRenovar.addEventListener("click", () => renovar(e.id_emprestimo));
+    } else {
+      btnRenovar.style.display = "none";
+    }
 
     function renovar(id_emprestimo) {
       var dataPrevista = new Date(e.data_prevista);
@@ -177,7 +194,12 @@ function montarlista(vetor) {
 
     eee1.appendChild(eee1img);
     eee1.appendChild(pcobranca);
-    eee2.appendChild(btnRenovar);
+    // eee2.appendChild(btnRenovar);
+
+    if (btnRenovar.style.display !== "none") {
+      eee2.appendChild(btnRenovar);
+    }
+
     col1.appendChild(eee1);
     col1.appendChild(eee2);
 
@@ -210,6 +232,20 @@ document.querySelector("#cadastro").addEventListener("submit", (e) => {
   add();
 });
 
+// function excluirItem(i, data_devolucao) {
+//   if (data_devolucao !== null) {
+//     fetch(uri + "/emprestimo/" + i, { method: "DELETE" })
+//       // .then((resp) => resp.status)
+//       .then((resp) => window.location.reload())
+//       .then((resp) => {
+//         if (resp != 204) alert("Erro ao enviar dados");
+//         else window.location.reload();
+//       });
+//   } else {
+//     console.log("Item não pode ser deletado porque data_devolucao não é null");
+//   }
+// }
+
 const perror = document.querySelector(".error");
 
 function tipourl() {
@@ -240,7 +276,8 @@ function add() {
     valor.value = "";
   } else if (tipourl() == false) {
     perror.classList.remove("card");
-    perror.innerHTML = "A URL do campo imagem precisar ter o formato de imagem png ou jpg.";
+    perror.innerHTML =
+      "A URL do campo imagem precisar ter o formato de imagem png ou jpg.";
     urlimg.value = "";
   } else {
     perror.classList.add("card");
@@ -249,11 +286,13 @@ function add() {
 
     clonemain.querySelector(".asset").remove();
 
-    cloneasset.querySelector(".foto").style.backgroundImage = `url(${image.value})`;
+    cloneasset.querySelector(
+      ".foto"
+    ).style.backgroundImage = `url(${image.value})`;
     cloneasset.querySelector("#ti").innerHTML = titulo.value;
     cloneasset.querySelector("#au").innerHTML = autor.value;
 
-    function cobrar() {      
+    function cobrar() {
       if (data_prevista.value == "" && data_devolucao.value == "")
         return "Sem datas";
       else if (data_devolucao.value != "" && data_prevista.value == "")
