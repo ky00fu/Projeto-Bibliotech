@@ -75,6 +75,10 @@ body {
   cursor: pointer;
 }
 
+.cadastro {
+  margin-top: 20%;
+}
+
 .cadastrar {
   background-color: #fff9eb;
 }
@@ -130,12 +134,32 @@ form {
 }
 
 .erro {
+  position: absolute;
+  top: 15%;
   font-size: 1.875rem;
   color: #FF9D9D;
+  opacity: 0;
+}
+
+.erro.show {
+  animation: fade 0.5s linear forwards;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .sucesso {
   color: #393939;
+}
+
+.sucesso.show {
+  animation: fade 0.5s linear forwards;
 }
 
 .info img {
