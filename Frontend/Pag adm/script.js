@@ -171,23 +171,21 @@ function montarlista(vetor) {
     let ee3bimg = document.createElement("img");
     ee3bimg.className = "ee3bimg";
 
-    // let idata_pLabel = document.createElement("label");
-    // idata_pLabel.setAttribute("name", "data_prevista");
+    let idata_pLabel = document.createElement("label");
+    idata_pLabel.setAttribute("name", "data_prevista");
 
-    let idata_p = document.createElement("p");
-    // let idata_p = document.createElement("input");
-    // idata_p.type = "date";
-    // idata_p.type = "text";
-    // idata_p.setAttribute("name", "data_prevista");
-    // idata_p.setAttribute("id", "data_prevista");
+    // let idata_p = document.createElement("p");
+    let idata_p = document.createElement("input");
+    idata_p.type = "date";
+    idata_p.setAttribute("name", "data_prevista");
+    idata_p.setAttribute("id", "data_prevista");
     idata_p.style.marginLeft = "4%";
 
-    idata_p.innerHTML = fordp;
-    // if (e.data_prevista != null) idata_p.placeholder = fordp;
-    // else idata_p.placeholder = "00/00/0000";
+    if (e.data_prevista != null) idata_p.placeholder = fordp;
+    else idata_p.placeholder = "00/00/0000";
 
     ee3b.appendChild(ee3bimg);
-    // ee3b.appendChild(idata_pLabel);
+    ee3b.appendChild(idata_pLabel);
     ee3b.appendChild(idata_p);
     col2.appendChild(ee3b);
 
@@ -226,8 +224,8 @@ function montarlista(vetor) {
     idata_d.setAttribute("id", "data_devolucao");
     idata_d.style.marginLeft = "4%";
 
-    // if (e.data_devolucao != null) idata_d.placeholder = fordd;
-    // else idata_d.placeholder = "00/00/0000";
+    if (e.data_devolucao != null) idata_d.placeholder = fordd;
+    else idata_d.placeholder = "00/00/0000";
 
     ee4b.appendChild(ee4bimg);
     ee4b.appendChild(idata_dLabel);
@@ -368,17 +366,15 @@ function montarlista(vetor) {
 
     // atualiza data_prevista, data_devolucao e valor do livro
     function alterarItem(id_emprestimo) {
-      // let data_prevista = formDiv.querySelector("#data_prevista").value.trim();
-      let data_devolucao = formDiv
-        .querySelector("#data_devolucao")
-        .value.trim();
+      let data_prevista = formDiv.querySelector("#data_prevista").value.trim();
+      let data_devolucao = formDiv.querySelector("#data_devolucao").value.trim();
       let valor = formDiv.querySelector("#valor").value.trim();
 
       const bodyPATCH = {};
 
-      // if (data_prevista !== "") {
-      //   bodyPATCH.data_prevista = formatDate(data_prevista);
-      // }
+      if (data_prevista !== "") {
+        bodyPATCH.data_prevista = formatDate(data_prevista);
+      }
 
       if (data_devolucao !== "") {
         bodyPATCH.data_devolucao = formatDate(data_devolucao);
