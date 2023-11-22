@@ -113,6 +113,12 @@ a {
   align-items: center;
 }
 
+#logo:hover {
+  transition: scale 1s ease;
+  scale: 110%;
+  cursor: pointer;
+}
+
 form {
   width: 80%;
   margin-bottom: 5%;
