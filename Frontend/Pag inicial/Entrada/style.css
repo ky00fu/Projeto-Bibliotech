@@ -28,8 +28,6 @@ body {
   width: 95%;
   height: 90%;
 
-  /* z-index: -2; */
-
   justify-content: center;
 
   background: linear-gradient(to bottom, #ffe090 20%, #fed287 50%, #fcb774 75%);
@@ -42,8 +40,6 @@ body {
   width: 95%;
   height: 40%;
 
-  /* z-index: -1; */
-
   position: absolute;
   bottom: 5%;
 
@@ -51,6 +47,10 @@ body {
   background-size: contain;
   background-position: bottom;
   background-repeat: no-repeat;
+
+  opacity: 0;
+  animation: aparecer 1s ease forwards;
+  animation-delay: 3s;
 }
 
 .resp {
@@ -66,6 +66,10 @@ header {
 
   margin-top: 6vh;
   margin-left: 20vw;
+
+  opacity: 0;
+  animation: aparecer 1s ease forwards;
+  animation-delay: .5s;
 }
 
 header h1 {
@@ -75,34 +79,6 @@ header h1 {
   font-size: 96px;
 }
 
-header {
-  opacity: 0;
-  animation: aparecer .5s ease forwards;
-  animation-delay: 1s;
-}
-
-.linha {
-  opacity: 0;
-  animation: aparecer .5s ease forwards;
-  animation-delay: 2s;
-}
-
-.buttons {
-  opacity: 0;
-  animation: aparecer .5s ease forwards;
-  animation-delay: 3s;
-}
-
-
-@keyframes aparecer {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
 #img01 {
   position: absolute;
   width: 30%;
@@ -110,16 +86,10 @@ header {
   bottom: 37%;
   left: 10%;
 
-  transform: rotate(0deg) translateY(-10px);
-  animation: float infinite 6s linear;
-}
+  opacity: 0;
 
-@keyframes float {
-  from {
-    transform: rotate(0deg) translateY(-10px) rotate(0deg);
-  } to {
-    transform: rotate(360deg) translateY(-10px) rotate(-360deg);
-  }
+  transform: rotate(0deg) translateY(-10px);
+  animation: 2s ease 1.5s forwards aparecer, float infinite 6s linear;
 }
 
 #img02 {
@@ -128,17 +98,11 @@ header {
 
   top: 35vh;
   right: 12vw;
+  
+  opacity: 0;
 
   transform: rotate(0deg) translateY(-10px);
-  animation: float2 infinite 7s linear;
-}
-
-@keyframes float2 {
-  from {
-    transform: rotate(360deg) translateY(-10px) rotate(-360deg);
-  } to {
-    transform: rotate(0deg) translateY(-10px) rotate(0deg);
-  }
+  animation: 2s ease 1.5s forwards aparecer, float2 infinite 7s linear;
 }
 
 #img03 {
@@ -155,6 +119,10 @@ header {
   gap: 60px;
   margin-top: 42vh;
   margin-right: 55vw;
+
+  opacity: 0;
+  animation: aparecer 1.5s ease forwards;
+  animation-delay: 4s;
 }
 
 .link {
@@ -181,4 +149,30 @@ a {
   border: none;
   outline: none;
   box-shadow: none;
+}
+
+/* keyframes */
+@keyframes float {
+  from {
+    transform: rotate(0deg) translateY(-10px) rotate(0deg);
+  } to {
+    transform: rotate(360deg) translateY(-10px) rotate(-360deg);
+  }
+}
+
+@keyframes float2 {
+  from {
+    transform: rotate(360deg) translateY(-10px) rotate(-360deg);
+  } to {
+    transform: rotate(0deg) translateY(-10px) rotate(0deg);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
