@@ -43,6 +43,7 @@
 
   #nome-usuario {
     text-align: center;
+    white-space: wrap;
     position: inherit;
     right: 110%;
   }
