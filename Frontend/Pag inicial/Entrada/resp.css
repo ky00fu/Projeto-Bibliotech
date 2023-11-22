@@ -1,60 +1,62 @@
 @import url(./style.css);
 
 @media (max-width: 475px) {
-    body {
-        width: 100%;
-    }
+  body {
+    width: 100%;
+  }
 
-    .page {
-        width: 100%;
-    }
+  .page {
+    width: 100%;
+  }
 
-    #img01,
-    #img02 {
-        display: none;
-    }
+  #img01,
+  #img02 {
+    display: none;
+  }
 
-    header {
-        margin: 0;
-        margin-left: 20%;
+  header {
+    margin: 0;
+    margin-left: 20%;
 
-        display: flex;
-        flex-wrap: wrap-reverse;
+    display: flex;
+    flex-wrap: wrap-reverse;
 
-        row-gap: 1.5rem;
-    }
+    row-gap: 1.5rem;
+  }
 
-    header h1 {
-        font-size: 2.5rem;
-    }
+  header h1 {
+    font-size: 2.5rem;
+  }
 
-    #img03 {
-        display: block;
-        width: 85%;
+  #img03 {
+    /* display: block; */
+    width: 85%;
 
-        position: absolute;
-        top: 29%;
-        left: 6%;
-    }
+    position: absolute;
+    top: 29%;
+    left: 6%;
 
-    .buttons {
-        flex-direction: column;
-        width: 100%;
-        row-gap: 2rem;
-    }
+    animation: 2s ease 1.5s forwards aparecer;
+  }
 
-    .linha {
-        display: none;
-    }
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+    row-gap: 2rem;
+  }
 
-    .resp {
-        display: block;
+  .linha {
+    display: none;
+  }
 
-        background-image: url('./Assets/IMG/linha-resp.png');
+  .resp {
+    display: block;
 
-        background-size: contain;
+    background-image: url("./Assets/IMG/linha-resp.png");
 
-        width: 100%;
-        bottom: 6%;
-    }
+    background-size: contain;
+
+    width: 100%;
+    bottom: 6%;
+  }
 }
