@@ -63,6 +63,15 @@ body {
   font-size: 2rem;
 }
 
+.livro {
+  transition: scale 1s ease;
+}
+
+.livro:hover {
+  scale: 120%;
+  cursor: pointer;
+}
+
 .bemvindo {
   color: #fff9eb;  
   font-size: 2.25rem;
