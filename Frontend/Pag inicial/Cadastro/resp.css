@@ -29,6 +29,12 @@
         border-radius: 0;
     }
 
+    .btn button:hover,
+    .login button:focus {
+        width: 100vw;
+        border-radius: 4rem;
+    }
+
     .container-btns {
         width: 100%;
 
@@ -64,6 +70,12 @@
 
     form {
         width: 90%;
+    }
+
+    #nome,
+    #email,
+    #senha {
+        font-size: 1.5rem;
     }
 
     ::placeholder {
