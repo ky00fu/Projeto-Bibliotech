@@ -63,11 +63,8 @@ body {
   font-size: 2rem;
 }
 
-.livro {
-  transition: scale 1s ease;
-}
-
 .livro:hover {
+  transition: scale 1s ease;
   scale: 120%;
   cursor: pointer;
 }
