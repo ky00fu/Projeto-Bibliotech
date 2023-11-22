@@ -30,6 +30,7 @@
   }
 
   #img03 {
+    display: block;
     width: 85%;
 
     position: absolute;

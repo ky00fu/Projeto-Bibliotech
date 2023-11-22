@@ -106,7 +106,7 @@ header h1 {
 }
 
 #img03 {
-  /* display: none; */
+  display: none;
   opacity: 0;
 }
 
