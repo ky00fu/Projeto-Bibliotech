@@ -172,3 +172,13 @@ header {
   transition: font-size 1s ease-in-out;
   cursor: pointer;
 }
+
+.link:focus,
+a:focus-visible,
+a:active,
+a {
+  text-decoration: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
