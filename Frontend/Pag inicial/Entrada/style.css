@@ -90,7 +90,7 @@ header {
 .buttons {
   opacity: 0;
   animation: aparecer .5s ease forwards;
-  animation-delay: 3.5s;
+  animation-delay: 3s;
 }
 
 
