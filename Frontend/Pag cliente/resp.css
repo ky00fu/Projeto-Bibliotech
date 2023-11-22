@@ -152,6 +152,10 @@
   }
 
   /* modal adicionar livro */
+  .error {
+    margin: 1rem 0;
+  }
+
   .back1 {
     margin: 0;
     width: 100%;
@@ -183,7 +187,7 @@
 
   #titulo,
   #autor,
-  #image,
+  #url,
   #valor {
     width: 100%;
     height: 80%;
@@ -194,7 +198,7 @@
   #titulo:focus,
   #autor:focus,
   #valor:focus,
-  #image:focus {
+  #url:focus {
     width: 90%;
     border-bottom: 0.4vh solid #6282bf;
   }
@@ -216,7 +220,7 @@
 
   #btn-emprestar {
     width: 60%;
-    height: 3.5rem;
+    height: 3rem;
     font-size: 1.5rem;
     margin-bottom: 13%;
   }
