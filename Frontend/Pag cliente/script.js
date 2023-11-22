@@ -330,27 +330,6 @@ function add() {
     cloneasset.querySelector(".foto").style.backgroundImage = `url(${imageUrl})`;
     cloneasset.querySelector("#ti").innerHTML = title;
 
-    function cobrar() {
-      if (data_prevista.value == "" && data_devolucao.value == "")
-        return "Sem datas";
-      else if (data_devolucao.value != "" && data_prevista.value == "")
-        return "Sem data prevista";
-      else if (data_prevista.value != "" && data_devolucao.value == "")
-        return "Sem devolução";
-      else if (data_prevista.value < data_devolucao.value) {
-        let porcen = Number(valor.value) * 0.1;
-
-        let ddv = new Date(data_devolucao.value);
-        let dpv = new Date(data_prevista.value);
-
-        let diferenca = (ddv - dpv) / (1000 * 60 * 60 * 24);
-
-        return porcen * diferenca;
-      } else return "Devolvido no prazo";
-    }
-
-    cloneasset.querySelector("#cobr").innerHTML = cobrar();
-
     clonemain.appendChild(cloneasset);
     modelo.appendChild(clonemain);
     workspace.appendChild(clonemain);
