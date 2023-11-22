@@ -102,9 +102,24 @@ form {
 }
 
 .erro {
+  height: 10%;
   margin-top: 20%;
   font-size: 1.875rem;
   color: #FF9D9D;
+  opacity: 0;
+}
+
+.erro.show {
+  animation: fade 0.5s linear forwards;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .info img {
