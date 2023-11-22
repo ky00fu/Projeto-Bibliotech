@@ -29,6 +29,12 @@
         border-radius: 0;
     }
 
+    .btn button:hover,
+    .cadastrar button:focus {
+        width: 100vw;
+        border-radius: 4rem;
+    }
+
     .container-btns {
         width: 100%;
         margin-bottom: 6%;
