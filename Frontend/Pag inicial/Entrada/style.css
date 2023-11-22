@@ -75,12 +75,51 @@ header h1 {
   font-size: 96px;
 }
 
+header {
+  opacity: 0;
+  animation: aparecer .5s ease forwards;
+  animation-delay: 1s;
+}
+
+.linha {
+  opacity: 0;
+  animation: aparecer .5s ease forwards;
+  animation-delay: 2s;
+}
+
+.buttons {
+  opacity: 0;
+  animation: aparecer .5s ease forwards;
+  animation-delay: 3.5s;
+}
+
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 #img01 {
   position: absolute;
-  width: 550px;
+  width: 30%;
 
-  bottom: 40.5%;
-  left: 7vw;
+  bottom: 37%;
+  left: 10%;
+
+  transform: rotate(0deg) translateY(-10px);
+  animation: float infinite 6s linear;
+}
+
+@keyframes float {
+  from {
+    transform: rotate(0deg) translateY(-10px) rotate(0deg);
+  } to {
+    transform: rotate(360deg) translateY(-10px) rotate(-360deg);
+  }
 }
 
 #img02 {
@@ -89,6 +128,17 @@ header h1 {
 
   top: 35vh;
   right: 12vw;
+
+  transform: rotate(0deg) translateY(-10px);
+  animation: float2 infinite 7s linear;
+}
+
+@keyframes float2 {
+  from {
+    transform: rotate(360deg) translateY(-10px) rotate(-360deg);
+  } to {
+    transform: rotate(0deg) translateY(-10px) rotate(0deg);
+  }
 }
 
 #img03 {
@@ -116,13 +166,9 @@ header h1 {
   color: var(--branco);
 }
 
-.link:hover {
-  animation: aumentar 1s;
+.link:hover,
+.link:focus {
+  font-size: 2.5rem;
+  transition: font-size 1s ease-in-out;
   cursor: pointer;
-}
-
-@keyframes aumentar {
-  50% {
-    font-size: 2.5rem;
-  }
 }
