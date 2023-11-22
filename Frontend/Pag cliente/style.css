@@ -85,11 +85,16 @@ header {
 }
 
 .error {
-  position: absolute;
+  width: 80%;
+  margin-bottom: 6%;
+
+  position: inherit;
+  top: 10%;
+  
   color: #ea5959;
+  text-align: center;
   font-weight: bold;
-  font-size: 0.8vw;
-  margin-left: 4%;
+  font-size: 1.2rem;
   animation-name: aparecer;
   animation-duration: 0.5s;
 }
@@ -237,7 +242,6 @@ header {
 
   position: relative;
   bottom: 1.5vw;
-  margin-bottom: 10%;
 
   color: var(--preto-txt);
   font-weight: 500;
@@ -264,7 +268,8 @@ input {
   font-weight: 500;
 }
 
-.titulo_autor,
+.titulo_livro,
+.autor,
 .valors,
 .imgs,
 .aviso,
@@ -350,7 +355,7 @@ input {
   display: flex;
   justify-content: center;
   align-content: center;
-  margin-top: 7vw;
+  margin-top: 6.5vw;
 }
 
 /* button emprestar */

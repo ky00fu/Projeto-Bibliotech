@@ -7,6 +7,7 @@ const data_emprestimo = document.querySelector("#data_emprestimo");
 const data_prevista = document.querySelector("#data_prevista");
 const valor = document.querySelector("#valor");
 const urlimg = document.querySelector("#url");
+const perror = document.querySelector(".error");
 
 const main = document.querySelector("main");
 const workspace = document.querySelector(".workspace");
@@ -171,7 +172,8 @@ function montarlista(vetor) {
       btnRenovar.addEventListener("click", () => renovar(e.id_emprestimo));
     } else {
       btnRenovar.style.display = "none";
-      eee2.style.background = "linear-gradient(to left, #e0ffed 100%, #c8ffdf 90%)";
+      eee2.style.background =
+        "linear-gradient(to left, #e0ffed 100%, #c8ffdf 90%)";
     }
 
     function renovar(id_emprestimo) {
@@ -212,24 +214,6 @@ function montarlista(vetor) {
 document.querySelector("#cadastro").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  let body = {
-    id_cliente: dado.id,
-    titulo: titulo.value,
-    autor: autor.value,
-    url: urlimg.value,
-    valor: valor.value,
-  };
-
-  let options = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(body),
-  };
-
-  fetch(uri + "/emprestimo", options)
-    .then((resp) => window.location.reload())
-    .catch((err) => console.error(err));
-
   add();
 });
 
@@ -246,8 +230,6 @@ document.querySelector("#cadastro").addEventListener("submit", (e) => {
 //     console.log("Item não pode ser deletado porque data_devolucao não é null");
 //   }
 // }
-
-const perror = document.querySelector(".error");
 
 function tipourl() {
   var a = urlimg.value;
@@ -266,32 +248,88 @@ function tipourl() {
   } else return false;
 }
 
+// function add() {
+//   if (titulo.value == "" || autor.value == "" || urlimg.value == "") {
+//     perror.innerHTML = "Titulo, autor e URL da imagem não podem ser vazios.";
+//     perror.classList.remove("card");
+//   } else if (Number(valor.value) < 0 || Number(valor.value) == "") {
+//     perror.classList.remove("card");
+//     perror.innerHTML =
+//       "O valor do livro não pode ser vazio ou negativo. Informe números inteiros";
+//     valor.value = "";
+//   } else if (tipourl() == false) {
+//     perror.classList.remove("card");
+//     perror.innerHTML =
+//       "A URL do campo imagem precisar ter o formato de imagem png ou jpg.";
+//     urlimg.value = "";
+//   } else {
+//     perror.classList.add("card");
+
+//     clonemain.classList.remove("card");
+
+//     clonemain.querySelector(".asset").remove();
+
+//     cloneasset.querySelector(
+//       ".foto"
+//     ).style.backgroundImage = `url(${urlimg.value})`;
+//     cloneasset.querySelector("#ti").innerHTML = titulo.value;
+//     cloneasset.querySelector("#au").innerHTML = autor.value;
+
+//     clonemain.appendChild(cloneasset);
+//     modelo.appendChild(clonemain);
+//     workspace.appendChild(clonemain);
+
+//     titulo.value = "";
+//     autor.value = "";
+//     valor.value = "";
+//     urlimg.value = "";
+//   }
+
+//   let body = {
+//     id_cliente: dado.id,
+//     titulo: titulo.value,
+//     autor: autor.value,
+//     url: urlimg.value,
+//     valor: valor.value,
+//   };
+
+//   let options = {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(body),
+//   };
+
+//   fetch(uri + "/emprestimo", options)
+//     .then((resp) => window.location.reload())
+//     .catch((err) => console.error(err));
+// }
+
 function add() {
-  if (titulo.value == "" || autor.value == "" || urlimg.value == "") {
+  const title = titulo.value;
+  const author = autor.value;
+  const imageUrl = urlimg.value;
+  const bookValue = valor.value;
+
+  if (title === "" || author === "" || imageUrl === "") {
     perror.innerHTML = "Titulo, autor e URL da imagem não podem ser vazios.";
     perror.classList.remove("card");
-  } else if (Number(valor.value) < 0 || Number(valor.value) == "") {
+  } else if (Number(bookValue) < 0 || Number.isNaN(Number(bookValue))) {
     perror.classList.remove("card");
-    perror.innerHTML =
-      "O valor do livro não pode ser vazio ou negativo. Informe números inteiros";
+    perror.innerHTML = "O valor do livro não pode ser vazio ou negativo. Informe números inteiros";
     valor.value = "";
-  } else if (tipourl() == false) {
+  } else if (!tipourl()) {
     perror.classList.remove("card");
     perror.innerHTML =
-      "A URL do campo imagem precisar ter o formato de imagem png ou jpg.";
+      "A URL do campo imagem precisa ter o formato de imagem png ou jpg.";
     urlimg.value = "";
   } else {
     perror.classList.add("card");
 
     clonemain.classList.remove("card");
-
     clonemain.querySelector(".asset").remove();
 
-    cloneasset.querySelector(
-      ".foto"
-    ).style.backgroundImage = `url(${image.value})`;
-    cloneasset.querySelector("#ti").innerHTML = titulo.value;
-    cloneasset.querySelector("#au").innerHTML = autor.value;
+    cloneasset.querySelector(".foto").style.backgroundImage = `url(${imageUrl})`;
+    cloneasset.querySelector("#ti").innerHTML = title;
 
     function cobrar() {
       if (data_prevista.value == "" && data_devolucao.value == "")
@@ -320,10 +358,26 @@ function add() {
 
     titulo.value = "";
     autor.value = "";
-    data_emprestimo.value = "";
-    data_prevista.value = "";
     valor.value = "";
     urlimg.value = "";
+
+    const body = {
+      id_cliente: dado.id,
+      titulo: title,
+      autor: author,
+      url: imageUrl,
+      valor: bookValue,
+    };
+
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    };
+
+    fetch(uri + "/emprestimo", options)
+      .then((resp) => window.location.reload())
+      .catch((err) => console.error(err));
   }
 }
 

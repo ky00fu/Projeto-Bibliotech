@@ -49,20 +49,22 @@
                                 height="30px" style="margin-top: 2%; margin-left: 93%; cursor: pointer; z-index: 3;">
                         </label>
 
-                        <p class="error card">Esse é um erro</p>
 
                         <div class="form-container">
                             <form id="cadastro">
                                 <h1>Preencha os campos abaixo</h1>
+
+                                <p class="error card">Esse é um erro</p>
+
                                 
-                                <div class="titulo_autor">
+                                <div class="titulo_livro">
                                     <img src="./Assets/Ícones/icone-livro.png" alt="ícone livro">
                                     <label for="titulo"></label>
                                     <!-- <input type="text" name="titulo" id="titulo" required placeholder="Título do livro"> -->
                                     <input type="text" name="titulo" id="titulo" required placeholder="Título do livro" value="Harry Potter e a Pedra Filosofal">
                                 </div>
                                 
-                                <div class="titulo_autor">
+                                <div class="autor">
                                     <img src="./Assets/Ícones/icone-autor.png" alt="ícone autor">
                                     <label for="autor"></label>
                                     <!-- <input type="text" name="autor" id="autor" required placeholder="Autor do livro"> -->
@@ -80,7 +82,7 @@
                                     <img src="./Assets/Ícones/icone-cobranca.png" alt="ícone valor">
                                     <label for="valor"></label>
                                     <!-- <input type="number" name="valor" id="valor" placeholder="Valor do livro"> -->
-                                    <input type="number" name="valor" id="valor" placeholder="Valor do livro" value="30">
+                                    <input type="number" name="valor" id="valor" required placeholder="Valor do livro" value="30">
                                 </div>
                                 
                                 <div class="aviso">
@@ -123,7 +125,9 @@
 
                 <div class="asset">
 
-                    <div class="titulo"></div>
+                    <div class="titulo">
+                        <p id="ti">Harry</p>
+                    </div>
                     
                     <div class="foto"></div>
                         
