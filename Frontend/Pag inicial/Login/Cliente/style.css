@@ -113,6 +113,10 @@ a {
   align-items: center;
 }
 
+#logo {
+  margin-top: 10%;
+}
+
 #logo:hover {
   transition: scale 1s ease;
   scale: 110%;
@@ -121,7 +125,7 @@ a {
 
 form {
   width: 80%;
-  margin-bottom: 5%;
+  margin-bottom: 15%;
 }
 
 .info {
@@ -133,8 +137,24 @@ form {
 }
 
 .erro {
+  margin-top: 10%;
+  height: 10%;
   font-size: 1.875rem;
   color: #FF9D9D;
+  opacity: 0;
+}
+
+.erro.show {
+  animation: fade 0.5s linear forwards;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .info img {
