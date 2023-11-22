@@ -313,14 +313,13 @@ function add() {
   if (title === "" || author === "" || imageUrl === "") {
     perror.innerHTML = "Titulo, autor e URL da imagem não podem ser vazios.";
     perror.classList.remove("card");
-  } else if (Number(bookValue) < 0 || Number.isNaN(Number(bookValue))) {
+  } else if (Number(bookValue) <= 0 || Number.isNaN(Number(bookValue))) {
     perror.classList.remove("card");
-    perror.innerHTML = "O valor do livro não pode ser vazio ou negativo. Informe números inteiros";
+    perror.innerHTML = "O valor do livro não pode ser vazio ou negativo. Informe números inteiros.";
     valor.value = "";
   } else if (!tipourl()) {
     perror.classList.remove("card");
-    perror.innerHTML =
-      "A URL do campo imagem precisa ter o formato de imagem png ou jpg.";
+    perror.innerHTML = "A URL do campo imagem precisa ter o formato de imagem png ou jpg.";
     urlimg.value = "";
   } else {
     perror.classList.add("card");
@@ -380,6 +379,17 @@ function add() {
       .catch((err) => console.error(err));
   }
 }
+
+// fecha modal com esc
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+      // Uncheck the checkbox with id "menu"
+      var menuCheckbox = document.getElementById('menu');
+      if (menuCheckbox && menuCheckbox.checked) {
+          menuCheckbox.checked = false;
+      }
+  }
+});
 
 function redirectHome() {
   window.location.href = `../Pag inicial/Entrada/index.html`;
