@@ -248,62 +248,6 @@ function tipourl() {
   } else return false;
 }
 
-// function add() {
-//   if (titulo.value == "" || autor.value == "" || urlimg.value == "") {
-//     perror.innerHTML = "Titulo, autor e URL da imagem não podem ser vazios.";
-//     perror.classList.remove("card");
-//   } else if (Number(valor.value) < 0 || Number(valor.value) == "") {
-//     perror.classList.remove("card");
-//     perror.innerHTML =
-//       "O valor do livro não pode ser vazio ou negativo. Informe números inteiros";
-//     valor.value = "";
-//   } else if (tipourl() == false) {
-//     perror.classList.remove("card");
-//     perror.innerHTML =
-//       "A URL do campo imagem precisar ter o formato de imagem png ou jpg.";
-//     urlimg.value = "";
-//   } else {
-//     perror.classList.add("card");
-
-//     clonemain.classList.remove("card");
-
-//     clonemain.querySelector(".asset").remove();
-
-//     cloneasset.querySelector(
-//       ".foto"
-//     ).style.backgroundImage = `url(${urlimg.value})`;
-//     cloneasset.querySelector("#ti").innerHTML = titulo.value;
-//     cloneasset.querySelector("#au").innerHTML = autor.value;
-
-//     clonemain.appendChild(cloneasset);
-//     modelo.appendChild(clonemain);
-//     workspace.appendChild(clonemain);
-
-//     titulo.value = "";
-//     autor.value = "";
-//     valor.value = "";
-//     urlimg.value = "";
-//   }
-
-//   let body = {
-//     id_cliente: dado.id,
-//     titulo: titulo.value,
-//     autor: autor.value,
-//     url: urlimg.value,
-//     valor: valor.value,
-//   };
-
-//   let options = {
-//     method: "POST",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify(body),
-//   };
-
-//   fetch(uri + "/emprestimo", options)
-//     .then((resp) => window.location.reload())
-//     .catch((err) => console.error(err));
-// }
-
 function add() {
   const title = titulo.value;
   const author = autor.value;
