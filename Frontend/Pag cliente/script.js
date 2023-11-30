@@ -266,7 +266,9 @@ function add() {
     setTimeout(() => {
       perror.classList.remove("fade-out");
     }, 1000);
-  }  
+  }
+
+  showError()
   
   if (title === "" || author === "" || imageUrl === "") {
     perror.innerHTML = "Titulo, autor e URL da imagem não podem ser vazios.";
