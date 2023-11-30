@@ -5,6 +5,7 @@ SELECT
     c.id AS id_cliente,
     c.nome,
     e.titulo,
+    e.autor,
     e.url,
     e.data_emprestimo,
     e.data_prevista,
