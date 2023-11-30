@@ -7,6 +7,7 @@ const Cliente = require('../controllers/cliente');
 router.post('/cliente/registro', Cliente.criar);
 router.post('/cliente', Cliente.logar);
 router.get('/cliente', Cliente.listar);
+router.get('/cliente/:id', Cliente.listar);
 
 
 
