@@ -254,16 +254,30 @@ function add() {
   const imageUrl = urlimg.value;
   const bookValue = valor.value;
 
+  function showError(message) {
+    perror.innerHTML = message;
+    perror.classList.add("fade-in");
+  
+    setTimeout(() => {
+      perror.classList.remove("fade-in");
+      perror.classList.add("fade-out");
+    }, 1000);
+  
+    setTimeout(() => {
+      perror.classList.remove("fade-out");
+    }, 1000);
+  }  
+  
   if (title === "" || author === "" || imageUrl === "") {
     perror.innerHTML = "Titulo, autor e URL da imagem não podem ser vazios.";
     perror.classList.remove("card");
   } else if (Number(bookValue) <= 0 || Number.isNaN(Number(bookValue))) {
     perror.classList.remove("card");
-    perror.innerHTML = "O valor do livro não pode ser vazio ou negativo. Informe números inteiros.";
+    perror.innerHTML = "O valor do livro não pode ser vazio. Informe números inteiros.";
     valor.value = "";
   } else if (!tipourl()) {
     perror.classList.remove("card");
-    perror.innerHTML = "A URL do campo imagem precisa ter o formato de imagem png ou jpg.";
+    perror.innerHTML = "A URL do campo imagem precisa ter o formato de imagem PNG ou JPG.";
     urlimg.value = "";
   } else {
     perror.classList.add("card");

@@ -86,8 +86,8 @@ header {
 
 .error {
   width: 80%;
-  height: 10%;
-  /* margin-bottom: 6%; */
+  /* height: 8%; */
+  /* margin-bottom: 10vw; */
   margin: 0.3rem 0;
 
   position: inherit;
@@ -97,15 +97,33 @@ header {
   text-align: center;
   font-weight: bold;
   font-size: 1.2rem;
-  animation: aparecer 1s;
-  /* animation-duration: 0.5s; */
+  /* animation: aparecer 1s alternate; */
+  /* transition: all 1s ease; */
+}
+
+.error.fade-in {
+  animation: aparecer 1s forwards;
+}
+
+.error.fade-out {
+  animation: desaparecer 1s forwards;
 }
 
 @keyframes aparecer {
   from {
-    opacity: 1;
+    opacity: 0;
   }
 
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes desaparecer {
+  from {
+    opacity: 1;
+  }
+  
   to {
     opacity: 0;
   }
