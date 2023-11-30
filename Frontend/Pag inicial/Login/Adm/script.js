@@ -57,4 +57,5 @@ acesso.addEventListener("submit", function (e) {
 
 function redirectHome() {
   window.location.href = `../../Entrada/index.html`;
+  window.localStorage.removeItem("dados");
 }
