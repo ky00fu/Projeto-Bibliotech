@@ -11,8 +11,10 @@ class Cliente {
   }
 
   read() {
-    if (this.id_cliente == undefined) return `SELECT * FROM cliente`;
-    else return `SELECT * FROM cliente WHERE id = '${this.id}'`;
+    if (this.id == undefined)
+      return `SELECT * FROM cliente`;
+    else
+      return `SELECT * FROM cliente WHERE id = '${this.id}'`;
   }
 
   entrar() {
