@@ -473,6 +473,7 @@ function excluirItem(i) {
 
 function redirectHome() {
   window.location.href = `../Pag inicial/Entrada/index.html`;
+  window.localStorage.removeItem("dados");
 }
 
 const perror = document.querySelector(".error");
