@@ -332,6 +332,7 @@ document.addEventListener('keydown', function (event) {
 
 function redirectHome() {
   window.location.href = `../Pag inicial/Entrada/index.html`;
+  window.localStorage.removeItem("dados");
 }
 
 console.info("Script running");
