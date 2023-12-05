@@ -12,11 +12,11 @@
 
 ### Clone o repositório
 - Clique no botão *Code*
-- Copie o link HTTPS
+- Copie o link *HTTPS*
 - Abre o VSCode
 - Aperte a tecla ```CTRL + SHIFT + P``` pra acessar o campo de comandos do VSCode
 - Pesquise e pressione a tecla *Enter* em ```Git: Clone```
-- Cola o link HTTPS do repositório e pressiona *Enter*
+- Cola o link *HTTPS* do repositório e pressiona a tecla *Enter*
 - Selecione a pasta desejada para baixar o repositório
 - Clica em *Open* se desejar abrir o projeto na janela aberta ou em *Open in New Window* se desejar abrir em uma nova janela
 
