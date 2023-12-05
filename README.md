@@ -1,7 +1,5 @@
 # PROJETO BIBLIOTECH
 
-## Rodando os arquivos na sua maquina
-
 ### Requisitos:
 - [X] [VSCode](https://code.visualstudio.com/download)
 - [X] [GitBash](https://git-scm.com/downloads)
