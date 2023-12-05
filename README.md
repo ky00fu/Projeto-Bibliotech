@@ -11,12 +11,10 @@
 
 
 ### Clone o repositório
-- Clique no botão *Code*
-- Copie o link *HTTPS*
 - Abre o VSCode
-- Aperte a tecla ```CTRL + SHIFT + P``` pra acessar o campo de comandos do VSCode
+- Aperte a tecla ```CTRL + SHIFT + P``` pra abrir a pesquisa de comandos
 - Pesquise e pressione a tecla *Enter* em ```Git: Clone```
-- Cola o link *HTTPS* do repositório e pressiona a tecla *Enter*
+- Cola o link ```https://github.com/ky00fu/bibliotech.git``` e pressiona a tecla *Enter*
 - Selecione a pasta desejada para baixar o repositório
 - Clica em *Open* se desejar abrir o projeto na janela aberta ou em *Open in New Window* se desejar abrir em uma nova janela
 
@@ -26,8 +24,10 @@
 - Opcionalmente, execute o script [*Database/Scripts/dml.sql*](./Database/Scripts/dml.sql) para povoar o banco de dados
 
 ### Backend 
-- Acesse no terminal CMD a pasta *Backend*
-- Utilizando o gerenciador npm, instale as depêndencias do projeto
+- Aperte as teclas ```CTRL + SHIFT + P```, digita e seleciona ```Terminal: Select Default Profile``` para definir o terminal padrão do VSCode
+- Seleciona *Command Prompt*
+- Clique com o botão direito na pasta [*Backend*](./Backend) e clica em *Open in Integrated Terminal* para acessar a pasta no terminal CMD
+- Utilizando o gerenciador *npm*, instale as depêndencias do projeto
     - *```npm install express cors mysql```*
     - *```npm i```*
 - Incie com node 
@@ -36,9 +36,9 @@
     - *```node index.js```*
 
 ### Frontend
-- Utilizando a extensão Live Server, abra o arquivo [*Frontend/Pag inicial/Entrada/index.html*](./Frontend/Pag%20inicial/Entrada/index.html)
+- Utilizando a extensão *Live Server*, abra o arquivo [*Frontend/Pag inicial/Entrada/index.html*](./Frontend/Pag%20inicial/Entrada/index.html)
 
 ## Pastas
-- ./Backend (API ou BackEnd MVC)
-- ./Database (Diagramas, arquivo de testes Insomnia e scripts MySQL)
-- ./Frontend (Interface Web)
+- ./[Backend](./Backend) (API ou BackEnd MVC)
+- ./[Database](./Database) (Diagramas, arquivo de testes Insomnia e scripts MySQL)
+- ./[Frontend](./Frontend) (Interface Web)
