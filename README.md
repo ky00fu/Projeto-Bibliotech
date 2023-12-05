@@ -11,7 +11,7 @@
 
 
 ### Clone o repositório
-- Clique no botão "Code"
+- Clique no botão *Code*
 - Copie o link HTTPS
 - Abre o VSCode
 - Aperte a tecla ```CTRL + SHIFT + P```
