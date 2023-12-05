@@ -21,8 +21,8 @@
 
 ### Banco de dados
 - Inicie o servidor MySql
-- Execute o script [*Database/Script/ddl.sql*](./Database/Scripts/ddl.sql) e [*Database/Script/query.sql*](./Database/Scripts/query.sql) no PhpMyAdmin ou terminal MySql
-- Opcionalmente, execute o script [*Database/Script/dml.sql*](./Database/Scripts/dml.sql) para povoar o banco de dados
+- Execute o script [*Database/Scripts/ddl.sql*](./Database/Scripts/ddl.sql) e [*Database/Scripts/query.sql*](./Database/Scripts/query.sql) no PhpMyAdmin ou terminal MySql
+- Opcionalmente, execute o script [*Database/Scripts/dml.sql*](./Database/Scripts/dml.sql) para povoar o banco de dados
 
 ### Backend 
 - Acesse no terminal CMD a pasta *Backend*
