@@ -5,6 +5,7 @@
 - [X] [GitBash](https://git-scm.com/downloads)
 - [X] [Node v16.15.1 ou superior](https://nodejs.org/en/download)
 - [X] [Xampp](https://www.apachefriends.org/download.html) ou outro pacote de servidores (que inclua o MySql)
+- [X] Extensão VSCode [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer)
 
 > Hiperlinks redirecionam para as páginas de download
 
