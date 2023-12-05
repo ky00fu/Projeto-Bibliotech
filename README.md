@@ -11,14 +11,14 @@
 
 
 ### Clone o repositório
-- Clique no botão *Code*
+- Clique no botão **Code**
 - Copie o link HTTPS
 - Abre o VSCode
-- Aperte a tecla ```CTRL + SHIFT + P```
-- Pesquise e pressione a tecla ```Enter``` em ```Git: Clone```
-- Cola o link HTTPS do repositório e pressiona ```Enter```
+- Aperte a tecla ```CTRL + SHIFT + P``` pra acessar o campo de comandos do VSCode
+- Pesquise e pressione a tecla **Enter** em ```Git: Clone```
+- Cola o link HTTPS do repositório e pressiona **Enter**
 - Selecione a pasta desejada para baixar o repositório
-- Clica em *Open* se desejar abrir o projeto na janela aberta ou em *Open in New Window* se desejar abrir em uma nova janela
+- Clica em **Open** se desejar abrir o projeto na janela aberta ou em **Open in New Window** se desejar abrir em uma nova janela
 
 ### Banco de dados
 - Inicie o servidor MySql
