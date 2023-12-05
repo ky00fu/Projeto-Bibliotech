@@ -19,7 +19,7 @@
 - Clica em *Open* se desejar abrir o projeto na janela aberta ou em *Open in New Window* se desejar abrir em uma nova janela
 
 ### Banco de dados
-- Inicie o servidor MySql
+- Inicie o servidor MySql no XAMPP Control Panel
 - Execute o script [*Database/Scripts/ddl.sql*](./Database/Scripts/ddl.sql) e [*Database/Scripts/query.sql*](./Database/Scripts/query.sql) no PhpMyAdmin ou terminal MySql
 - Opcionalmente, execute o script [*Database/Scripts/dml.sql*](./Database/Scripts/dml.sql) para povoar o banco de dados
 
