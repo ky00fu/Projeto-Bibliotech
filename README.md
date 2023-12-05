@@ -1,6 +1,6 @@
 # PROJETO BIBLIOTECH
 
-### Requisitos:
+### Requisitos
 - [X] [VSCode](https://code.visualstudio.com/download)
 - [X] [GitBash](https://git-scm.com/downloads)
 - [X] [Node v16.15.1 ou superior](https://nodejs.org/en/download)
@@ -38,6 +38,7 @@
 ### Frontend
 - Utilizando a extensão Live Server, abra o arquivo [*/Frontend/Pag inicial/Entrada/index.html*](./Frontend/Pag%20inicial/Entrada/index.html)
 
+#
   
 ## Pastas
 - ./Backend (API ou BackEnd MVC)
