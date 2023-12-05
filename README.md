@@ -28,12 +28,12 @@
 ### Backend 
 - Acesse no terminal CMD a pasta *Backend*
 - Utilizando o gerenciador npm, instale as depêndencias do projeto
-- *```npm install express cors mysql```*
-- *```npm i```*
+    - *```npm install express cors mysql```*
+    - *```npm i```*
 - Incie com node 
-- *```nodemon```*
-- *```node .```*
-- *```node index.js```*
+    - *```nodemon```*
+    - *```node .```*
+    - *```node index.js```*
 
 ### Frontend
 - Utilizando a extensão Live Server, abra o arquivo [*/Frontend/Pag inicial/Entrada/index.html*](./Frontend/Pag%20inicial/Entrada/index.html)
