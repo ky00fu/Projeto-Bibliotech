@@ -83,8 +83,8 @@ header h1 {
   position: absolute;
   width: 30%;
 
-  bottom: 37%;
-  left: 10%;
+  bottom: 35%;
+  left: 11%;
 
   opacity: 0;
 
@@ -95,9 +95,10 @@ header h1 {
 #img02 {
   position: absolute;
   z-index: 2;
+  scale: 130%;
 
-  top: 35vh;
-  right: 12vw;
+  top: 32vh;
+  right: 16vw;
   
   opacity: 0;
 
