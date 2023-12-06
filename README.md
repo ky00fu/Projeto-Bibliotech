@@ -40,5 +40,5 @@
 
 ## Pastas
 - ./Backend (API ou BackEnd MVC)
-- ./Docs (Diagramas, arquivo de testes Insomnia e scripts MySQL)
+- ./Docs (Diagramas, arquivo de testes Insomnia, scripts MySQL e monografia)
 - ./Frontend (Interface Web)
