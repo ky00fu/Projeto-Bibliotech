@@ -20,8 +20,8 @@
 
 ### Banco de dados
 - Inicie o servidor MySql no XAMPP Control Panel
-- Execute o script [*Database/Scripts/ddl.sql*](./Database/Scripts/ddl.sql) e [*Database/Scripts/query.sql*](./Database/Scripts/query.sql) no PhpMyAdmin ou terminal MySQL
-- Opcionalmente, execute o script [*Database/Scripts/dml.sql*](./Database/Scripts/dml.sql) para povoar o banco de dados
+- Execute o script [*Database/Scripts/ddl.sql*](./Docs/Database/Scripts/ddl.sql) e [*Database/Scripts/query.sql*](./Docs/Database/Scripts/query.sql) no PhpMyAdmin ou terminal MySQL
+- Opcionalmente, execute o script [*Database/Scripts/dml.sql*](./Docs/Database/Scripts/dml.sql) para povoar o banco de dados
 
 ### Backend 
 - Aperte as teclas ```CTRL + SHIFT + P```, digita e seleciona ```Terminal: Select Default Profile``` para definir o terminal padrão do VSCode
