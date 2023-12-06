@@ -39,6 +39,6 @@
 - Utilizando a extensão *Live Server*, abra o arquivo [*Frontend/Pag inicial/Entrada/index.html*](./Frontend/Pag%20inicial/Entrada/index.html)
 
 ## Pastas
-- ./[Backend](./Backend) (API ou BackEnd MVC)
-- ./[Database](./Database) (Diagramas, arquivo de testes Insomnia e scripts MySQL)
-- ./[Frontend](./Frontend) (Interface Web)
+- ./Backend (API ou BackEnd MVC)
+- ./Docs (Diagramas, arquivo de testes Insomnia e scripts MySQL)
+- ./Frontend (Interface Web)
